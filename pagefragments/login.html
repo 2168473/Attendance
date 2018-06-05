@@ -1,81 +1,46 @@
-<div class="ui middle aligned center aligned grid">
-    <div class="column">
-        <h2 class="ui teal image header">
-            <div class="content">
-                Log-in
-            </div>
-        </h2>
-        <form class="ui form">
-            <div class="ui segment">
-                <div class="field">
-                    <div class="ui left icon input">
-                        <i class="user icon"></i>
-                        <input type="text" name="email" placeholder="E-mail address">
-                    </div>
+<div class="column" style="margin: 5% 10%;">
+    <img src="img/logo.png" class="ui centered medium image">
+    <div>
+        <div class="ui raised segment">
+            <h2 class="ui teal header">
+                <div class="content">
+                    Log-in
                 </div>
-                <div class="field">
-                    <div class="ui selection dropdown left icon">
-                        <input type="hidden" name="purpose">
-                        <i class="id badge outline icon"></i>
-                        <div class="default text grey">Purpose</div>
-                        <i class="dropdown icon"></i>
-                        <div class="menu">
-                            <div class="item" data-value="Regular Member">Regular Member</div>
-                            <div class="item" data-value="Drop-in Coworking">Drop-in Coworking</div>
-                            <div class="item" data-value="Attend Event">Attend Event</div>
-                            <div class="item" data-value="Guest/Other">Guest/Other</div>
+            </h2>
+            <form class="ui form very padded">
+                <div class="ui segment">
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            <input type="text" name="email" placeholder="E-mail address">
                         </div>
                     </div>
+                    <div class="field">
+                        <div class="ui selection dropdown left icon">
+                            <input type="hidden" name="purpose">
+                            <i class="id badge outline icon"></i>
+                            <div class="default text grey">Purpose</div>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <div class="item" data-value="Regular Member">Regular Member</div>
+                                <div class="item" data-value="Drop-in Coworking">Drop-in Coworking</div>
+                                <div class="item" data-value="Attend Event">Attend Event</div>
+                                <div class="item" data-value="Guest/Other">Guest/Other</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui fluid large teal submit button">Login</div>
                 </div>
-                <div class="ui fluid large teal submit button">Login</div>
+
+                <div class="ui error message"></div>
+            </form>
+            <div class="ui message center aligned">New to us?
+                <button class="mini ui button signup">Sign Up</button>
             </div>
-
-            <div class="ui error message"></div>
-        </form>
-
-        <div class="ui message">
-            New to us? <button class="mini ui button signup">Sign Up</button>
+            <div class="ui horizontal divider">
+                Or
+            </div>
+            <button class="fluid ui button" id="inquire">Inquire</button>
         </div>
-
     </div>
 </div>
-<script>
-    $('ui.small.modal.register')
-        .modal('attach events', '.mini.ui.button.signup', 'show')
-    ;
-    $('.ui.selection.dropdown')
-        .dropdown()
-    ;
-    $(document)
-        .ready(function() {
-            $('.ui.form')
-                .form({
-                    fields: {
-                        email: {
-                            identifier  : 'email',
-                            rules: [
-                                {
-                                    type   : 'empty',
-                                    prompt : 'Please enter your e-mail'
-                                },
-                                {
-                                    type   : 'email',
-                                    prompt : 'Please enter a valid e-mail'
-                                }
-                            ]
-                        },
-                        purpose: {
-                            identifier  : 'purpose',
-                            rules: [
-                                {
-                                    type   : 'empty',
-                                    prompt : 'Please select your purpose'
-                                },
-                            ]
-                        }
-                    }
-                })
-            ;
-        })
-    ;
-</script>

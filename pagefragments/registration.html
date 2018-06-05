@@ -1,0 +1,106 @@
+<div class="ui small modal register">
+    <form class="ui form segment" method="post">
+        <h1>Registration</h1>
+        <div class="field">
+            <label>Name</label>
+            <div class="two fields">
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input placeholder="First Name" name="first_name" type="text">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input placeholder="Last Name" name="last_name" type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <label>Email Address</label>
+            <div class="ui left icon input">
+                <i class="envelope outline icon"></i>
+                <input placeholder="Email" name="email" type="email">
+            </div>
+        </div>
+        <div class="field">
+            <label>Mobile Number</label>
+            <div class="ui labeled input">
+                <div class="ui label">
+                    +63
+                </div>
+                <input placeholder="Mobile" name="mobile" type="tel">
+            </div>
+        </div>
+        <div class="field">
+            <label>Company/Organization/School</label>
+            <div class="ui left icon input">
+                <i class="building outline icon"></i>
+                <input placeholder="Company/Organization/School" name="company" type="text">
+            </div>
+        </div>
+        <button class="ui primary submit button fluid">Submit</button>
+        <div class="ui error message"></div>
+    </form>
+</div>
+<script>
+
+    $('.ui.form')
+        .form({
+            fields: {
+                first_name: {
+                    identifier: 'first_name',
+                    rules: [
+                        {
+                            type: 'empty',
+                            prompt: 'Please enter your first name'
+                        }
+                    ]
+                },
+                last_name: {
+                    identifier: 'last_name',
+                    rules: [
+                        {
+                            type: 'empty',
+                            prompt: 'Please enter your last name'
+                        }
+                    ]
+                },
+                email: {
+                    identifier: 'email',
+                    rules: [
+                        {
+                            type: 'email',
+                            prompt: 'Please enter a valid email address'
+                        },
+                    ]
+                },
+                mobile: {
+                    identifier: 'mobile',
+                    rules: [
+                        {
+                            type: 'maxLength[10]',
+                            prompt: 'Please enter a valid mobile number'
+                        },
+                        {
+                            type: 'minLength[7]',
+                            prompt: 'Please enter a valid mobile number'
+                        },
+                    ]
+                },
+                company: {
+                    identifier: 'company',
+                    rules: [
+                        {
+                            type: 'empty',
+                            prompt: 'Please enter your company/organization/school'
+                        },
+                    ]
+                }
+            }
+        })
+    ;
+
+</script>

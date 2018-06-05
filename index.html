@@ -2,27 +2,133 @@
 <html>
 
 <head>
-	<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.js"></script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.css">
 </head>
 
 <body>
-	<div class="ui four column doubling stackable grid container">
-		<div class="column">
-			<p>asd</p>
-			<p>sd</p>
-		</div>
-		<div class="column">
-			<p>s</p>
-			<p>ss</p>
-		</div>
-		<div class="column">
-			<p>ds</p>
-			<p>asd</p>
-		</div>
-	</div>
+<div class="ui stackable grid container vertically padded">
+    <div class="row">
+        <div class="four wide column">
+            <img>
+        </div>
+        <div class="ui eight wide column">
+
+        </div>
+        <div class="four wide column">
+            <img>
+        </div>
+    </div>
+</div>
+<div class="ui small modal">
+    <form class="ui form segment" method="post">
+        <h1>Registration</h1>
+        <div class="field">
+            <label>Name</label>
+            <div class="two fields">
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input placeholder="First Name" name="first_name" type="text">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input placeholder="Last Name" name="last_name" type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <label>Email Address</label>
+            <div class="ui left icon input">
+                <i class="envelope outline icon"></i>
+                <input placeholder="Email" name="email" type="email">
+            </div>
+        </div>
+        <div class="field">
+            <label>Mobile Number</label>
+            <div class="ui labeled input">
+                <div class="ui label">
+                    +63
+                </div>
+                <input placeholder="Mobile" name="mobile" type="tel">
+            </div>
+        </div>
+        <div class="field">
+            <label>Company/Organization/School</label>
+            <div class="ui left icon input">
+                <i class="building outline icon"></i>
+                <input placeholder="Company/Organization/School" name="company" type="text">
+            </div>
+        </div>
+        <button class="ui primary submit button fluid">Submit</button>
+        <div class="ui error message"></div>
+    </form>
+</div>
 </body>
+<script>
+    $('.ui.small.modal').modal('show');
+    $('.ui.form')
+        .form({
+            fields: {
+                first_name: {
+                    identifier: 'first_name',
+                    rules: [
+                        {
+                            type: 'empty',
+                            prompt: 'Please enter your first name'
+                        }
+                    ]
+                },
+                last_name: {
+                    identifier: 'last_name',
+                    rules: [
+                        {
+                            type: 'empty',
+                            prompt: 'Please enter your last name'
+                        }
+                    ]
+                },
+                email: {
+                    identifier: 'email',
+                    rules: [
+                        {
+                            type: 'email',
+                            prompt: 'Please enter a valid email address'
+                        },
+                    ]
+                },
+                mobile: {
+                    identifier: 'mobile',
+                    rules: [
+                        {
+                            type: 'maxLength[10]',
+                            prompt: 'Please enter a valid mobile number'
+                        },
+                        {
+                            type: 'minLength[7]',
+                            prompt: 'Please enter a valid mobile number'
+                        },
+                    ]
+                },
+                company: {
+                    identifier: 'company',
+                    rules: [
+                        {
+                            type: 'empty',
+                            prompt: 'Please enter your company/organization/school'
+                        },
+                    ]
+                }
+            }
+        })
+    ;
+
+</script>
 
 </html>

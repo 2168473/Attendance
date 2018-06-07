@@ -1,7 +1,7 @@
 <?php
 include 'connect.php';
 
-if (isset($_POST['register-btn'])) {
+if (isset($_POST['register-btn']) || isset($_POST['email'])) {
     $first_name = trim($_POST['first_name']);
     $first_name = strip_tags($first_name);
     $first_name = htmlspecialchars($first_name);
@@ -31,5 +31,8 @@ if (isset($_POST['register-btn'])) {
         $stmt->close();
     }
     $mysqli->close();
+    session_start();
+    $_SESSION['id'] = (session_create_id());
+    $_SESSION['user'] = $first_name.' '.$last_name;
     header('Location: ../index.php');
 }

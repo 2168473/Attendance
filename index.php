@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,11 +26,18 @@
             </div>
         </a>
         <a class="ui right floated dropdown item" id="dropdown">
-            User <i class="dropdown icon"></i>
+            <?php if(isset($_SESSION['id'])){echo $_SESSION['user'];}else {echo 'User';}?> <i class="dropdown icon"></i>
             <div class="menu">
-                <div class="item" id="login">Login</div>
-                <div class="item" id="logout">Logout</div>
-                <div class="item" id="signup">Sign Up</div>
+                <?php
+                    if (isset($_SESSION['id'])){
+                        echo '<div class="item" id="logoutl">Logout</div>';
+                    }else{
+                        echo '
+                            <div class="item" id="login">Login</div>
+                            <div class="item" id="signup">Sign Up</div>
+                        ';
+                    }
+                ?>
             </div>
         </a>
     </div>

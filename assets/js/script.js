@@ -39,7 +39,7 @@ $(document)
         $('#dropdown')
             .dropdown()
         ;
-        $('.ui.form')
+        $('#login-form')
             .form({
                 fields: {
                     email: {
@@ -60,15 +60,15 @@ $(document)
                         rules: [
                             {
                                 type: 'empty',
-                                prompt: 'Please select your purpose'
+                                prompt: 'Please enter your e-mail'
                             },
                         ]
-                    }
+                    },
                 }
             })
         ;
 
-        $('.ui.form')
+        $('#registration-form')
             .form({
                 fields: {
                     first_name: {
@@ -119,9 +119,35 @@ $(document)
                                 prompt: 'Please enter your company/organization/school'
                             },
                         ]
-                    }
+                    },
+                    password: {
+                        identifier: 'password',
+                        rules: [
+                            {
+                                type   : 'empty',
+                                prompt : 'Please enter a password'
+                            },
+                            {
+                                type   : 'minLength[8]',
+                                prompt : 'Your password must be at least {ruleValue} characters'
+                            }
+                        ]
+                    },
+                    confirm_password: {
+                        identifier: 'confirm_password',
+                        rules: [
+                            {
+                                type   : 'empty',
+                            },
+                            {
+                                type   : 'match[password]',
+                                prompt : 'Passwords do not match'
+                            }
+                        ]
+                    },
                 }
             })
         ;
+
     })
 ;

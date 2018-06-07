@@ -1,5 +1,5 @@
 <div class="ui small modal register" id="register">
-    <form class="ui form segment" method="post">
+    <form class="ui form segment" method="post" action="php/register.php" id="registration-form">
         <h1>Registration</h1>
         <div class="field">
             <label>Name</label>
@@ -35,13 +35,27 @@
             </div>
         </div>
         <div class="field">
+            <label>Password</label>
+            <div class="ui left icon input">
+                <i class="lock icon"></i>
+                <input type="password" name="password">
+            </div>
+        </div>
+        <div class="field">
+            <label>Confirm Password</label>
+            <div class="ui left icon input">
+                <i class="lock icon"></i>
+                <input type="password" name="confirm_password">
+            </div>
+        </div>
+        <div class="field">
             <label>Company/Organization/School</label>
             <div class="ui left icon input">
                 <i class="building outline icon"></i>
                 <input placeholder="Company/Organization/School" name="company" type="text">
             </div>
         </div>
-        <button class="ui primary submit button fluid">Submit</button>
+        <button class="ui primary submit button fluid" name="register-btn">Register</button>
         <div class="ui error message"></div>
     </form>
 </div>

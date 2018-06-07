@@ -1,11 +1,11 @@
-<div class="ui small modal register" id="login-modal">
+<div class="ui mini modal register" id="login-modal">
     <div class="ui raised segment">
         <h2 class="teal header">
             <div class="ui horizontal divider">
                 <h2>Login Here</h2>
             </div>
         </h2>
-        <form class="ui form very padded" id="login-form">
+        <form class="ui form very padded" id="login-form" method="post" action="php/login.php">
             <div class="ui segment">
                 <div class="field">
                     <div class="ui left icon input">
@@ -33,7 +33,7 @@
             <div class="ui error message"></div>
         </form>
         <div class="ui message center aligned">New to us?
-            <button class="mini ui button signup" href="registration.html">Sign Up</button>
+            <button class="mini ui button signup" id="signup-log">Sign Up</button>
         </div>
     </div>
 </div>

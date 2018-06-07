@@ -16,7 +16,7 @@ if (isset($_POST['email'])) {
         $_SESSION['id'] = session_create_id();
         $_SESSION['user'] = $first_name.' '.$last_name;
         $message = $first_name.' '.$last_name.' has logged in at '.date('Y-m-d H:i:s');
-        sendSMS('639453513902', '639453513902',$message);
+        //sendSMS('639453513902', '639453513902',$message);
     }
     $mysqli->close();
     header('Location: ../index.php');

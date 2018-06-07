@@ -1,5 +1,16 @@
 $(document)
     .ready(function() {
+        $('#logoutl').click(function () {
+                $.ajax({
+                    url: 'php/logout.php',
+                    type: 'get',
+                }).done(function () {
+                    window.location = '/index.php';
+                }).fail(function () {
+                    console.log('an error occurred');
+                });
+            }
+        );
 
         // fix main menu to page on passing
         $('.main.menu').visibility({
@@ -23,6 +34,9 @@ $(document)
         });
         $('#register')
             .modal('attach events', '#signup', 'show')
+        ;
+        $('#register')
+            .modal('attach events', '#signup-log', 'show')
         ;
         $('#login-modal')
             .modal('attach events', '#login', 'show')
@@ -60,7 +74,7 @@ $(document)
                         rules: [
                             {
                                 type: 'empty',
-                                prompt: 'Please enter your e-mail'
+                                prompt: 'Please enter your purpose'
                             },
                         ]
                     },

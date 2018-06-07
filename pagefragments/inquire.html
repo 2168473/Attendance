@@ -1,32 +1,52 @@
 <div class="ui small modal" id="inquiry">
     <form class="ui form segment" method="post">
-        <h1>Client Inquiry</h1>
-        <hr>
-
+        <div class="ui horizontal divider">
+            <h1>Client Inquiry</h1>
+        </div>
+        
+        <!-- Full name field input-->
+        <div class="field">
+            <h3>Full Name</h3>
+            <div class="ui left icon input">
+                <i class="user icon"></i>
+                <input placeholder="First Name Last name" name="name" type="name" id="fullname">
+            </div>
+        </div>
+        
+        
         <!-- Email Address field input-->
         <div class="field">
-            <h2>Email Address</h2>
+            <h3>Email Address</h3>
             <div class="ui left icon input">
                 <i class="envelope outline icon"></i>
-                <input placeholder="Email" name="email" type="email">
+                <input placeholder="Email" name="email" type="email" id="emailadd">
             </div>
         </div>
 
         <!-- Mobile number input -->
         <div class="field">
-            <h2>Mobile Number</h2>
+            <h3>Mobile Number</h3>
             <div class="ui labeled input">
                 <div class="ui label">
                     +63
                 </div>
-                <input placeholder="Mobile" name="mobile" type="tel">
+                <input placeholder="e.g. 91234567890" name="mobile" type="tel" id="mobilenumber">
             </div>
         </div>
-
-        <!-- Inquiry text field -->
+        
+        <!-- Subject field input-->
         <div class="field">
-            <h2>Concern</h2>
-            <textarea rows="3"></textarea>
+            <h3>Subject Matter</h3>
+            <div class="ui left icon input">
+                <i class="envelope outline icon"></i>
+                <input placeholder="Subject" name="subject" type="subject" id="subjectM">
+            </div>
+        </div>
+        
+        <!-- Message field -->
+        <div class="field">
+            <h3>Message</h3>
+            <textarea rows="3" placeholder="Enter message or concern here..." name="clientmessage" type="message" id="clientmessage"></textarea>
         </div>
 
         <!-- Submit button -->

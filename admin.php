@@ -15,8 +15,7 @@ date_default_timezone_set('Asia/Manila');
         <!--Scripts-->
             <script src="https://code.jquery.com/jquery-3.1.1.min.js"
                     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-            <script src="semantic/dist/semantic.min.js"></script>
-            <script src="js/owl.carousel.min.js"></script>
+            <script src="assets/semantic/semantic.min.js"></script>
             
             <!--Scripts-->
             <script src="assets/library/jquery.min.js"></script>
@@ -24,10 +23,8 @@ date_default_timezone_set('Asia/Manila');
             <script src="assets/js/script.js"></script>
 
             <!--Styles-->
-            <link rel="stylesheet" href="semantic/dist/semantic.min.css">
-            <link rel="stylesheet" href="css/index.css">
-            <link rel="stylesheet" href="css/owl.carousel.min.css">
-            <link rel="stylesheet" href="css/owl.theme.default.min.css">
+            <link rel="stylesheet" href="assets/semantic/semantic.min.css">
+            <link rel="stylesheet" href="assets/css/style.css">
     </head>
 
 <body>
@@ -60,7 +57,7 @@ date_default_timezone_set('Asia/Manila');
                 
                 
                 <div class="ui container" align="center">
-                    <img class="ui disabled small image" align="center" src="img/logo.png">
+                    <img class="ui disabled small image" align="center" src="assets/images/logo.png">
                     <div class="ui horizontal divider">Customer logs</div>
                 </div>
 

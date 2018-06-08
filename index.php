@@ -84,7 +84,7 @@ date_default_timezone_set('Asia/Manila');
                 <div class="item">
                     <div class="imgTitle">
                         <h2 class="blogTitle">Visit us</h2>
-                        <img src="img/Calle-uno-work.jpg" alt=""/>
+                        <img src="assets/images/Calle-uno-work.jpg" alt=""/>
                     </div>
                     <p>Calle Uno is located at 3 Josefa Llanes Escoda (First Road) corner Naguilian Road, Quezon Hill,
                         Baguio City</p>
@@ -93,7 +93,7 @@ date_default_timezone_set('Asia/Manila');
                 <div class="item">
                     <div class="imgTitle">
                         <h2 class="blogTitle">Reviews</h2>
-                        <img src="img/Motor-main.jpg" alt=""/>
+                        <img src="assets/images/Motor-main.jpg" alt=""/>
                     </div>
                     <p>The whole Calle Uno team just genuinely wants you to be successful. The staff members have helped
                         us grow... -Jackie and John (O'Connor Web Agency)</p>

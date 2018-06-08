@@ -69,6 +69,15 @@ $(document)
                             }
                         ]
                     },
+                    password: {
+                        identifier: 'password',
+                        rules: [
+                            {
+                                type: 'empty',
+                                prompt: 'Please enter your password'
+                            }
+                        ]
+                    },
                     purpose: {
                         identifier: 'purpose',
                         rules: [

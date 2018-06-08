@@ -130,10 +130,18 @@ date_default_timezone_set('Asia/Manila');
             </div>
         </div>
     </div>
+    
+    <div class="ui right aligned container">
+        <a href="https://www.facebook.com/calleunoph"><i class="facebook large icon"></i></a>
+        <a href="https://twitter.com/calleunoph"><i class="twitter large icon"></i></a>
+        <a href="https://www.instagram.com/calleunoph/"><i class="instagram large icon"></i></a>
+    </div>
+    
     <div class="ui inverted segment" id="footer">
         <div class="ui center aligned container">
             <p>&copy; Calle Uno 2018</p>
         </div>
+        
     </div>
 </div>
 

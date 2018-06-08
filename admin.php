@@ -1,5 +1,8 @@
-
-
+<!DOCTYPE html>
+<?php
+session_start();
+date_default_timezone_set('Asia/Manila');
+?>
 
 <html>
     <head>
@@ -57,7 +60,7 @@
                 
                 
                 <div class="ui container" align="center">
-                    <img class="disabled Small ui image" align="center" src="img/logo.png">
+                    <img class="ui disabled small image" align="center" src="img/logo.png">
                     <div class="ui horizontal divider">Customer logs</div>
                 </div>
 

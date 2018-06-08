@@ -23,7 +23,7 @@ if (isset($_POST['register-btn'])) {
     $password = trim($_POST['password']);
     $password = strip_tags(password);
     $password = htmlspecialchars(password);
-    $password = password_hash($password, PASSWORD_DEFAULT);
+    $password = password_hash($password, 1);
     $query = 'INSERT INTO `users` (first_name, last_name, userEmail, userMobile, userCompany, userPass,userLevel) VALUES (?,?,?,?,?,?,1)';
     if ($stmt = $mysqli->prepare($query)) {
         $stmt->bind_param('ssssss', $first_name, $last_name, $email, $mobile, $company, $password);

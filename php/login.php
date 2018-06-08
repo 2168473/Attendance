@@ -10,15 +10,29 @@ if (isset($_POST['email'])) {
     if ($stmt = $mysqli->prepare($query)){
         $stmt->bind_param('s', $email);
         $stmt->execute();
-        $stmt->bind_result($id, $first_name, $last_name, $userEmail, $userPass, $userMobile, $userCompany, $userLevel);
-        $stmt->fetch();
+
+        $stmt->bind_result($id, $first_name, $last_name, $userEmail, $userPass, $userMobile, $userCompany,
+            $userLevel);
+        $rows = $stmt->fetch();
         $stmt->close();
-        $Message = $first_name.' '.$last_name.' has logged in at '.date('Y-m-d H:i:s');
-        include 'sendSMS.php';
-        session_start();
-        $_SESSION['id'] = session_create_id();
-        $_SESSION['user'] = $first_name.' '.$last_name;
+        if ($rows == 1){
+            if (password_verify($_POST['password'], $userPass)){
+
+                $Message = $first_name.' '.$last_name.' has logged in at '.date('Y-m-d H:i:s').' as a '.$_POST['purpose'];
+                //include 'sendSMS.php';
+                session_start();
+                $_SESSION['id'] = session_create_id();
+                $_SESSION['user'] = $first_name.' '.$last_name;
+                header('Location: ../index.php');
+                $mysqli->close();
+            }
+        }else{
+            echo "No user found";
+        }
+
+    }else{
+        $mysqli->close();
     }
-    $mysqli->close();
-    header('Location: ../index.php');
+
+
 }

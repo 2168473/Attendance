@@ -1,6 +1,14 @@
 
+
+
 <html>
     <head>
+        <title>Calle Uno: Admin Page</title>
+        <!-- Standard Meta -->
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        
         <!--Scripts-->
             <script src="https://code.jquery.com/jquery-3.1.1.min.js"
                     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -35,6 +43,7 @@
                             Menu <i class="dropdown icon"></i>
                         <div class="menu">
                             <div class=" right item" id="login">Update Announcements or Events</div>
+                            <div class=" right item" id="login">Payments</div>
                             <div class="right item" id="logout">Logout</div>
                         </div>
                     </a>
@@ -43,7 +52,7 @@
                 </div>
     
         <div class="ui container" style="background-color: #f9f9f9">
-            <div class="ui center aligned baic">
+            <div class="ui center aligned basic">
 
                 
                 

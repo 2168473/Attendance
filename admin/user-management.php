@@ -63,13 +63,11 @@ include 'functions.php';
                     <th>E-mail Address</th>
                     <th>Mobile Number</th>
                     <th>Organization</th>
-                    <th>Time in</th>
-                    <th>Time out</th>
                     <th>Purpose</th>
                 </tr>
                 </thead>
                 <tbody>
-                    <td class="ui fitted checkbox">
+                    <td class="ui fitted checkbox"></td>
                 <?php
                 $data = getUserLogs();
                 foreach ($data as $datum) {
@@ -80,7 +78,7 @@ include 'functions.php';
                     echo '</tr>';
                 }
                 ?>
-                        </td>
+
                 </tbody>
             </table>
         </div>

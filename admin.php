@@ -38,7 +38,7 @@ include 'admin/functions.php';
         </div>
         <a class="item active" href="admin.php">
             <i class="block layout icon"></i>
-            Dashboard
+            User client logs
         </a>
         <a class="item" href="admin/announce-event.php">
             <i class="newspaper outline icon"></i>

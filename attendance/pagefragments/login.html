@@ -1,0 +1,44 @@
+<div class="ui mini modal register" id="login-modal">
+    <div class="ui raised segment">
+        <h2 class="teal header">
+            <div class="ui horizontal divider">
+                <h2>Login Here</h2>
+            </div>
+        </h2>
+        <form class="ui form very padded" id="login-form" method="post" action="php/login.php">
+            <div class="ui segment">
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input type="text" name="email" placeholder="E-mail address" id="ea">
+                    </div>
+                </div><div class="field">
+                    <div class="ui left icon input">
+                        <i class="icon lock"></i>
+                        <input type="password" name="password" placeholder="Password">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui selection dropdown left icon">
+                        <input type="hidden" name="purpose">
+                        <i class="id badge outline icon"></i>
+                        <div class="default text grey">Purpose</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <div class="item" data-value="Regular Member">Regular Member</div>
+                            <div class="item" data-value="Drop-in Coworking">Drop-in Coworking</div>
+                            <div class="item" data-value="Attend Event">Attend Event</div>
+                            <div class="item" data-value="Guest/Other">Guest/Other</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui fluid large primary submit button">Login</div>
+            </div>
+
+            <div class="ui error message"></div>
+        </form>
+        <div class="ui message center aligned">New to us?
+            <button class="mini ui button signup" id="signup-log">Sign Up</button>
+        </div>
+    </div>
+</div>

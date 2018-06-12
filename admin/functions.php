@@ -81,3 +81,26 @@ if (isset($_GET['getAnnouncement'])) {
     header('Content-Type: application/json');
     echo getAnnouncement($_GET['getAnnouncement']);
 }
+
+function getUserAccounts()
+{
+    $mysqli = new mysqli(host, user, password, database);
+    $name = "";
+    $userEmail = "";
+    $userMobile = "";
+    $userCompany = "";
+    $data = [];
+    $query = "SELECT concat(first_name, ' ', last_name) AS name, userEmail, userMobile, userCompany FROM users;";
+
+    if ($stmt = $mysqli->prepare($query)) {
+        $stmt->execute();
+
+        $stmt->bind_result($name, $userEmail, $userMobile, $userCompany);
+        while ($stmt->fetch()) {
+            $data[] = array($name, $userEmail, $userMobile, $userCompany);
+        }
+        $stmt->close();
+    }
+    $mysqli->close();
+    return $data;
+}

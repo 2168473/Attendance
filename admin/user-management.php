@@ -68,7 +68,7 @@ include 'functions.php';
                 </thead>
                 <tbody>
                 <?php
-                $data = getUserLogs();
+                $data = getUserAccounts();
                 foreach ($data as $datum) {
                     echo '<tr>';
                     for ($x=0; $x<4 ; $x++) {

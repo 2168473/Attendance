@@ -39,62 +39,56 @@ include 'functions.php';
         </div>
         <a class="item" href="../admin.php">
             <i class="block layout icon"></i>
-            Dashboard
+            Client logs
         </a>
-        <a class="item active" href="announce-event.php">
+        <a class="item" href="announce-event.php">
             <i class="newspaper outline icon"></i>
             Announcements<br>/Events
         </a>
-        <a class="item">
-            <i class="smile icon" href="user-management.php"></i>
+        <a class="item active" href="user-management.php">
+            <i class="smile icon" ></i>
             Users <br>Management
         </a>
     </div>
     <div id="content">
         <div class="ui basic">
             <div class="ui container">
-                <div class="ui horizontal divider">Announcements/Events</div>
+                <div class="ui horizontal divider">Edit/Delete User Account</div>
             </div>
-            <table id="events" class="ui striped selectable celled table">
+            <table id="users" class="ui striped selectable celled table">
                 <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Content</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>Cover Image</th>
-                    <th>Actions</th>
+                    <th></th>
+                    <th>Full Name</th>
+                    <th>E-mail Address</th>
+                    <th>Mobile Number</th>
+                    <th>Organization</th>
+                    <th>Time in</th>
+                    <th>Time out</th>
+                    <th>Purpose</th>
                 </tr>
                 </thead>
                 <tbody>
+                    <td class="ui fitted checkbox">
                 <?php
-                $data = getAnnouncements();
+                $data = getUserLogs();
                 foreach ($data as $datum) {
                     echo '<tr>';
-                    for ($x = 1; $x <count($datum); $x+=1) {
-                        echo "<td>$datum[$x]</td>";
+                    foreach ($datum as $item) {
+                        echo "<td>$item</td>";
                     }
-                    echo "<td><button class='ui positive basic button' onclick='edit($datum[0])'>Edit</button>
-                            <button class='ui negative basic button' onclick='del($datum[0])'>Delete</button>
-                            </td>";
                     echo '</tr>';
                 }
                 ?>
+                        </td>
                 </tbody>
-                <tfoot>
-                <tr>
-                    <th colspan="6" class="right aligned">
-                        <button class="ui blue button" id="add-event">Add</button>
-                    </th>
-                </tr>
-                </tfoot>
             </table>
         </div>
     </div>
 </div>
 <?php
     include 'add-event.html';
-    include 'edit-event.html';
+    include 'edit-event.php';
 ?>
 <!--Scripts-->
 <script src="../assets/library/semantic/semantic.min.js"></script>
@@ -102,11 +96,6 @@ include 'functions.php';
 <script src="../assets/js/admin.js"></script>
 <script>
     function edit(id) {
-        $.ajax({
-            url : 'functions.php',
-            data: {'getAnnouncement': id},
-            dataType: 'json'
-        });
         $('#edit-event-modal')
             .modal('show')
         ;

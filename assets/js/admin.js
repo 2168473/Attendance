@@ -30,7 +30,7 @@
 })(jQuery);
 
 // show dropdown on hover
-$('.dropdown').dropdown({
+$('.menu  .ui.dropdown').dropdown({
     on: 'hover'
 });
 
@@ -70,9 +70,6 @@ $('#events').DataTable({
         {
             "targets": [4,5],
             "orderable": false,
-        },
-        {
-            "width": "20%", "targets": 5
         }
     ],
     "order": [[2, "desc"]]
@@ -144,17 +141,6 @@ $('input:file', '.ui.action.input')
         $('input:text', $(e.target).parent()).val(name);
     });
 $('#addEvent')
-    .form({
-        fields: {
-            title: 'empty',
-            content: 'empty',
-            start_date: 'empty',
-            end_date: 'empty',
-            cover_image: 'empty'
-        }
-    });
-
-$('#editEvent')
     .form({
         fields: {
             title: 'empty',

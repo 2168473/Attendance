@@ -144,7 +144,7 @@ include 'functions.php';
             $('#title').val(data['title']);
             $('#cover_image_name').val(data['cover_image_name']);
             $('#text_content').val(data['content']);
-            $('#eventId').valueOf(id);
+            $('#eventId').val(id);
             $('#edit-event-modal')
                 .modal('show')
             ;

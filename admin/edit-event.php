@@ -9,6 +9,8 @@ if (mysqli_connect_errno()) {
     exit();
 }
 $eventId = $_POST['eventId'];
+echo $eventId;
+echo $_POST['title'];
 if (isset($_POST['title'])){
     $query = "UPDATE events SET title = ? WHERE eventId = ?";
     if ($stmt = $mysqli->prepare($query)){
@@ -58,4 +60,4 @@ if (isset($_POST['cover_image'])){
     }
 }
 $mysqli->close();
-//header('Location: announce-event.php');
+header('Location: announce-event.php');

@@ -2,6 +2,25 @@
 session_start();
 date_default_timezone_set('Asia/Manila');
 include 'admin/functions.php';
+$mysqli = new mysqli(host, user, password, database);
+if ($stmt = $mysqli->prepare("select count(userId) from sessions where sessionOut='0000-00-00 00:00:00';")){
+    $stmt->execute();
+    $stmt->bind_result($current_users);
+    $stmt->fetch();
+    $stmt->close();
+}
+if ($stmt = $mysqli->prepare("select count(userId) from sessions where sessionIn<=NOW();")){
+    $stmt->execute();
+    $stmt->bind_result($todays_login);
+    $stmt->fetch();
+    $stmt->close();
+}
+if ($stmt = $mysqli->prepare("select count(userId) from users;")){
+    $stmt->execute();
+    $stmt->bind_result($total_users);
+    $stmt->fetch();
+    $stmt->close();
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -65,7 +84,7 @@ include 'admin/functions.php';
                         <div class="ui segment">
                             Number of Current Logged-In Users
                             <h1>
-                                0
+                                <?php echo $current_users?>
                             </h1>
                         </div>
                     </div>
@@ -74,7 +93,7 @@ include 'admin/functions.php';
                         <div class="ui segment">
                             Number of Logins Today
                             <h1>
-                                0
+                                <?php echo $todays_login?>
                             </h1>
                         </div>
 
@@ -84,7 +103,7 @@ include 'admin/functions.php';
                         <div class="ui segment">
                             Total Accounts Registered
                             <h1>
-                                0
+                                <?php echo $total_users?>
                             </h1>
                         </div>
                     </div>

@@ -3,15 +3,16 @@ define('host', '192.168.1.23');
 define('user', 'root');
 define('password', '');
 define('database', 'logbook');
-function getUserLogs(){
+function getUserLogs()
+{
     $mysqli = new mysqli(host, user, password, database);
-    $name ="";
-    $userEmail ="";
-    $userMobile ="";
-    $userCompany ="";
-    $sessionIn ="";
-    $sessionOut ="";
-    $sessionNotes ="";
+    $name = "";
+    $userEmail = "";
+    $userMobile = "";
+    $userCompany = "";
+    $sessionIn = "";
+    $sessionOut = "";
+    $sessionNotes = "";
     $data = [];
     $query = "SELECT concat(first_name, ' ', last_name) AS name, userEmail, userMobile, userCompany, sessionIn, sessionOut,
         sessionNotes FROM users NATURAL JOIN sessions;";
@@ -29,7 +30,8 @@ function getUserLogs(){
     return $data;
 }
 
-function getAnnouncements(){
+function getAnnouncements()
+{
     $mysqli = new mysqli(host, user, password, database);
     $data = [];
     $eventId = "";
@@ -37,18 +39,44 @@ function getAnnouncements(){
     $content = "";
     $start_date = "";
     $end_date = "";
-    $cover_image ="";
+    $cover_image = "";
     $query = "SELECT * FROM events ";
-    if ($stmt = $mysqli->prepare($query)){
+    if ($stmt = $mysqli->prepare($query)) {
         $stmt->execute();
-        $stmt->bind_result($eventId, $title, $content, $start_date, $end_date, $cover_image);
-        while ($stmt->fetch()){
-            $data[] = array($eventId, $title, $content, $start_date, $end_date,  "<img class='ui small image' src='data:image;base64,"
-                .base64_encode
-                ($cover_image)."'>");
+        $stmt->bind_result($eventId, $title, $content, $start_date, $end_date, $cover_image, $cover_image_name);
+        while ($stmt->fetch()) {
+            $data[] = array($eventId, $title, $content, $start_date, $end_date, "<img class='ui small image' src='data:image;base64,"
+                . base64_encode
+                ($cover_image) . "'>");
         }
         $stmt->close();
     }
     $mysqli->close();
     return $data;
+}
+
+function getAnnouncement()
+{
+    $mysqli = new mysqli(host, user, password, database);
+    $title = "";
+    $content = "";
+    $start_date = "";
+    $end_date = "";
+    $cover_image = "";
+    $data = "";
+    $query = "SELECT * FROM events WHERE eventId = 2";
+    if ($stmt = $mysqli->prepare($query)) {
+        $stmt->execute();
+        $stmt->bind_result($eventId, $title, $content, $start_date, $end_date, $cover_image, $cover_image_name);
+        $stmt->fetch();
+        $data = array($eventId, $title, $content, $start_date, $end_date);
+        $stmt->close();
+    }
+    $mysqli->close();
+    $data = json_encode($data);
+    return $data;
+}
+if (isset($_GET['getAnnouncement'])) {
+    header('Content-Type: application/json');
+    echo getAnnouncement($_GET['getAnnouncement']);
 }

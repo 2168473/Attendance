@@ -27,8 +27,11 @@ function addEvent($mysqli)
     $end_date = trim($_POST['end_date']);
     $end_date = strip_tags($end_date);
     $end_date = htmlspecialchars($end_date);
+    $cover_image_name = trim($_POST['cover_image_name']);
+    $cover_image_name = strip_tags($cover_image_name);
+    $cover_image_name = htmlspecialchars($cover_image_name);
     
-    $query = "INSERT INTO `events` (`title`, `content`, `start_date`, `end_date`, `cover_image`) VALUES (?,?,?,?,?);";
+    $query = "INSERT INTO `events` (`title`, `content`, `start_date`, `end_date`, `cover_image`, `cover_image_name`) VALUES (?,?,?,?,?,?);";
     $imgData = "";
     mysqli_set_charset($mysqli, 'utf8');
     if ($_FILES['cover_image']['error'] == UPLOAD_ERR_OK) {
@@ -37,7 +40,7 @@ function addEvent($mysqli)
         }
     }
     if ($stmt = $mysqli->prepare($query)){
-        $stmt->bind_param('sssss', $title, $content, $start_date, $end_date, $imgData);
+        $stmt->bind_param('sssss', $title, $content, $start_date, $end_date, $imgData, $cover_image_name);
         $stmt->execute();
         $stmt->close();
         echo "Success";

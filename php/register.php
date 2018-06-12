@@ -20,9 +20,7 @@ if (isset($_POST['register-btn'])) {
     $company = strip_tags($company);
     $company = htmlspecialchars($company);
     $company = ucwords(strtolower($company));
-    $password = trim($_POST['password']);
-    $password = strip_tags(password);
-    $password = htmlspecialchars(password);
+    $password = $_POST['password'];
     $password = password_hash($password, 1);
     $query = 'INSERT INTO `users` (first_name, last_name, userEmail, userMobile, userCompany, userPass,userLevel) VALUES (?,?,?,?,?,?,1)';
     if ($stmt = $mysqli->prepare($query)) {

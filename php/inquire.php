@@ -23,8 +23,8 @@ if (isset($_POST['send'])) {
     $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
     try {
         //Server settings
-        $mail->SMTPDebug = 1;                                 // Enable verbose debug output
-        $mail->isSMTP();                                      // Set mailer to use SMTP
+        $mail->SMTPDebug = 2;                                 // Enable verbose debug output
+        $mail->isSMTP();                                      // Set mailer to use 2SMTP
         $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                               // Enable SMTP authentication
         $mail->Username = 'vakenme@gmail.com';                 // SMTP username
@@ -35,7 +35,7 @@ if (isset($_POST['send'])) {
         //Recipients
         $mail->setFrom($email, $name);
         $mail->addAddress('gmonoten25@gmail.com', 'Gaspar Monoten');     // Add a recipient
-        $mail->addReplyTo('gmonoten25@gmail.com', 'Gaspar Monoten');
+        $mail->addReplyTo($email, $name);
 
         //Attachments
         // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
@@ -51,4 +51,5 @@ if (isset($_POST['send'])) {
     } catch (Exception $e) {
         echo 'Message could not be sent. Mailer Error: ';// $mail->ErrorInfo;
     }
+    header('Location: ../index.php');
 }

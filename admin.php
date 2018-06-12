@@ -1,248 +1,135 @@
-<!DOCTYPE html>
 <?php
 session_start();
 date_default_timezone_set('Asia/Manila');
+include 'admin/functions.php';
 ?>
-
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Calle Uno: Admin Page</title>
-        <!-- Standard Meta -->
-        <meta charset="utf-8"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-        
-        <!--Scripts-->
-            <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-                    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-            <script src="assets/semantic/semantic.min.js"></script>
-            
-            <!--Scripts-->
-            <script src="assets/library/jquery.min.js"></script>
-            <script src="assets/semantic/semantic.min.js"></script>
-            <script src="assets/js/script.js"></script>
+<head>
+    <!-- Standard Meta -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-            <!--Styles-->
-            <link rel="stylesheet" href="assets/semantic/semantic.min.css">
-            <link rel="stylesheet" href="assets/css/style.css">
-    </head>
+    <!-- Site Properties -->
+    <title>Calle Uno</title>
 
+    <link rel="stylesheet" href="assets/library/semantic/semantic.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/library/DataTables/datatables.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+</head>
 <body>
-    
-        <!-- Webpage Content -->
-    
-        <div class="ui borderless menu" id="header">
-                <div class="ui container"><a href="admin.php">
-                        <div class="header item">
-                            <img class="logo" src="assets/images/logo.png">
-                            &nbsp;Admin Page
-                        </div>
-                        </a>
-          
-                        <a class="ui right floated dropdown item" id="dropdown">
-                            Menu <i class="dropdown icon"></i>
-                        <div class="menu">
-                            <div class=" right item" id="login">Update Announcements or Events</div>
-                            <div class=" right item" id="login">Payments</div>
-                            <div class="right item" id="logout">Logout</div>
-                        </div>
-                    </a>
-              
+<div class="ui menu" id="menu">
+    <a href="#" class="ui right floated dropdown item">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+            <div class="item">Link Item</div>
+            <div class="item">Link Item</div>
+            <div class="divider"></div>
+            <div class="header">Header Item</div>
+            <div class="item">
+                <i class="dropdown icon"></i>
+                Sub Menu
+                <div class="menu">
+                    <div class="item">Link Item</div>
+                    <div class="item">Link Item</div>
+                </div>
             </div>
-                </div>
-    
-        <div class="ui container" style="background-color: #f9f9f9">
-            <div class="ui center aligned basic">
+            <div class="item">Link Item</div>
+        </div>
+    </a>
+</div>
+<div class="ui bottom attached pusher">
+    <div class="ui visible inverted labeled left vertical sidebar menu" id="sidebar">
+        <div class="header item">
+            <a href="admin.php"><img class="ui small image centered mini" id="logo" src="assets/images/logo.png"></a>
+        </div>
+        <a class="item active" href="admin.php">
+            <i class="block layout icon"></i>
+            Dashboard
+        </a>
+        <a class="item" href="admin/announce-event.php">
+            <i class="newspaper outline icon"></i>
+            Announcements<br>/Events
+        </a>
+        <a class="item">
+            <i class="smile icon"></i>
+            Friends
+        </a>
+    </div>
+    <div id="content">
+        <div class="ui basic">
 
-                
-                
-                <div class="ui container" align="center">
-                    <img class="ui disabled small image" align="center" src="assets/images/logo.png">
-                    <div class="ui horizontal divider">Customer logs</div>
-                </div>
 
-                
-                <!-- Three headers --> 
-                <div class="ui grid">
-                    <div class="three column row">
-                        <!-- First cell -->
-                        <div class="column">
-                            <div class="ui segment">
-                                Number of Current Logged-In Users
-                                <h1>
+            <!-- Three headers -->
+            <div class="ui stackable grid">
+                <div class="three column row">
+                    <!-- First cell -->
+                    <div class="column">
+                        <div class="ui segment">
+                            Number of Current Logged-In Users
+                            <h1>
                                 0
-                                </h1>
-                            </div>
+                            </h1>
                         </div>
-                        <!-- Second cell -->
-                        <div class="column">
-                            <div class="ui segment">
-                                Number of Logins Today
-                                <h1>
+                    </div>
+                    <!-- Second cell -->
+                    <div class="column">
+                        <div class="ui segment">
+                            Number of Logins Today
+                            <h1>
                                 0
-                                </h1>
-                            </div>
-                            
+                            </h1>
                         </div>
-                        <!-- Third cell -->
-                        <div class="column">
-                            <div class="ui segment">
-                                Total Accounts Registered
-                                <h1>
+
+                    </div>
+                    <!-- Third cell -->
+                    <div class="column">
+                        <div class="ui segment">
+                            Total Accounts Registered
+                            <h1>
                                 0
-                                </h1>
-                            </div>
+                            </h1>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Include php database here 
-
-                -->
-                
-                
-                <table class="ui striped selectable celled definition table">
-                  <thead>
-                    <tr>
-                      <th></th> <!-- 7 Columns -->
-                      <th>Full Name</th> 
-                      <th>E-mail Address</th>
-                      <th>Mobile Number</th>
-                      <th>Organization</th>
-                      <th>Time in</th>
-                      <th>Time out</th>
-                      <th>Status</th> 
-                    </tr>
-                  </thead>
-
-                <tbody>
-                    <!-- First Row --> 
-                    <tr>
-                      <td class="collapsing">
-                        <div class="ui checkbox">
-                          <input type="checkbox"> <label></label>
-                        </div>
-                      </td>
-                      <td>John Weak</td>
-                      <td>johnwick@gmail.com</td>
-                      <td>9776827540</td>
-                      <td>Yu-Si</td>
-                      <td class="top aligned">
-                          12-Hour format<br>
-                          DD/MM/YY<br>
-                      </td>
-                      <td class="top aligned">
-                          12-Hour format<br>
-                          DD/MM/YY<br>
-                      </td>
-                        <td>Meme-ber</td>
-                    </tr>
-                    <!-- Second Row --> 
-                    <tr>
-                      <td class="collapsing">
-                        <div class="ui checkbox">
-                          <input type="checkbox"> <label></label>
-                        </div>
-                      </td>
-                      <td>John Strong</td>
-                      <td>johnwick@gmail.com</td>
-                      <td>9776827540</td>
-                      <td>Es-low</td>
-                      <td class="top aligned">
-                          12-Hour format<br>
-                          DD/MM/YY<br>
-                      </td>
-                      <td class="top aligned">
-                          12-Hour format<br>
-                          DD/MM/YY<br>
-                      </td>
-                        <td>Drop-out</td>
-                    </tr>
-                    <!-- Third Row --> 
-                    <tr>
-                      <td class="collapsing">
-                        <div class="ui checkbox">
-                          <input type="checkbox"> <label></label>
-                        </div>
-                      </td>
-                      <td>John Ka Magaling</td>
-                      <td>johnwick@gmail.com</td>
-                      <td>9776827540</td>
-                      <td>Yu-Bee</td>
-                      <td class="top aligned">
-                          12-Hour format<br>
-                          DD/MM/YY<br>
-                      </td>
-                      <td class="top aligned">
-                          12-Hour format<br>
-                          DD/MM/YY<br>
-                      </td>
-                        <td>Event Space</td>
-                    </tr>
-                  </tbody>
-                  <tfoot class="full-width">
-                    <tr>
-                      <th></th>
-                      <th colspan="8">
-                        <div class="ui input focus">
-                          <input placeholder="Search User Account..." type="text" id="userSearch" onkeyup="myFunction()">
-                        </div>
-
-                          <div class="ui right floated pagination menu">
-                                <a class="icon item">
-                                  <i class="left chevron icon"></i>
-                                </a>
-                                <a class="icon item">
-                                  <i class="right chevron icon"></i>
-                                </a>
-                          </div>
-
-                      </th>
-                    </tr>
-                  </tfoot>
-                </table>
-
             </div>
+
+            <table id="users" class="ui striped selectable celled table">
+                <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>E-mail Address</th>
+                    <th>Mobile Number</th>
+                    <th>Organization</th>
+                    <th>Time in</th>
+                    <th>Time out</th>
+                    <th>Purpose</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                $data = getUserLogs();
+                foreach ($data as $datum) {
+                    echo '<tr>';
+                    foreach ($datum as $item) {
+                        echo "<td>$item</td>";
+                    }
+                    echo '</tr>';
+                }
+                ?>
+                </tbody>
+            </table>
+
         </div>
-        <!-- page-content" -->
-    <!-- page-wrapper -->
-
-        <script>
-            $('#menu')
-                  .dropdown({
-                    maxSelections: 3
-                  })
-                ;
-                
-            $(".sidebar-dropdown > a").click(function() {
-              $(".sidebar-submenu").slideUp(200);
-              if (
-                $(this)
-                  .parent()
-                  .hasClass("active")
-              ) {
-                $(".sidebar-dropdown").removeClass("active");
-                $(this)
-                  .parent()
-                  .removeClass("active");
-              } else {
-                $(".sidebar-dropdown").removeClass("active");
-                $(this)
-                  .next(".sidebar-submenu")
-                  .slideDown(200);
-                $(this)
-                  .parent()
-                  .addClass("active");
-              }
-            });
-            $("#close-sidebar").click(function() {
-              $(".page-wrapper").removeClass("toggled");
-            });
-            $("#show-sidebar").click(function() {
-              $(".page-wrapper").addClass("toggled");
-            });
-        </script>
-
+    </div>
+</div>
+<!--Scripts-->
+<script src="assets/library/jquery.min.js"></script>
+<script src="assets/library/semantic/semantic.min.js"></script>
+<script src="assets/library/DataTables/datatables.js"></script>
+<script src="assets/js/admin.js"></script>
 </body>
-    
-    </html>
+
+</html>

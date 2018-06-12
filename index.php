@@ -13,39 +13,21 @@ date_default_timezone_set('Asia/Manila');
     <!-- Site Properties -->
     <title>Calle Uno</title>
 
-    <link rel="stylesheet" href="assets/semantic/semantic.min.css">
+    <link rel="stylesheet" href="assets/library/semantic/semantic.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
-        label {
-            font-family: arial;
-            font-size: 17px !important;
-        }
-
-        h2 {
-            font-family: Open Sans, sans-serif;
-            font-display: auto;
-
-        }
-
-    </style>
-
 </head>
 <body>
 <div id="container">
     <div class="ui borderless menu" id="header">
-        <div class="ui container"><a href="">
+        <div class="ui container">
+            <a href="">
                 <div class="header item">
                     <img class="logo" src="assets/images/logo.png">
                     &nbsp;Calle Uno
                 </div>
             </a>
-            <a class="ui right floated dropdown item" id="dropdown">
+            <div class="ui right floated dropdown item">
                 <?php if (isset($_SESSION['id'])) {
                     echo $_SESSION['user'];
                 } else {
@@ -64,7 +46,7 @@ date_default_timezone_set('Asia/Manila');
                     }
                     ?>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
 
@@ -72,52 +54,34 @@ date_default_timezone_set('Asia/Manila');
         <h1>Announcements and Events</h1>
         <div id="mixedSlider">
             <div class="MS-content">
-                <div class="item">
-                    <div class="imgTitle">
-                        <h2 class="blogTitle">Animals</h2>
-                        <img src="https://placeimg.com/500/300/animals" alt=""/>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac tellus ex. Integer eu
-                        fringilla nisi. Donec id dapibus mauris, eget dignissim turpis ...</p>
-                    <a href="#">Read More</a>
-                </div>
-                <div class="item">
-                    <div class="imgTitle">
-                        <h2 class="blogTitle">Visit us</h2>
-                        <img src="assets/images/Calle-uno-work.jpg" alt=""/>
-                    </div>
-                    <p>Calle Uno is located at 3 Josefa Llanes Escoda (First Road) corner Naguilian Road, Quezon Hill,
-                        Baguio City</p>
-                    <a href="#">Click here for Directions</a>
-                </div>
-                <div class="item">
-                    <div class="imgTitle">
-                        <h2 class="blogTitle">Reviews</h2>
-                        <img src="assets/images/Motor-main.jpg" alt=""/>
-                    </div>
-                    <p>The whole Calle Uno team just genuinely wants you to be successful. The staff members have helped
-                        us grow... -Jackie and John (O'Connor Web Agency)</p>
-                    <a href="#">Read More</a>
-                </div>
-                <div class="item">
-                    <div class="imgTitle">
-                        <h2 class="blogTitle">People</h2>
-                        <img src="https://placeimg.com/500/300/people" alt=""/>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac tellus ex. Integer eu
-                        fringilla nisi. Donec id dapibus mauris, eget dignissim turpis ...</p>
-                    <a href="#">Read More</a>
-                </div>
-                <div class="item">
-                    <div class="imgTitle">
-                        <h2 class="blogTitle">Tech</h2>
-                        <img src="https://placeimg.com/500/300/tech" alt=""/>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac tellus ex. Integer eu
-                        fringilla nisi. Donec id dapibus mauris, eget dignissim turpis ...</p>
-                    <a href="#">Read More</a>
-                </div>
-
+                <?php
+                $events = [];
+                    require 'php/connect.php';
+                    $query = "SELECT title, content, cover_image from events where end_date >= '".date("Y-m-d")."';";
+                    if ($stmt = $mysqli->prepare($query)){
+                        $stmt->execute();
+                        $stmt->bind_result($title, $content, $cover_image);
+                        while ($stmt->fetch()){
+                            $array = explode('.',$content);
+                            $intro = $array[0].'. '.$array[1].'.';
+                            $events[] = array($title, $intro, $content, $cover_image);
+                        }
+                        $stmt->close();
+                    }
+                    $mysqli->close();
+                    foreach ($events as $event){
+                        echo "
+                            <div class='item'>
+                                <div class='imgTitle'>
+                                    <h2 class='blogTitle'>$event[0]</h2>
+                                    <img src='data:image;base64,".base64_encode($event[3])."'>
+                                 </div>
+                                    <p>$event[1]</p>
+                                    <a href=''>Read More</a>
+                            </div>
+                        ";
+                    }
+                ?>
             </div>
             <div class="MS-controls">
                 <button class="MS-left"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
@@ -130,18 +94,18 @@ date_default_timezone_set('Asia/Manila');
             </div>
         </div>
     </div>
-    
+
     <div class="ui right aligned container">
         <a href="https://www.facebook.com/calleunoph"><i class="facebook large icon"></i></a>
         <a href="https://twitter.com/calleunoph"><i class="twitter large icon"></i></a>
         <a href="https://www.instagram.com/calleunoph/"><i class="instagram large icon"></i></a>
     </div>
-    
+
     <div class="ui inverted segment" id="footer">
         <div class="ui center aligned container">
             <p>&copy; Calle Uno 2018</p>
         </div>
-        
+
     </div>
 </div>
 
@@ -155,13 +119,16 @@ include 'pagefragments/logout.html';
 
 <!--Scripts-->
 <script src="assets/library/jquery.min.js"></script>
-<script src="assets/semantic/semantic.min.js"></script>
+<script src="assets/library/semantic/semantic.min.js"></script>
 <script src="assets/js/script.js"></script>
-<script src="assets/js/multislider.js"></script>
+<script src="assets/library/multislider.js"></script>
 <script>
     $('#mixedSlider').multislider({
         duration: 750,
         interval: 5000
+    });
+    $('.menu  .ui.dropdown').dropdown({
+        on: 'hover'
     });
 </script>
 </body>

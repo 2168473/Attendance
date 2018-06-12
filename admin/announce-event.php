@@ -1,0 +1,112 @@
+<?php
+session_start();
+date_default_timezone_set('Asia/Manila');
+include 'functions.php';
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Standard Meta -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <!-- Site Properties -->
+    <title>Calle Uno</title>
+
+    <link rel="stylesheet" href="../assets/library/semantic/semantic.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/library/DataTables/datatables.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/library/calendar.min.css">
+</head>
+<body>
+<div class="ui menu" id="menu">
+    <a href="#" class="ui right floated dropdown item">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+            <div class="item">Link Item</div>
+            <div class="item">Link Item</div>
+            <div class="divider"></div>
+            <div class="header">Header Item</div>
+            <div class="item">
+                <i class="dropdown icon"></i>
+                Sub Menu
+                <div class="menu">
+                    <div class="item">Link Item</div>
+                    <div class="item">Link Item</div>
+                </div>
+            </div>
+            <div class="item">Link Item</div>
+        </div>
+    </a>
+</div>
+<div class="ui bottom attached pusher">
+    <div class="ui visible inverted labeled left vertical sidebar menu" id="sidebar">
+        <div class="header item">
+            <a href="../admin.php"><img class="ui small image centered mini" id="logo" src="../assets/images/logo.png"></a>
+        </div>
+        <a class="item" href="../admin.php">
+            <i class="block layout icon"></i>
+            Dashboard
+        </a>
+        <a class="item active" href="announce-event.php">
+            <i class="newspaper outline icon"></i>
+            Announcements<br>/Events
+        </a>
+        <a class="item">
+            <i class="smile icon"></i>
+            Friends
+        </a>
+    </div>
+    <div id="content">
+        <div class="ui basic">
+            <div class="ui container">
+                <div class="ui horizontal divider">Announcements/Events</div>
+            </div>
+            <table id="events" class="ui striped selectable celled table">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Content</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Cover Image</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                $data = getAnnouncements();
+                foreach ($data as $datum) {
+                    echo '<tr>';
+                    foreach ($datum as $item) {
+                        print_r("<td>$item</td>");
+                    }
+                    for ($x = 0; $x <count($datum); $x++){}
+                    echo '</tr>';
+                }
+                ?>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th colspan="5" class="right aligned">
+                        <button class="ui blue button" id="add-event">Add</button>
+                    </th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+<?php
+    include 'add-event.html'
+?>
+<!--Scripts-->
+<script src="../assets/library/jquery.min.js"></script>
+<script src="../assets/library/semantic/semantic.min.js"></script>
+<script src="../assets/library/DataTables/datatables.js"></script>
+<script src="../assets/library/calendar.min.js"></script>
+<script src="../assets/js/admin.js"></script>
+</body>
+
+</html>

@@ -62,7 +62,11 @@ include 'admin/functions.php';
     </div>
     <div id="content">
         <div class="ui basic">
-
+            
+            <!-- Header/ Title section -->
+            <div class="ui container">
+                <div class="ui horizontal divider">Announcements/Events</div>
+            </div>
 
             <!-- Three headers -->
             <div class="ui stackable grid">

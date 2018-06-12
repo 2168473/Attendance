@@ -64,7 +64,7 @@ include 'functions.php';
     <div id="content">
         <div class="ui basic">
             <div class="ui container">
-                <div class="ui horizontal divider">Announcements/Events</div>
+                <div class="ui horizontal divider">User client summary</div>
             </div>
             <table id="events" class="ui striped selectable celled table">
                 <thead>

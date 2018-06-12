@@ -63,7 +63,7 @@ date_default_timezone_set('Asia/Manila');
                         $stmt->bind_result($title, $content, $cover_image);
                         while ($stmt->fetch()){
                             $array = explode('.',$content);
-                            $intro = $array[0].'.';
+                            $intro = $array[0].'. '.$array[1].'.';
                             $events[] = array($title, $intro, $content, $cover_image);
                         }
                         $stmt->close();

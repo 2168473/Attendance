@@ -56,7 +56,7 @@ include 'functions.php';
         </a>
         <a class="item">
             <i class="smile icon"></i>
-            Friends
+            Users <br>Management
         </a>
     </div>
     <div id="content">
@@ -72,6 +72,7 @@ include 'functions.php';
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>Cover Image</th>
+                    <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -79,17 +80,22 @@ include 'functions.php';
                 $data = getAnnouncements();
                 foreach ($data as $datum) {
                     echo '<tr>';
-                    foreach ($datum as $item) {
-                        print_r("<td>$item</td>");
+                    for ($x = 1; $x < count($datum); $x += 1) {
+                        echo "<td>$datum[$x]</td>";
                     }
-                    for ($x = 0; $x <count($datum); $x++){}
+                    echo "<td>
+                            <div class='ui two column grid'>
+                                <div class='column'><button class='ui positive basic button'>Edit</button></div>
+                                <div class='column'><button class='ui negative basic button'>Delete</button></div>    
+                                </div>
+                            </td>";
                     echo '</tr>';
                 }
                 ?>
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th colspan="5" class="right aligned">
+                    <th colspan="6" class="right aligned">
                         <button class="ui blue button" id="add-event">Add</button>
                     </th>
                 </tr>
@@ -99,7 +105,7 @@ include 'functions.php';
     </div>
 </div>
 <?php
-    include 'add-event.html'
+include 'add-event.html'
 ?>
 <!--Scripts-->
 <script src="../assets/library/jquery.min.js"></script>

@@ -2,384 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14a55fd8-8c4f-4d1c-afef-05c2ffc43868" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/admin/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/announce-event.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/announce-event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/multislider.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/library/multislider.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/multislider.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/library/multislider.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/.versions" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/accordion.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/accordion.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/accordion.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/accordion.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/ad.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/ad.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/api.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/api.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/breadcrumb.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/breadcrumb.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/button.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/button.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/card.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/card.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/checkbox.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/checkbox.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/checkbox.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/checkbox.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/colorize.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/colorize.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/comment.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/comment.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/container.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/container.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/dimmer.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/dimmer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/dimmer.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/dimmer.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/divider.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/divider.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/dropdown.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/dropdown.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/dropdown.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/dropdown.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/embed.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/embed.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/embed.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/embed.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/feed.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/feed.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/flag.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/flag.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/form.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/form.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/form.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/form.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/grid.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/header.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/header.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/icon.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/icon.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/image.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/image.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/input.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/input.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/item.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/item.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/label.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/label.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/list.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/list.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/loader.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/loader.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/menu.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/menu.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/message.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/message.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/modal.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/modal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/modal.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/modal.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/nag.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/nag.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/nag.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/nag.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/popup.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/popup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/popup.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/popup.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/progress.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/progress.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/progress.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/progress.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/rail.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/rail.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/rating.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/rating.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/rating.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/rating.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/reset.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/reset.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/reveal.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/reveal.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/search.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/search.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/search.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/search.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/segment.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/segment.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/shape.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/shape.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/shape.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/shape.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/sidebar.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/sidebar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/sidebar.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/sidebar.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/site.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/site.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/site.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/site.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/state.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/state.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/statistic.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/statistic.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/step.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/step.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/sticky.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/sticky.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/sticky.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/sticky.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/tab.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/tab.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/tab.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/tab.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/table.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/table.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/transition.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/transition.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/transition.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/transition.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/video.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/video.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/video.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/video.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/visibility.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/visibility.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/visit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/components/visit.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/package.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/semantic.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/semantic.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/semantic.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/semantic.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/themes/default/assets/fonts/brand-icons.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/themes/default/assets/fonts/brand-icons.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/themes/default/assets/fonts/brand-icons.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/themes/default/assets/fonts/brand-icons.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/themes/default/assets/fonts/brand-icons.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/themes/default/assets/fonts/icons.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/themes/default/assets/fonts/icons.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/themes/default/assets/fonts/icons.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/themes/default/assets/fonts/icons.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/themes/default/assets/fonts/icons.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/themes/default/assets/fonts/icons.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/themes/default/assets/fonts/outline-icons.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/themes/default/assets/fonts/outline-icons.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/themes/default/assets/fonts/outline-icons.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/themes/default/assets/fonts/outline-icons.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/themes/default/assets/fonts/outline-icons.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/semantic/themes/default/assets/images/flags.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/es6-object-assign/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/es6-object-assign/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/es6-object-assign/auto.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/es6-object-assign/dist/object-assign-auto.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/es6-object-assign/dist/object-assign-auto.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/es6-object-assign/dist/object-assign.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/es6-object-assign/dist/object-assign.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/es6-object-assign/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/es6-object-assign/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/AUTHORS.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/bower.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/dist/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.min.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.min.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/external/sizzle/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/external/sizzle/dist/sizzle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/external/sizzle/dist/sizzle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/external/sizzle/dist/sizzle.min.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/.eslintrc.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/ajax.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/ajax/jsonp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/ajax/load.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/ajax/parseXML.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/ajax/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/ajax/var/location.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/ajax/var/nonce.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/ajax/var/rquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/ajax/xhr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/attributes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/attributes/attr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/attributes/classes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/attributes/prop.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/attributes/support.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/attributes/val.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/callbacks.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/DOMEval.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/access.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/camelCase.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/init.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/nodeName.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/parseHTML.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/ready-no-deferred.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/ready.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/readyException.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/stripAndCollapse.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/support.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/toType.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/var/rsingleTag.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/addGetHookIf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/adjustCSS.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/curCSS.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/hiddenVisibleSelectors.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/showHide.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/support.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/var/cssExpand.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/var/getStyles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/var/isHiddenWithinTree.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/var/rboxStyle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/var/rnumnonpx.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/var/swap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/data/Data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/data/var/acceptData.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/data/var/dataPriv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/data/var/dataUser.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/deferred.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/deferred/exceptionHook.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/deprecated.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/dimensions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/effects.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/effects/Tween.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/effects/animatedSelector.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/event.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/event/ajax.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/event/alias.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/event/focusin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/event/support.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/event/trigger.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/exports/amd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/exports/global.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/_evalUrl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/buildFragment.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/getAll.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/setGlobalEval.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/support.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/var/rcheckableType.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/var/rscriptType.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/var/rtagName.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/wrapMap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/offset.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/queue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/queue/delay.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/selector-native.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/selector-sizzle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/selector.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/serialize.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/traversing.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/traversing/findFilter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/traversing/var/dir.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/traversing/var/rneedsContext.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/traversing/var/siblings.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/ObjectFunctionString.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/arr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/class2type.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/concat.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/document.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/documentElement.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/fnToString.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/getProto.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/hasOwn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/indexOf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/isFunction.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/isWindow.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/pnum.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/push.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/rcssNum.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/rnothtmlwhite.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/slice.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/support.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/toString.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/wrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/bower.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/karma.conf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/promise.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/promise.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/test/adapter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/test/promise.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/semantic-ui-calendar/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/semantic-ui-calendar/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/semantic-ui-calendar/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/semantic-ui-calendar/bower.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/semantic-ui-calendar/dist/calendar.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/semantic-ui-calendar/dist/calendar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/semantic-ui-calendar/dist/calendar.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/semantic-ui-calendar/dist/calendar.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/semantic-ui-calendar/gulpfile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/semantic-ui-calendar/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/semantic-ui-calendar/src/definitions/modules/calendar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/semantic-ui-calendar/src/definitions/modules/calendar.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/semantic-ui-calendar/src/theme.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/semantic-ui-calendar/src/theme.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/semantic-ui-calendar/src/themes/default/modules/calendar.overrides" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/semantic-ui-calendar/src/themes/default/modules/calendar.variables" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/dist/sweetalert.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/library/sweetalert.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/core.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/modules/actions.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/modules/class-list/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/modules/event-listeners.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/modules/init/buttons.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/modules/init/content.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/modules/init/icon.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/modules/init/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/modules/init/modal.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/modules/init/overlay.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/modules/init/text.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/modules/markup/buttons.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/modules/markup/content.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/modules/markup/icons.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/modules/markup/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/modules/markup/modal.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/modules/markup/overlay.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/modules/options/buttons.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/modules/options/content.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/modules/options/deprecations.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/modules/options/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/modules/state.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/modules/utils.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sweetalert/typings/sweetalert.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pagefragments/announcements.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pagefragments/inquire.html" beforeDir="false" afterPath="$PROJECT_DIR$/pagefragments/inquire.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pagefragments/loggedinusers.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pagefragments/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/pagefragments/registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pagefragments/table.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/inquire.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/inquire.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/logout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/sendSMS.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/sendSMS.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/semantic.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/announce-event.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/announce-event.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/connect.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/connect.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -393,11 +20,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="sample.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sample.html">
+      <file leaf-file-name="announce-event.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/announce-event.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="43" column="7" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
+            <state relative-caret-position="205">
+              <caret line="86" column="43" selection-start-line="86" selection-start-column="43" selection-end-line="86" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/js/admin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="41" column="1" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/functions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="239">
+              <caret line="45" column="38" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -477,7 +122,6 @@
         <option value="$PROJECT_DIR$/dist/components/icons.css" />
         <option value="$PROJECT_DIR$/dist/components/image.css" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/php/connect.php" />
         <option value="$PROJECT_DIR$/pagefragments/login-page.php" />
         <option value="$PROJECT_DIR$/pagefragments/login.php" />
         <option value="$PROJECT_DIR$/php/fetchUser.php" />
@@ -501,19 +145,20 @@
         <option value="$PROJECT_DIR$/pagefragments/inquire.html" />
         <option value="$PROJECT_DIR$/admin/getUsers.php" />
         <option value="$PROJECT_DIR$/assets/css/admin.css" />
-        <option value="$PROJECT_DIR$/admin.php" />
-        <option value="$PROJECT_DIR$/admin/announce-event.php" />
         <option value="$PROJECT_DIR$/assets/js/script.js" />
         <option value="$PROJECT_DIR$/admin/add-event.html" />
         <option value="$PROJECT_DIR$/admin/add-event.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/admin/functions.php" />
         <option value="$PROJECT_DIR$/php/register.php" />
         <option value="$PROJECT_DIR$/php/sendSMS.php" />
         <option value="$PROJECT_DIR$/php/logout.php" />
         <option value="$PROJECT_DIR$/php/login.php" />
-        <option value="$PROJECT_DIR$/assets/js/admin.js" />
         <option value="$PROJECT_DIR$/sample.html" />
+        <option value="$PROJECT_DIR$/admin.php" />
+        <option value="$PROJECT_DIR$/php/connect.php" />
+        <option value="$PROJECT_DIR$/admin/functions.php" />
+        <option value="$PROJECT_DIR$/assets/js/admin.js" />
+        <option value="$PROJECT_DIR$/admin/announce-event.php" />
       </list>
     </option>
   </component>
@@ -543,7 +188,7 @@
       <path value="$PROJECT_DIR$/mailing/vendor/composer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="676" />
     <option name="width" value="697" />
     <option name="height" value="775" />
@@ -565,6 +210,27 @@
             </path>
             <path>
               <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Attendance" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Attendance" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Attendance" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Attendance" type="462c0819:PsiDirectoryNode" />
+              <item name="php" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
             </path>
           </expand>
@@ -583,7 +249,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -639,11 +305,12 @@
       <workItem from="1528679300990" duration="4078000" />
       <workItem from="1528683919943" duration="17510000" />
       <workItem from="1528718542625" duration="4336000" />
+      <workItem from="1528765595897" duration="2639000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149174000" />
+    <option name="totallyTimeSpent" value="151813000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -656,8 +323,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18078668" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18305598" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32972136" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50075644" side_tool="true" weight="0.32972136" />
@@ -852,13 +520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/connect.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="9" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pagefragments/inquire.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -866,24 +527,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="112" column="36" selection-start-line="112" selection-start-column="36" selection-end-line="112" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pagefragments/registration.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="918">
           <caret line="54" column="45" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="255" column="26" lean-forward="true" selection-start-line="255" selection-start-column="26" selection-end-line="255" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -901,13 +548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/announce-event.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="859">
-          <caret line="108" column="45" selection-start-line="108" selection-start-column="45" selection-end-line="108" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pagefragments/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -922,24 +562,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="65" column="52" selection-start-line="65" selection-start-column="52" selection-end-line="65" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="59" column="41" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -971,10 +597,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="255" column="26" lean-forward="true" selection-start-line="255" selection-start-column="26" selection-end-line="255" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sample.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
+        <state relative-caret-position="731">
           <caret line="43" column="7" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/connect.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="54" column="12" lean-forward="true" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="45" column="38" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="41" column="1" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/announce-event.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="86" column="43" selection-start-line="86" selection-start-column="43" selection-end-line="86" selection-end-column="43" />
         </state>
       </provider>
     </entry>

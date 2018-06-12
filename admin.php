@@ -55,7 +55,7 @@ include 'admin/functions.php';
         </a>
         <a class="item">
             <i class="smile icon"></i>
-            Friends
+            Users<br> Management
         </a>
     </div>
     <div id="content">

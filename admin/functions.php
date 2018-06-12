@@ -43,7 +43,7 @@ function getAnnouncements(){
         $stmt->execute();
         $stmt->bind_result($eventId, $title, $content, $start_date, $end_date, $cover_image);
         while ($stmt->fetch()){
-            $data[] = array($title, $content, $start_date, $end_date,  "<img class='ui small image' src='data:image;base64,"
+            $data[] = array($eventId, $title, $content, $start_date, $end_date,  "<img class='ui small image' src='data:image;base64,"
                 .base64_encode
                 ($cover_image)."'>");
         }

@@ -61,16 +61,18 @@ let handleDataTableButtons = function () {
                     }
                 }
             ],
-            "order": [[ 4, "desc" ]]
+            "order": [[4, "desc"]]
         });
     }
 };
 $('#events').DataTable({
-    columnDefs: [{
-        "targets": 4,
-        "orderable": false,
-    }],
-    "order": [[ 2, "desc" ]]
+    columnDefs: [
+        {
+            "targets": [4,5],
+            "orderable": false,
+        }
+    ],
+    "order": [[2, "desc"]]
 });
 
 TableManageButtons = function () {

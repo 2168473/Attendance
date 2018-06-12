@@ -18,6 +18,8 @@ include 'admin/functions.php';
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/library/DataTables/datatables.css">
     <link rel="stylesheet" href="assets/css/admin.css">
+    <script src="assets/library/jquery.min.js"></script>
+    <script src="assets/library/DataTables/datatables.js"></script>
 </head>
 <body>
 <div class="ui menu" id="menu">
@@ -126,9 +128,7 @@ include 'admin/functions.php';
     </div>
 </div>
 <!--Scripts-->
-<script src="assets/library/jquery.min.js"></script>
 <script src="assets/library/semantic/semantic.min.js"></script>
-<script src="assets/library/DataTables/datatables.js"></script>
 <script src="assets/js/admin.js"></script>
 </body>
 

@@ -19,6 +19,8 @@ include 'functions.php';
     <link rel="stylesheet" href="../assets/library/DataTables/datatables.css">
     <link rel="stylesheet" href="../assets/css/admin.css">
     <link rel="stylesheet" href="../assets/library/calendar.min.css">
+    <script src="../assets/library/jquery.min.js"></script>
+    <script src="../assets/library/DataTables/datatables.js"></script>
 </head>
 <body>
 <div class="ui menu" id="menu">
@@ -80,14 +82,11 @@ include 'functions.php';
                 $data = getAnnouncements();
                 foreach ($data as $datum) {
                     echo '<tr>';
-                    for ($x = 1; $x < count($datum); $x += 1) {
+                    for ($x = 1; $x <count($datum); $x+=1) {
                         echo "<td>$datum[$x]</td>";
                     }
-                    echo "<td>
-                            <div class='ui two column grid'>
-                                <div class='column'><button class='ui positive basic button'>Edit</button></div>
-                                <div class='column'><button class='ui negative basic button'>Delete</button></div>    
-                                </div>
+                    echo "<td><button class='ui positive basic button' onclick='edit($datum[0])'>Edit</button>
+                            <button class='ui negative basic button' onclick='del($datum[0])'>Delete</button>
                             </td>";
                     echo '</tr>';
                 }
@@ -105,14 +104,23 @@ include 'functions.php';
     </div>
 </div>
 <?php
-include 'add-event.html'
+    include 'add-event.html';
+    include 'edit-event.php';
 ?>
 <!--Scripts-->
-<script src="../assets/library/jquery.min.js"></script>
 <script src="../assets/library/semantic/semantic.min.js"></script>
-<script src="../assets/library/DataTables/datatables.js"></script>
 <script src="../assets/library/calendar.min.js"></script>
 <script src="../assets/js/admin.js"></script>
+<script>
+    function edit(id) {
+        $('#edit-event-modal')
+            .modal('show')
+        ;
+    }
+    function del(id) {
+        alert('delete ' + id);
+    }
+</script>
 </body>
 
 </html>

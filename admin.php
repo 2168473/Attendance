@@ -12,7 +12,7 @@ include 'admin/functions.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
     <!-- Site Properties -->
-    <title>Calle Uno</title>
+    <title>Calle Uno: Client Logs</title>
 
     <link rel="stylesheet" href="assets/library/semantic/semantic.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -38,15 +38,15 @@ include 'admin/functions.php';
         </div>
         <a class="item active" href="admin.php">
             <i class="block layout icon"></i>
-            User client logs
+            User Client Logs
         </a>
         <a class="item" href="admin/announce-event.php">
             <i class="newspaper outline icon"></i>
             Announcements<br>/Events
         </a>
-        <a class="item">
-            <i class="smile icon" href="admin/user-management.php"></i>
-            Users<br> Management
+        <a class="item" href="admin/user-management.php">
+            <i class="smile icon" ></i>
+            User Account<br> Management
         </a>
     </div>
     <div id="content">

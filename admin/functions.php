@@ -55,7 +55,7 @@ function getAnnouncements()
     return $data;
 }
 
-function getAnnouncement()
+function getAnnouncement($id)
 {
     $mysqli = new mysqli(host, user, password, database);
     $title = "";
@@ -64,12 +64,13 @@ function getAnnouncement()
     $end_date = "";
     $cover_image = "";
     $data = "";
-    $query = "SELECT * FROM events WHERE eventId = 2";
+    $query = "SELECT * FROM events WHERE eventId = $id";
     if ($stmt = $mysqli->prepare($query)) {
         $stmt->execute();
         $stmt->bind_result($eventId, $title, $content, $start_date, $end_date, $cover_image, $cover_image_name);
         $stmt->fetch();
-        $data = array($eventId, $title, $content, $start_date, $end_date);
+        $data = array("eventId"=>$eventId, "title"=>$title, "content"=>$content, "start_date"=>$start_date,
+            "end_date"=>$end_date);
         $stmt->close();
     }
     $mysqli->close();

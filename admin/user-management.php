@@ -12,7 +12,7 @@ include 'functions.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
     <!-- Site Properties -->
-    <title>Calle Uno</title>
+    <title>Calle Uno: User Accounts Management</title>
 
     <link rel="stylesheet" href="../assets/library/semantic/semantic.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -39,7 +39,7 @@ include 'functions.php';
         </div>
         <a class="item" href="../admin.php">
             <i class="block layout icon"></i>
-            Client logs
+            User Client Logs
         </a>
         <a class="item" href="announce-event.php">
             <i class="newspaper outline icon"></i>
@@ -47,7 +47,7 @@ include 'functions.php';
         </a>
         <a class="item active" href="user-management.php">
             <i class="smile icon" ></i>
-            Users <br>Management
+            User Account <br>Management
         </a>
     </div>
     <div id="content">
@@ -58,25 +58,29 @@ include 'functions.php';
             <table id="users" class="ui striped selectable celled table">
                 <thead>
                 <tr>
-                    <th></th>
                     <th>Full Name</th>
                     <th>E-mail Address</th>
                     <th>Mobile Number</th>
                     <th>Organization</th>
-                    <th>Purpose</th>
+                    <th>Action</th>
+                        
                 </tr>
                 </thead>
                 <tbody>
-                    <td class="ui fitted checkbox"></td>
                 <?php
-                $data = getUserLogs();
+                $data = getUserAccounts();
                 foreach ($data as $datum) {
                     echo '<tr>';
-                    foreach ($datum as $item) {
-                        echo "<td>$item</td>";
+                    for ($x=0; $x<4 ; $x++) {
+                        echo "<td>$datum[$x]</td>";
                     }
+                    echo "<td><button class='ui positive basic button' onclick='edit($datum[0])'>Edit</button>
+                            <button class='ui negative basic button' onclick='del($datum[0])'>Delete</button>
+                            </td>";
                     echo '</tr>';
+                
                 }
+                    
                 ?>
 
                 </tbody>
@@ -93,6 +97,7 @@ include 'functions.php';
 <script src="../assets/library/calendar.min.js"></script>
 <script src="../assets/js/admin.js"></script>
 <script>
+
     function edit(id) {
         $('#edit-event-modal')
             .modal('show')
@@ -101,7 +106,7 @@ include 'functions.php';
     function del(id) {
         alert('delete ' + id);
     }
-</script>
+    </script>
 </body>
 
 </html>

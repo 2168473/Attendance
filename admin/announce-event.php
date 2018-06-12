@@ -12,7 +12,7 @@ include 'functions.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
     <!-- Site Properties -->
-    <title>Calle Uno</title>
+    <title>Calle Uno: Announcement and Events</title>
 
     <link rel="stylesheet" href="../assets/library/semantic/semantic.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -39,15 +39,15 @@ include 'functions.php';
         </div>
         <a class="item" href="../admin.php">
             <i class="block layout icon"></i>
-            Dashboard
+            User Client Logs
         </a>
         <a class="item active" href="announce-event.php">
             <i class="newspaper outline icon"></i>
             Announcements<br>/Events
         </a>
-        <a class="item">
-            <i class="smile icon" href="user-management.php"></i>
-            Users <br>Management
+        <a href="user-management.php" class="item">
+            <i class="smile icon" ></i>
+            User Account <br>Management
         </a>
     </div>
     <div id="content">
@@ -84,7 +84,7 @@ include 'functions.php';
                 <tfoot>
                 <tr>
                     <th colspan="6" class="right aligned">
-                        <button class="ui blue button" id="add-event">Add</button>
+                        <button class="ui blue button" id="add-event">Add Announcement/Event</button>
                     </th>
                 </tr>
                 </tfoot>
@@ -149,7 +149,6 @@ include 'functions.php';
                 .modal('show')
             ;
         });
-
     }
     function del(id) {
         alert('delete ' + id);

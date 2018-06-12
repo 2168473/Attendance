@@ -40,10 +40,10 @@ function addEvent($mysqli)
         }
     }
     if ($stmt = $mysqli->prepare($query)){
-        $stmt->bind_param('sssss', $title, $content, $start_date, $end_date, $imgData, $cover_image_name);
+        $stmt->bind_param('ssssss', $title, $content, $start_date, $end_date, $imgData, $cover_image_name);
         $stmt->execute();
+        print_r($stmt);
         $stmt->close();
-        echo "Success";
     }
     $mysqli->close();
 }

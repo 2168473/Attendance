@@ -1,5 +1,5 @@
 <?php
-define('host', 'localhost');
+define('host', '192.168.1.23');
 define('user', 'root');
 define('password', '');
 define('database', 'logbook');
@@ -70,7 +70,7 @@ function getAnnouncement($id)
         $stmt->bind_result($eventId, $title, $content, $start_date, $end_date, $cover_image, $cover_image_name);
         $stmt->fetch();
         $data = array("eventId"=>$eventId, "title"=>$title, "content"=>$content, "start_date"=>$start_date,
-            "end_date"=>$end_date);
+            "end_date"=>$end_date, "cover_image_name"=>$cover_image_name);
         $stmt->close();
     }
     $mysqli->close();

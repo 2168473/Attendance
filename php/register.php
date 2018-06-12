@@ -1,7 +1,7 @@
 <?php
 include 'connect.php';
 
-if (isset($_POST['register-btn'])) {
+if (isset($_POST['register-btn']) || isset($_POST['company'])) {
     $first_name = trim($_POST['first_name']);
     $first_name = strip_tags($first_name);
     $first_name = htmlspecialchars($first_name);

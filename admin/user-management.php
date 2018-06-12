@@ -86,7 +86,7 @@ include 'functions.php';
 </div>
 <?php
     include 'add-event.html';
-    include 'edit-event.php';
+    include 'edit-event.html';
 ?>
 <!--Scripts-->
 <script src="../assets/library/semantic/semantic.min.js"></script>

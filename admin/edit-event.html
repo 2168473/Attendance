@@ -1,5 +1,5 @@
 <div class="ui small modal" id="edit-event-modal">
-    <form class="ui form" method="post" action="" enctype="multipart/form-data" id="editEvent">
+    <form class="ui form" method="post" action="edit-event.php" enctype="multipart/form-data" id="editEvent">
         <div class="ui form segment">
             <div class="ui horizontal divider">
                 <h1>Edit Announcement/Event</h1>
@@ -9,32 +9,31 @@
                     <h2 class="ui medium header">Title</h2>
                     <div class="ui left icon input">
                         <i class="user icon"></i>
-                        <input placeholder="Title" name="title" type="text">
+                        <input placeholder="Title" name="title" id="title" type="text"">
                     </div>
                 </div>
-
                 <div class="field">
                     <h2 class="ui medium header">Content</h2>
-                    <textarea rows="3" placeholder="Enter content here..." name="content"></textarea>
+                    <textarea placeholder="Enter Content Here" id="text_content" name="content"></textarea>
                 </div>
                 <div class="field">
                     <h2 class="ui medium header">Duration</h2>
                     <div class="two fields">
                         <div class="field">
                             <label>Start date</label>
-                            <div class="ui calendar" id="rangestart">
+                            <div class="ui calendar" id="start-date">
                                 <div class="ui input left icon">
                                     <i class="calendar icon"></i>
-                                    <input type="text" placeholder="Start" name="start_date">
+                                    <input type="text" placeholder="Start" id="start_date" name="start_date">
                                 </div>
                             </div>
                         </div>
                         <div class="field">
                             <label>End date</label>
-                            <div class="ui calendar" id="rangeend">
+                            <div class="ui calendar" id="end-date">
                                 <div class="ui input left icon">
                                     <i class="calendar icon"></i>
-                                    <input type="text" placeholder="End" name="end_date">
+                                    <input type="text" placeholder="End" id="end_date" name="end_date">
                                 </div>
                             </div>
                         </div>
@@ -43,8 +42,8 @@
                 <div class="field">
                     <h2 class="ui medium header">Cover Image</h2>
                     <div class="ui action input">
-                        <input type="text" placeholder="Upload Image" readonly>
-                        <input type="file" name="cover_image" style="display: none;">
+                        <input type="text" id="cover_image_name" placeholder="Upload Image" readonly>
+                        <input type="file" id="cover_image" name="cover_image" style="display: none;">
                         <div class="ui icon button">
                             <i class="attach icon"></i>
                         </div>

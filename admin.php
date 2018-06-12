@@ -24,21 +24,10 @@ include 'admin/functions.php';
 <body>
 <div class="ui menu" id="menu">
     <a href="#" class="ui right floated dropdown item">
-        Dropdown <i class="dropdown icon"></i>
+        Menu <i class="dropdown icon"></i>
         <div class="menu">
-            <div class="item">Link Item</div>
-            <div class="item">Link Item</div>
-            <div class="divider"></div>
-            <div class="header">Header Item</div>
-            <div class="item">
-                <i class="dropdown icon"></i>
-                Sub Menu
-                <div class="menu">
-                    <div class="item">Link Item</div>
-                    <div class="item">Link Item</div>
-                </div>
-            </div>
-            <div class="item">Link Item</div>
+            <div class="item">Logout</div>
+            
         </div>
     </a>
 </div>
@@ -65,9 +54,9 @@ include 'admin/functions.php';
             
             <!-- Header/ Title section -->
             <div class="ui container">
-                <div class="ui horizontal divider">Announcements/Events</div>
+                <div class="ui horizontal divider">User client logs</div>
             </div>
-
+            
             <!-- Three headers -->
             <div class="ui stackable grid">
                 <div class="three column row">

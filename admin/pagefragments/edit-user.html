@@ -1,0 +1,72 @@
+<div class="ui small modal" id="edit-user-modal">
+    <form class="ui form" method="post" action="php/edit-user.php" id="editUser">
+        <div class="ui form segment">
+            <div class="ui horizontal divider">
+                <h1>Edit User Account Information</h1>
+            </div>
+            <div class="ui segment">
+
+                <div class="field">
+                    <div class="two fields">
+                        <div class="field">
+                            <h2 class="ui medium header">First Name</h2>
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input placeholder="First Name" type="text" id="first_name" disabled>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <h2 class="ui medium header">Last Name</h2>
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input placeholder="Last name" type="text" id="last_name" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="two fields">
+                        <div class="field">
+                            <h2 class="ui medium header">E-mail Address </h2>
+                            <div class="ui left icon input">
+                                <i class="mail icon"></i>
+                                <input placeholder="Email" name="email" type="email" id="email">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <h2 class="ui medium header">Mobile Number</h2>
+                            <div class="ui labeled input">
+                                <div class="ui label">
+                                    +63
+                                </div>
+                                <input placeholder="Mobile Number" name="mobile" type="tel" id="mobile">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="two fields">
+                        <div class="field">
+                            <h2 class="ui medium header">Company/Organization/School</h2>
+                            <div class="ui left icon input">
+                                <i class="building outline icon"></i>
+                                <input placeholder="Company" name="company" type="text" id="company">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <h2 class="ui medium header">User Level</h2>
+                            <div class="ui left icon input">
+                                <i class="info circle icon"></i>
+                                <input placeholder="User Level" name="user_level" type="text" id="user_level">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input placeholder="User Id" name="userId" type="hidden" id="userId">
+                <button class="ui submit button fluid">Edit</button>
+                <div class="ui error message"></div>
+            </div>
+        </div>
+    </form>
+</div>

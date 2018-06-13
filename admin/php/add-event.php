@@ -1,11 +1,11 @@
 <?php
 ini_set('post_max_size', '64M');
 ini_set('upload_max_filesize', '64M');
-require '../php/connect.php';
+require 'connect.php';
 if (isset($_POST['title'])) {
     try {
         addEvent($mysqli);
-        header("Location: announce-event.php");
+        header("Location: ../announce-event.php");
     } catch (Exception $e) {
         echo $e->getMessage();
         echo 'Sorry, could not upload file';

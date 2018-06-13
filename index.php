@@ -1,6 +1,7 @@
 <?php
 session_start();
 date_default_timezone_set('Asia/Manila');
+require_once 'php/connect.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -58,7 +59,6 @@ date_default_timezone_set('Asia/Manila');
                     <div class="MS-content">
                         <?php
                         $events = [];
-                        require 'php/connect.php';
                         $query = "SELECT title, content, cover_image from events where end_date >= '".date("Y-m-d")."';";
                         if ($stmt = $mysqli->prepare($query)){
                             $stmt->execute();
@@ -131,8 +131,8 @@ include 'pagefragments/logout.html';
 <script src="assets/library/multislider.js"></script>
 <script>
     $('#mixedSlider').multislider({
-        duration: 750,
-        interval: 5000
+        duration: 1000,
+        interval: 7500
     });
     $('.menu  .ui.dropdown').dropdown({
         on: 'hover'

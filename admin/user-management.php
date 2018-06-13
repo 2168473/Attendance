@@ -1,7 +1,7 @@
 <?php
 session_start();
 date_default_timezone_set('Asia/Manila');
-include 'functions.php';
+include 'php/functions.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -46,7 +46,7 @@ include 'functions.php';
             Announcements<br>/Events
         </a>
         <a class="item active" href="user-management.php">
-            <i class="smile icon" ></i>
+            <i class="users icon" ></i>
             User Account <br>Management
         </a>
     </div>
@@ -58,24 +58,27 @@ include 'functions.php';
             <table id="users" class="ui striped selectable celled table">
                 <thead>
                 <tr>
-                    <th>Full Name</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
                     <th>E-mail Address</th>
                     <th>Mobile Number</th>
                     <th>Organization</th>
+                    <th>Level</th>
                     <th>Action</th>
                         
                 </tr>
                 </thead>
                 <tbody>
                 <?php
-                $data = getUserAccounts();
+                $data = getUsers();
                 foreach ($data as $datum) {
                     echo '<tr>';
-                    for ($x=0; $x<4 ; $x++) {
+                    for ($x = 1; $x < count($datum); $x++) {
                         echo "<td>$datum[$x]</td>";
                     }
-                    echo "<td><button class='ui positive basic button' onclick='edit($datum[0])'>Edit</button>
-                            <button class='ui negative basic button' onclick='del($datum[0])'>Delete</button>
+                    echo "<td><button class='ui positive basic button' onclick='editUser($datum[0])'>Edit</button>
+                            <button class='ui negative basic button' onclick='deleteUser($datum[0])'>Delete
+                            </button>
                             </td>";
                     echo '</tr>';
                 
@@ -89,8 +92,8 @@ include 'functions.php';
     </div>
 </div>
 <?php
-    include 'add-event.html';
-    include 'edit-event.html';
+    include 'pagefragments/edit-user.html';
+    include 'pagefragments/delete-user.html';
 ?>
 <!--Scripts-->
 <script src="../assets/library/semantic/semantic.min.js"></script>
@@ -98,13 +101,48 @@ include 'functions.php';
 <script src="../assets/js/admin.js"></script>
 <script>
 
-    function edit(id) {
-        $('#edit-event-modal')
+    function editUser(id) {
+        $.get("php/functions.php?getUser=" + id, function (data) {
+            $('#first_name').val(data['first_name']);
+            $('#last_name').val(data['last_name']);
+            $('#email').val(data['userEmail']);
+            $('#mobile').val(String(data['userMobile']).substring(4));
+            $('#company').val(data['userCompany']);
+            $('#user_level').val(data['userLevel']);
+            $('#userId').val(id);
+            $('#edit-user-modal')
+                .modal('show')
+            ;
+        });
+
+    }
+    function deleteUser(id) {
+        $.get("php/functions.php?getUser=" + id, function (data) {
+            document.getElementById('user_name').innerHTML = data['first_name'] + ' ' + data['last_name'];
+            document.getElementById('userName').innerHTML = data['first_name'] + ' ' + data['last_name'];
+        });
+        $('#del-user')
+            .modal({
+                closable: false,
+                onDeny: function () {
+                    return true;
+                },
+                onApprove: function () {
+                    $.ajax({
+                        url: 'php/del-user.php?userId='+id,
+                        beforeSend: function () {
+                            $('#success-del-user').modal({
+                                onDeny: function () {
+                                    window.location = '/admin/user-management.php';
+                                }
+                            }).modal('show');
+                        }
+                    });
+
+                }
+            })
             .modal('show')
         ;
-    }
-    function del(id) {
-        alert('delete ' + id);
     }
     </script>
 </body>

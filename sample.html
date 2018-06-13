@@ -1,38 +1,5 @@
-<form class="ui form segment" method="post" action="http://api.semaphore.co/api/v4/messages">
-    <div class="ui horizontal divider">
-        <h1>Send Message</h1>
-    </div>
-
-    <div class="ui segment">
-        <input name="apikey" type="hidden" value="a78f7cfca48bfbdc26e0b12de5f7e2c2">
-
-        <div class="field">
-            <h2 class="ui medium header">SenderName</h2>
-            <div class="ui left icon input">
-                <i class="user icon"></i>
-                <input placeholder="First Name Last name" name="sendername" type="text">
-            </div>
-        </div>
-
-        <!-- Mobile number input -->
-        <div class="field">
-            <h2 class="ui medium header">Mobile Number</h2>
-            <div class="ui labeled input">
-                <div class="ui label">
-                    +63
-                </div>
-                <input placeholder="e.g. 91234567890" name="number" type="tel">
-            </div>
-        </div>
-
-
-        <!-- Message field -->
-        <div class="field">
-            <h2 class="ui medium header">Message</h2>
-            <textarea rows="3" placeholder="Enter message or concern here..." name="message"></textarea>
-        </div>
-        <!-- Submit button -->
-        <button class="ui primary submit button fluid" name="send" id="inquire">Send</button>
-        <div class="ui error message"></div>
-    </div>
-</form>
+<script>
+    let date = new Date('2018-06-12 16:49:19');
+    let newDate = new Date('2018-06-11 20:23:05');
+    document.write(date>newDate);
+</script>

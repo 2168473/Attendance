@@ -34,9 +34,9 @@ $('.menu  .ui.dropdown').dropdown({
     on: 'hover'
 });
 
-let handleDataTableButtons = function () {
-    if ($("#users").length) {
-        $("#users").DataTable({
+let handleUsersLogButtons = function () {
+    if ($("#users-log").length) {
+        $("#users-log").DataTable({
             dom: '<"ui container"<"ui stackable grid"<"seven wide column"B><"four wide column"l><"right aligned ' +
             'five ' +
             'wide column"f>>t<"ui stackable two column grid"<"column"i><"right aligned column"p>>>',
@@ -65,26 +65,83 @@ let handleDataTableButtons = function () {
         });
     }
 };
+UsersLog = function () {
+    "use strict";
+    return {
+        init: function () {
+            handleUsersLogButtons();
+        }
+    };
+}();
+UsersLog.init();
+
+
+let handleUsersButton = function () {
+    if ($("#users").length) {
+        $("#users").DataTable({
+            dom: '<"ui container"<"ui stackable grid"<"seven wide column"B><"four wide column"l><"right aligned ' +
+            'five ' +
+            'wide column"f>>t<"ui stackable two column grid"<"column"i><"right aligned column"p>>>',
+            buttons: [{
+                extend: "copy",
+                className: "btn-sm",
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5]
+                }
+                },
+                {
+                    extend: "csv",
+                    className: "btn-sm",
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5]
+                    }
+                },
+                {
+                    extend: "pdfHtml5",
+                    className: "btn-sm",
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5]
+                    }
+                },
+                {
+                    extend: "print",
+                    className: "btn-sm",
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5]
+                    },
+                    customize: function (win) {
+                        $(win.document.body).find('')
+                            .css('display', 'none');
+                    }
+                }
+            ],
+        });
+    }
+};
+UsersButton = function () {
+    "use strict";
+    return {
+        init: function () {
+            handleUsersButton();
+        }
+    };
+}();
+UsersButton.init();
+
+
 $('#events').DataTable({
     columnDefs: [
         {
-            "targets": [4,5],
+            "targets": [4, 5],
             "orderable": false,
+        },
+        {
+            "width": "30%",
+            "targets": 1
         }
     ],
     "order": [[2, "desc"]]
 });
-
-TableManageButtons = function () {
-    "use strict";
-    return {
-        init: function () {
-            handleDataTableButtons();
-        }
-    };
-}();
-
-TableManageButtons.init();
 
 //open addevent modal
 $('#add-event-modal')
@@ -147,6 +204,27 @@ $('#addEvent')
             content: 'empty',
             start_date: 'empty',
             end_date: 'empty',
-            cover_image: 'empty'
+            cover_image_name: 'empty'
+        }
+    });
+$('#editEvent')
+    .form({
+        fields: {
+            title: 'empty',
+            content: 'empty',
+            start_date: 'empty',
+            end_date: 'empty',
+            cover_image_name: 'empty'
+        }
+    });
+$('#editUser')
+    .form({
+        fields: {
+            first_name: 'empty',
+            last_name: 'empty',
+            email: ['empty', 'email'],
+            mobile: ['empty', 'maxLength[10]', 'minLength[7]'],
+            company: 'empty',
+            user_level: ['integer', 'empty']
         }
     });

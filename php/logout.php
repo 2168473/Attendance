@@ -15,5 +15,5 @@ if (isset($_GET['logout'])){
     }
     $mysqli->close();
 }
-//include 'sendSMS.php';
+//include 'sendsms.php';
 session_destroy();

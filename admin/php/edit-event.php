@@ -60,4 +60,4 @@ if (isset($_POST['cover_image'])){
     }
 }
 $mysqli->close();
-header('Location: announce-event.php');
+header('Location: ../announce-event.php');

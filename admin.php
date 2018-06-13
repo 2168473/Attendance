@@ -1,7 +1,7 @@
 <?php
 session_start();
 date_default_timezone_set('Asia/Manila');
-include 'admin/functions.php';
+include 'admin/php/functions.php';
 $mysqli = new mysqli(host, user, password, database);
 if ($stmt = $mysqli->prepare("select count(userId) from sessions where sessionOut='0000-00-00 00:00:00';")){
     $stmt->execute();
@@ -9,7 +9,7 @@ if ($stmt = $mysqli->prepare("select count(userId) from sessions where sessionOu
     $stmt->fetch();
     $stmt->close();
 }
-if ($stmt = $mysqli->prepare("select count(userId) from sessions where sessionIn<=NOW();")){
+if ($stmt = $mysqli->prepare("select count(userId) from sessions where sessionIn>=NOW();")){
     $stmt->execute();
     $stmt->bind_result($todays_login);
     $stmt->fetch();
@@ -64,7 +64,7 @@ if ($stmt = $mysqli->prepare("select count(userId) from users;")){
             Announcements<br>/Events
         </a>
         <a class="item" href="admin/user-management.php">
-            <i class="smile icon" ></i>
+            <i class="users icon" ></i>
             User Account<br> Management
         </a>
     </div>
@@ -109,8 +109,18 @@ if ($stmt = $mysqli->prepare("select count(userId) from users;")){
                     </div>
                 </div>
             </div>
-
-            <table id="users" class="ui striped selectable celled table">
+            <table>
+                <tbody><tr>
+                    <td>Minimum age:</td>
+                    <td><input type="text" id="min" name="min"></td>
+                </tr>
+                <tr>
+                    <td>Maximum age:</td>
+                    <td><input type="text" id="max" name="max"></td>
+                </tr>
+                </tbody>
+            </table>
+            <table id="users-log" class="ui striped selectable celled table">
                 <thead>
                 <tr>
                     <th>Full Name</th>
@@ -142,6 +152,32 @@ if ($stmt = $mysqli->prepare("select count(userId) from users;")){
 <!--Scripts-->
 <script src="assets/library/semantic/semantic.min.js"></script>
 <script src="assets/js/admin.js"></script>
+<script>
+    $.fn.dataTable.ext.search.push(
+        function( settings, data, dataIndex) {
+            let max = new Date('2018-06-12 16:49:19');
+            let min = new Date('2018-06-12 10:00:00');
+            var age = new Date(data[5]) || 0; // use data for the age column
+
+            if ( ( isNaN( min ) && isNaN( max ) ) ||
+                ( isNaN( min ) && age <= max ) ||
+                ( min <= age   && isNaN( max ) ) ||
+                ( min <= age   && age <= max ) )
+            {
+                return true;
+            }
+            return false;
+        }
+    );
+
+    $(document).ready(function() {
+
+        // Event listener to the two range filtering inputs to redraw on input
+        $('#min, #max').keyup( function() {
+            userlogs.draw();
+        } );
+    } );
+</script>
 </body>
 
 </html>

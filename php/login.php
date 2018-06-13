@@ -22,7 +22,7 @@ if (isset($_POST['email'])) {
         if ($rows == 1){
             if (password_verify($_POST['password'], $userPass)){
                 $Message = $first_name.' '.$last_name.' has logged in at '.date('Y-m-d H:i:s').' as a '.$_POST['purpose'];
-                //include 'sendSMS.php';
+                //include 'sendsms.php';
                 if ($stmt = $mysqli->prepare($query_log)){
                     $stmt->bind_param('sss', $id, $userPayment, $reason);
                     $stmt->execute();

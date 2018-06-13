@@ -1,7 +1,7 @@
 <?php
 session_start();
 date_default_timezone_set('Asia/Manila');
-include 'functions.php';
+include 'php/functions.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,7 +28,7 @@ include 'functions.php';
         Admin <i class="dropdown icon"></i>
         <div class="menu">
             <div class="item">Logout</div>
-            
+
         </div>
     </a>
 </div>
@@ -46,7 +46,7 @@ include 'functions.php';
             Announcements<br>/Events
         </a>
         <a href="user-management.php" class="item">
-            <i class="smile icon" ></i>
+            <i class="users icon"></i>
             User Account <br>Management
         </a>
     </div>
@@ -71,11 +71,12 @@ include 'functions.php';
                 $data = getAnnouncements();
                 foreach ($data as $datum) {
                     echo '<tr>';
-                    for ($x = 1; $x <count($datum); $x+=1) {
+                    for ($x = 1; $x < count($datum); $x += 1) {
                         echo "<td>$datum[$x]</td>";
                     }
-                    echo "<td><button class='ui positive basic button' onclick='edit($datum[0])'>Edit</button>
-                            <button class='ui negative basic button' onclick='del($datum[0])'>Delete</button>
+                    echo "<td><button class='ui positive basic button' onclick='editEvent($datum[0])'>Edit</button>
+                            <button class='ui negative basic button' onclick='deleteEvent($datum[0])'>Delete
+                            </button>
                             </td>";
                     echo '</tr>';
                 }
@@ -93,14 +94,15 @@ include 'functions.php';
     </div>
 </div>
 <?php
-    include 'add-event.html';
-    include 'edit-event.html';
+include 'pagefragments/add-event.html';
+include 'pagefragments/edit-event.html';
+include 'pagefragments/delete-event.html';
 ?>
 <!--Scripts-->
 
 <script>
-    function edit(id) {
-        $.get("functions.php?getAnnouncement="+id, function(data){
+    function editEvent(id) {
+        $.get("php/functions.php?getAnnouncement=" + id, function (data) {
             $('#start-date').calendar({
                 type: 'date',
                 endCalendar: $('#end-date'),
@@ -150,8 +152,35 @@ include 'functions.php';
             ;
         });
     }
-    function del(id) {
-        alert('delete ' + id);
+
+    function deleteEvent(id) {
+        $.get("php/functions.php?getAnnouncement=" + id, function (data) {
+            document.getElementById('ev-title').innerHTML = data['title'];
+            document.getElementById('event-title').innerHTML = data['title'];
+        });
+        $('#del-event')
+            .modal({
+                closable: false,
+                onDeny: function () {
+                    return true;
+                },
+                onApprove: function () {
+                    $.ajax({
+                        url: 'php/del-event.php?eventId='+id,
+                        beforeSend: function () {
+                            $('#success-del').modal({
+                                onDeny: function () {
+                                    window.location = '/admin/announce-event.php';
+                                }
+                            }).modal('show');
+                        }
+                    });
+
+                }
+            })
+            .modal('show')
+        ;
+
     }
 
 </script>

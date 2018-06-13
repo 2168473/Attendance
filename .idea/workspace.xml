@@ -2,27 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14a55fd8-8c4f-4d1c-afef-05c2ffc43868" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/add-event.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pagefragments/add-event.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/add-event.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/php/add-event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pagefragments/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/announce-event.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/announce-event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/connect.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/php/connect.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/edit-event.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pagefragments/edit-event.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/edit-event.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/php/edit-event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/edit-user-information.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/php/edit-user.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/edit-user-information.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pagefragments/edit-user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/php/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/logged-in-users.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/logged-in-users.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/user-management.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/user-management.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/library/sweetalert.min.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/logout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample.html" beforeDir="false" afterPath="$PROJECT_DIR$/sample.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,11 +16,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="admin.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="admin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
               <caret line="160" lean-forward="true" selection-start-line="160" selection-end-line="160" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#src#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -172,11 +165,11 @@
         <option value="$PROJECT_DIR$/admin/pagefragments/delete-user.html" />
         <option value="$PROJECT_DIR$/admin/pagefragments/delete-event.html" />
         <option value="$PROJECT_DIR$/admin/php/functions.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/assets/js/admin.js" />
         <option value="$PROJECT_DIR$/sendSMS.php" />
         <option value="$PROJECT_DIR$/sample.html" />
         <option value="$PROJECT_DIR$/admin.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -206,7 +199,7 @@
       <path value="$PROJECT_DIR$/mailing/vendor/composer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="697" />
@@ -339,12 +332,12 @@
       <workItem from="1528765595897" duration="4219000" />
       <workItem from="1528769870446" duration="25969000" />
       <workItem from="1528852793957" duration="6000" />
-      <workItem from="1528853043904" duration="19900000" />
+      <workItem from="1528853043904" duration="20144000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199268000" />
+    <option name="totallyTimeSpent" value="199512000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -356,7 +349,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32972136" />
@@ -603,13 +596,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="134" column="20" selection-start-line="134" selection-start-column="20" selection-end-line="134" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/admin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -628,6 +614,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="160" lean-forward="true" selection-start-line="160" selection-end-line="160" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

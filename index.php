@@ -27,101 +27,239 @@ date_default_timezone_set('Asia/Manila');
                     &nbsp;Calle Uno
                 </div>
             </a>
-            <div class="ui right floated dropdown item">
-                <?php if (isset($_SESSION['id'])) {
-                    echo $_SESSION['user'];
-                } else {
-                    echo 'User';
-                } ?>
-                <i class="dropdown icon"></i>
-                <div class="menu">
-                    <?php
-                    if (isset($_SESSION['id'])) {
-                        echo '<div class="item" id="logoutl">Logout</div>';
-                    } else {
-                        echo '
-                            <div class="item" id="login">Login</div>
-                            <div class="item" id="signup">Sign Up</div>
-                        ';
-                    }
-                    ?>
-                </div>
-            </div>
+            
+          
+            <!-- 
+                <div class"ui right floated...">
+
+            -->
+        
         </div>
     </div>
 
-    <div class="ui container" id="body" >
-        <div class="ui grid">
-            <div class="ten wide column" style="background-color: #f4f4f4">
-                <h1>Announcements and Events</h1>
-                <div id="mixedSlider">
-                    <div class="MS-content">
-                        <?php
-                        $events = [];
-                        require 'php/connect.php';
-                        $query = "SELECT title, content, cover_image from events where end_date >= '".date("Y-m-d")."';";
-                        if ($stmt = $mysqli->prepare($query)){
-                            $stmt->execute();
-                            $stmt->bind_result($title, $content, $cover_image);
-                            while ($stmt->fetch()){
-                                $array = explode('.',$content);
-                                $intro = $array[0].'.';
-                                $events[] = array($title, $intro, $content, $cover_image);
-                            }
-                            $stmt->close();
-                        }
-                        $mysqli->close();
-                        foreach ($events as $event){
-                            echo "
-                            <div class='item'>
-                                <div class='imgTitle'>
-                                    <h2 class='blogTitle'>$event[0]</h2>
-                                    <img src='data:image;base64,".base64_encode($event[3])."'>
-                                 </div>
-                                    <p>$event[1]</p>
-                                    <a href=''>Read More</a>
+        <div class="ui container" id="body">
+                <div class="ui centered grid">
+                        <div class="nine wide column" style="background-color: #f4f4f4">
+                            <h1>Announcements and Events</h1>
+                            <div id="mixedSlider">
+                                <div class="MS-content">
+                                    <?php
+                                    $events = [];
+                                    require 'php/connect.php';
+                                    $query = "SELECT title, content, cover_image from events where end_date >= '".date("Y-m-d")."';";
+                                    if ($stmt = $mysqli->prepare($query)){
+                                        $stmt->execute();
+                                        $stmt->bind_result($title, $content, $cover_image);
+                                        while ($stmt->fetch()){
+                                            $array = explode('.',$content);
+                                            $intro = $array[0].'.';
+                                            $events[] = array($title, $intro, $content, $cover_image);
+                                        }
+                                        $stmt->close();
+                                    }
+                                    $mysqli->close();
+                                    foreach ($events as $event){
+                                        echo "
+                                        <div class='item'>
+                                            <div class='imgTitle'>
+                                                <h2 class='blogTitle'>$event[0]</h2>
+                                                <img src='data:image;base64,".base64_encode($event[3])."'>
+                                             </div>
+                                                <p>$event[1]</p>
+                                                <a href=''>Read More</a>
+                                        </div>
+                                    ";
+                                    }
+                                    ?>
+                                </div>
+                                <div class="MS-controls">
+                                    <button class="MS-left"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                                    <button class="MS-right"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                                </div>
                             </div>
-                        ";
-                        }
-                        ?>
-                    </div>
-                    <div class="MS-controls">
-                        <button class="MS-left"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
-                        <button class="MS-right"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
-                    </div>
+                        </div>
+                    
+                    <!-- Form Section -->
+                    <div class="seven wide column">
+                        <div class="ui top attached tabular menu">
+                            <a class="item actice" data-tab="loginButton">
+                                Login
+                            </a>
+                            <a class="item" data-tab="logoutButton">
+                                Logout
+                            </a>
+                            <a class="item" data-tab="signupButton">
+                                Sign-up
+                            </a>
+                        </div>
+                        
+                        <div class="ui bottom attached tab segment active" data-tab="loginButton">
+                            <div class="ui compact container">    
+                                    <h2 class="teal header">
+                                        <div class="ui horizontal divider">
+                                            <h2>Login Here</h2>
+                                        </div>
+                                    </h2>
+
+                                    <form class="ui form very padded" id="login-form" method="post">
+                                        <div class="ui segment">
+                                            <div class="field">
+                                                <div class="ui left icon input">
+                                                    <i class="user icon"></i>
+                                                    <input type="text" name="email" placeholder="E-mail address" id="ea">
+                                                </div>
+                                            </div><div class="field">
+                                                <div class="ui left icon input">
+                                                    <i class="icon lock"></i>
+                                                    <input type="password" name="password" placeholder="Password">
+                                                </div>
+                                            </div>
+                                            <div class="field">
+                                                <div class="ui selection dropdown left icon">
+                                                    <input type="hidden" name="purpose">
+                                                    <i class="id badge outline icon"></i>
+                                                    <div class="default text grey">Purpose</div>
+                                                    <i class="dropdown icon"></i>
+                                                    <div class="menu">
+                                                        <div class="item" data-value="Regular Member">Regular Member</div>
+                                                        <div class="item" data-value="Drop-in Coworking">Drop-in Coworking</div>
+                                                        <div class="item" data-value="Attend Event">Attend Event</div>
+                                                        <div class="item" data-value="Guest/Other">Guest/Other</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="ui fluid large submit button">Login</div>
+                                        </div>
+
+                                        <div class="ui error message"></div>
+                                    </form>
+
+                                    <div class="ui message center aligned">New to us?
+                                        <button class="mini ui button signup" id="signup-log">Sign Up</button>
+                                    </div>
+                            </div>
+                        </div>
+                        
+                        <div class="ui bottom attached tab segment active" data-tab="logoutButton">
+                            <div class="ui compact container">    
+                                    <h2 class="teal header">
+                                    <div class="ui horizontal divider">
+                                        <h2>Enter E-mail to logout</h2>
+                                    </div>
+                                        </h2>
+                                        <form class="ui form very padded">
+                                            <div class="ui segment">
+                                                <div class="field">
+                                                    <div class="ui left icon input">
+                                                        <i class="user icon"></i>
+                                                        <input type="text" name="email" placeholder="E-mail address">
+                                                    </div>
+                                                </div>
+                                                <div class="ui fluid large submit button">Logout</div>
+                                            </div>
+
+                                            <div class="ui error message"></div>
+                                    </form>
+                            </div>
+                        </div>
+                        
+                        <div class="ui bottom attached tab segment active" data-tab="signupButton">
+                            <div class="ui compact container">    
+                                    <div class="ui horizontal divider">
+                                <h1>Create new account</h1>
+                            </div>
+                            <div class="ui segment">
+                                <div class="field">
+                                    <h2 class="ui medium header">Name</h2>
+                                    <div class="two fields">
+                                        <div class="field">
+                                            <div class="ui left icon input">
+                                                <i class="user icon"></i>
+                                                <input placeholder="First Name" name="first_name" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="ui left icon input">
+                                                <i class="user icon"></i>
+                                                <input placeholder="Last Name" name="last_name" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <h2 class="ui medium header">Email Address</h2>
+                                    <div class="ui left icon input">
+                                        <i class="envelope outline icon"></i>
+                                        <input placeholder="Email" name="email" type="email">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <h2 class="ui medium header">Mobile Number</h2>
+                                    <div class="ui labeled input">
+                                        <div class="ui label">
+                                            +63
+                                        </div>
+                                        <input placeholder="e.g. 91234567890" name="mobile" type="tel">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <h2 class="ui medium header">Password</h2>
+                                    <div class="ui left icon input">
+                                        <i class="lock icon"></i>
+                                        <input type="password" name="password" placeholder="Enter password">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <h2 class="ui medium header">Confirm Password</h2>
+                                    <div class="ui left icon input">
+                                        <i class="lock icon"></i>
+                                        <input type="password" name="confirm_password" placeholder="Confirm password">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <h2 class="ui medium header">Company/Organization/School</h2>
+                                    <div class="ui left icon input">
+                                        <i class="building outline icon"></i>
+                                        <input placeholder="Company/Organization/School" name="company" type="text">
+                                    </div>
+                                </div>
+                                <button class="ui submit button fluid" name="register-btn">Register</button>
+                                <div class="ui error message"></div>
+                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                    <!-- floating inquiry -->
+                                    <div class="overlay">
+                                        <div class="ui labeled icon menu">
+                                            <a class="item" id="inquire"><i class="mail icon"></i>Inquiry</a>
+                                        </div>
+                                    </div>
+                            </div>
+ 
+
+            <!-- Icons -->    
+            <div class="ui left aligned vertical segment container">
+                <a href="https://www.facebook.com/calleunoph"><i class="facebook large icon"></i></a>
+                <a href="https://twitter.com/calleunoph"><i class="twitter large icon"></i></a>
+                <a href="https://www.instagram.com/calleunoph/"><i class="instagram large icon"></i></a>
+            </div>
+        </div>
+    
+            <!-- footer -->
+            <div class="ui fluid inverted segment" id="footer">
+                <div class="ui center aligned container">
+                    <p>&copy; Calle Uno 2018</p>
                 </div>
-            </div>
-            <div class="column">
-                ;aklsdjf;lkasjdf;lkasjd;l
-            </div>
-        </div>
-        <div class="overlay">
-            <div class="ui labeled icon menu">
-                <a class="item" id="inquire"><i class="mail icon"></i>Inquiry</a>
-            </div>
-        </div>
+        
     </div>
 
-    <div class="ui right aligned container">
-        <a href="https://www.facebook.com/calleunoph"><i class="facebook large icon"></i></a>
-        <a href="https://twitter.com/calleunoph"><i class="twitter large icon"></i></a>
-        <a href="https://www.instagram.com/calleunoph/"><i class="instagram large icon"></i></a>
-    </div>
-
-    <div class="ui inverted segment" id="footer">
-        <div class="ui center aligned container">
-            <p>&copy; Calle Uno 2018</p>
-        </div>
-
-    </div>
-</div>
 
 <!--Modals-->
 <?php
 include 'pagefragments/inquire.html';
 include 'pagefragments/registration.html';
-include 'pagefragments/login.html';
-include 'pagefragments/logout.html';
 ?>
 
 <!--Scripts-->
@@ -137,6 +275,18 @@ include 'pagefragments/logout.html';
     $('.menu  .ui.dropdown').dropdown({
         on: 'hover'
     });
+    $('.menu .item')
+      .tab()
+    ;
+    $('.ui.button')
+      .on('click', function() {
+        // programmatically activating tab
+        $.tab('change tab', 'loginButton');
+        $.tab('change tab', 'logoutButton');
+        $.tab('change tab', 'signupButton');
+      })
+    ;
+
 </script>
 </body>
 

@@ -11,12 +11,13 @@ date_default_timezone_set('Asia/Manila');
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
     <!-- Site Properties -->
-    <title>Calle Uno</title>
+    <title>Calle Uno: Attendance Logger</title>
 
     <link rel="stylesheet" href="assets/library/semantic/semantic.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+    
 <body>
 <div id="container">
     <div class="ui borderless menu" id="header">
@@ -26,20 +27,16 @@ date_default_timezone_set('Asia/Manila');
                     <img class="logo" src="assets/images/logo.png">
                     &nbsp;Calle Uno
                 </div>
+          
             </a>
             
-          
-            <!-- 
-                <div class"ui right floated...">
-
-            -->
         
         </div>
     </div>
 
-        <div class="ui container" id="body">
-                <div class="ui centered grid">
-                        <div class="nine wide column" style="background-color: #f4f4f4">
+    <div class="ui wide container" id="body">
+        <div class="ui centered grid">
+                        <div class="eight wide column" style="background-color: fuschia">
                             <h1>Announcements and Events</h1>
                             <div id="mixedSlider">
                                 <div class="MS-content">
@@ -79,10 +76,10 @@ date_default_timezone_set('Asia/Manila');
                             </div>
                         </div>
                     
-                    <!-- Form Section -->
-                    <div class="seven wide column">
+    <!-- Form Section -->
+    <div class="eight wide column">
                         <div class="ui top attached tabular menu">
-                            <a class="item actice" data-tab="loginButton">
+                            <a class="item active" data-tab="loginButton" href="pagefragments/login.html">
                                 Login
                             </a>
                             <a class="item" data-tab="logoutButton">
@@ -91,15 +88,18 @@ date_default_timezone_set('Asia/Manila');
                             <a class="item" data-tab="signupButton">
                                 Sign-up
                             </a>
+                            <a class="item" data-tab="inquireButton">
+                                Inquiry
+                            </a>
                         </div>
                         
                         <div class="ui bottom attached tab segment active" data-tab="loginButton">
                             <div class="ui compact container">    
-                                    <h2 class="teal header">
+ 
                                         <div class="ui horizontal divider">
-                                            <h2>Login Here</h2>
+                                            <h3>Login Here</h3>
                                         </div>
-                                    </h2>
+
 
                                     <form class="ui form very padded" id="login-form" method="post">
                                         <div class="ui segment">
@@ -135,18 +135,17 @@ date_default_timezone_set('Asia/Manila');
                                     </form>
 
                                     <div class="ui message center aligned">New to us?
-                                        <button class="mini ui button signup" id="signup-log">Sign Up</button>
+                                        <button class="mini ui button signup" id="signupButton">Sign Up</button>
                                     </div>
                             </div>
                         </div>
                         
-                        <div class="ui bottom attached tab segment active" data-tab="logoutButton">
+                        <!-- Logout Form -->
+                        <div class="ui bottom attached tab segment" data-tab="logoutButton">
                             <div class="ui compact container">    
-                                    <h2 class="teal header">
                                     <div class="ui horizontal divider">
-                                        <h2>Enter E-mail to logout</h2>
+                                        <h3>Enter E-mail to logout</h3>
                                     </div>
-                                        </h2>
                                         <form class="ui form very padded">
                                             <div class="ui segment">
                                                 <div class="field">
@@ -163,104 +162,135 @@ date_default_timezone_set('Asia/Manila');
                             </div>
                         </div>
                         
-                        <div class="ui bottom attached tab segment active" data-tab="signupButton">
+                        <!-- Registration Form -->
+                        <div class="ui bottom attached tab segment" data-tab="signupButton">
                             <div class="ui compact container">    
-                                    <div class="ui horizontal divider">
-                                <h1>Create new account</h1>
-                            </div>
-                            <div class="ui segment">
-                                <div class="field">
-                                    <h2 class="ui medium header">Name</h2>
-                                    <div class="two fields">
-                                        <div class="field">
-                                            <div class="ui left icon input">
-                                                <i class="user icon"></i>
-                                                <input placeholder="First Name" name="first_name" type="text">
-                                            </div>
-                                        </div>
-                                        <div class="field">
-                                            <div class="ui left icon input">
-                                                <i class="user icon"></i>
-                                                <input placeholder="Last Name" name="last_name" type="text">
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="ui horizontal divider">
+                                        <h3>Registration</h3>
                                 </div>
-                                <div class="field">
-                                    <h2 class="ui medium header">Email Address</h2>
-                                    <div class="ui left icon input">
-                                        <i class="envelope outline icon"></i>
-                                        <input placeholder="Email" name="email" type="email">
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <h2 class="ui medium header">Mobile Number</h2>
-                                    <div class="ui labeled input">
-                                        <div class="ui label">
-                                            +63
-                                        </div>
-                                        <input placeholder="e.g. 91234567890" name="mobile" type="tel">
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <h2 class="ui medium header">Password</h2>
-                                    <div class="ui left icon input">
-                                        <i class="lock icon"></i>
-                                        <input type="password" name="password" placeholder="Enter password">
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <h2 class="ui medium header">Confirm Password</h2>
-                                    <div class="ui left icon input">
-                                        <i class="lock icon"></i>
-                                        <input type="password" name="confirm_password" placeholder="Confirm password">
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <h2 class="ui medium header">Company/Organization/School</h2>
-                                    <div class="ui left icon input">
-                                        <i class="building outline icon"></i>
-                                        <input placeholder="Company/Organization/School" name="company" type="text">
-                                    </div>
-                                </div>
-                                <button class="ui submit button fluid" name="register-btn">Register</button>
-                                <div class="ui error message"></div>
-                            </div>
+                                <form class="ui compact form">
+                                            <div class="ui segment">
+                                                <div class="equal width fields">
+                                                    <div class="field">
+                                                    <div class="ui left icon input">
+                                                      
+                                                      <i class="user icon"></i>
+                                                      <input placeholder="First Name" type="text">
+                                                    </div>
+                                                    </div>
+                                                    <div class="field">
+                                                    <div class="ui left icon input">
+                                                      
+                                                        <i class="user icon"></i>
+                                                      <input placeholder="Last Name" type="text">
+                                                    </div>
+                                                    </div>
+                                                  </div>
+                                                <div class="equal width fields">
+                                                    <div class="field">
+                                                    <div class="ui left icon input">
+                                                        <i class="envelope outline icon"></i>
+                                                      <input placeholder="user@email.com" type="email">
+                                                    </div>
+                                                    </div>
+                                                    <div class="field">
+                                                    <div class="ui labeled input">
+                                                        <div class="ui label">+63</div>
+                                                      <input placeholder="Enter mobile number" type="text">
+                                                    </div>
+                                                    </div>
                                                 </div>
+                                                <div class="equal width fields">
+                                                    <div class="field">
+                                                    <div class="ui left icon input">
+                                                        <i class="lock icon"></i>
+                                                      <input placeholder="Enter password" type="password">
+                                                    </div>
+                                                    </div>
+                                                    <div class="field">
+                                                    <div class="ui left icon input">
+                                                        <i class="lock icon"></i>
+                                                      <input placeholder="Confirm password" type="password">
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                <div class="field">
+                                                    <div class="fluid field">
+                                                    <div class="ui left icon input">
+                                                        <i class="building outline icon"></i>
+                                                      <input placeholder="Company/Organization" type="text">
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="ui fluid large submit button">Sign-up</div>
                                             </div>
-                                        </div>
-                                </div>
-                                    <!-- floating inquiry -->
-                                    <div class="overlay">
-                                        <div class="ui labeled icon menu">
-                                            <a class="item" id="inquire"><i class="mail icon"></i>Inquiry</a>
-                                        </div>
-                                    </div>
-                            </div>
- 
 
-            <!-- Icons -->    
-            <div class="ui left aligned vertical segment container">
-                <a href="https://www.facebook.com/calleunoph"><i class="facebook large icon"></i></a>
-                <a href="https://twitter.com/calleunoph"><i class="twitter large icon"></i></a>
-                <a href="https://www.instagram.com/calleunoph/"><i class="instagram large icon"></i></a>
-            </div>
+                                            <div class="ui error message"></div>
+                                    </form>
+                                
+                            </div>
+                        </div>
+                        
+        <div class="ui bottom attached tab segment" data-tab="inquireButton">
+            <div class="ui compact container">    
+                <div class="ui horizontal divider">
+                    <h3>Inquiry</h3>
+                </div>
+                <form class="ui compact form">
+                    <div class="ui segment">
+                        <div class="equal width fields">
+                            <div class="field">
+                                <div class="ui left icon input">
+                                    <i class="user icon"></i>
+                                <input placeholder="Full Name" type="text" name="name">
+                            </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui left icon input">                             <i class="envelope outline icon"></i>
+                                <input placeholder="user@email.com" type="email" name="email">
+                            </div>
+                            </div>
+                        </div>
+                        <div class="equal width fields">
+                            <div class="field">
+                                <div class="ui left icon input">
+                                    <i class="envelope icon"></i>
+                                    <input placeholder="Subject Matter" type="text" name="subject">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui labeled input">
+                                <div class="ui label">+63</div>
+                                    <input placeholder="Enter mobile number" type="text" name="mobile">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="equal width fields">
+                            <div class="field">
+                                    <textarea rows="3" placeholder="Enter message here..." name="message"></textarea>
+                            </div>
+                                                   
+                        </div>
+                        <div class="ui fluid large submit button">Submit</div>
+                        </div>
+                            <div class="ui error message"></div>
+                </form>      
+            </div>                
         </div>
-    
-            <!-- footer -->
+    </div> <!-- End of right section (Form Area) -->       
+    </div> <!-- End of Grid -->
+            
+    </div> <!-- End of wide container -->
+        <div class="ui fixed bottom sticky" id="bottom">
             <div class="ui fluid inverted segment" id="footer">
                 <div class="ui center aligned container">
                     <p>&copy; Calle Uno 2018</p>
                 </div>
-        
-    </div>
+            </div>
+        </div>
+</div>
 
-
-<!--Modals-->
-<?php
-include 'pagefragments/inquire.html';
-include 'pagefragments/registration.html';
-?>
 
 <!--Scripts-->
 <script src="assets/library/jquery.min.js"></script>
@@ -272,9 +302,6 @@ include 'pagefragments/registration.html';
         duration: 750,
         interval: 5000
     });
-    $('.menu  .ui.dropdown').dropdown({
-        on: 'hover'
-    });
     $('.menu .item')
       .tab()
     ;
@@ -284,6 +311,12 @@ include 'pagefragments/registration.html';
         $.tab('change tab', 'loginButton');
         $.tab('change tab', 'logoutButton');
         $.tab('change tab', 'signupButton');
+      })    
+    ;
+    $('.tabular.menu .item').tab();
+    $('.ui.sticky')
+      .sticky({
+        context: '#bottom'
       })
     ;
 

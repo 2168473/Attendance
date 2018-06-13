@@ -50,27 +50,29 @@ date_default_timezone_set('Asia/Manila');
         </div>
     </div>
 
-    <div class="ui container" id="body" style="background-color: #f4f4f4">
-        <h1>Announcements and Events</h1>
-        <div id="mixedSlider">
-            <div class="MS-content">
-                <?php
-                $events = [];
-                    require 'php/connect.php';
-                    $query = "SELECT title, content, cover_image from events where end_date >= '".date("Y-m-d")."';";
-                    if ($stmt = $mysqli->prepare($query)){
-                        $stmt->execute();
-                        $stmt->bind_result($title, $content, $cover_image);
-                        while ($stmt->fetch()){
-                            $array = explode('.',$content);
-                            $intro = $array[0].'.';
-                            $events[] = array($title, $intro, $content, $cover_image);
+    <div class="ui container" id="body" >
+        <div class="ui grid">
+            <div class="ten wide column" style="background-color: #f4f4f4">
+                <h1>Announcements and Events</h1>
+                <div id="mixedSlider">
+                    <div class="MS-content">
+                        <?php
+                        $events = [];
+                        require 'php/connect.php';
+                        $query = "SELECT title, content, cover_image from events where end_date >= '".date("Y-m-d")."';";
+                        if ($stmt = $mysqli->prepare($query)){
+                            $stmt->execute();
+                            $stmt->bind_result($title, $content, $cover_image);
+                            while ($stmt->fetch()){
+                                $array = explode('.',$content);
+                                $intro = $array[0].'.';
+                                $events[] = array($title, $intro, $content, $cover_image);
+                            }
+                            $stmt->close();
                         }
-                        $stmt->close();
-                    }
-                    $mysqli->close();
-                    foreach ($events as $event){
-                        echo "
+                        $mysqli->close();
+                        foreach ($events as $event){
+                            echo "
                             <div class='item'>
                                 <div class='imgTitle'>
                                     <h2 class='blogTitle'>$event[0]</h2>
@@ -80,16 +82,21 @@ date_default_timezone_set('Asia/Manila');
                                     <a href=''>Read More</a>
                             </div>
                         ";
-                    }
-                ?>
+                        }
+                        ?>
+                    </div>
+                    <div class="MS-controls">
+                        <button class="MS-left"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                        <button class="MS-right"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                    </div>
+                </div>
             </div>
-            <div class="MS-controls">
-                <button class="MS-left"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
-                <button class="MS-right"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+            <div class="column">
+                ;aklsdjf;lkasjdf;lkasjd;l
             </div>
         </div>
         <div class="overlay">
-            <div class="ui labeled icon vertical menu">
+            <div class="ui labeled icon menu">
                 <a class="item" id="inquire"><i class="mail icon"></i>Inquiry</a>
             </div>
         </div>

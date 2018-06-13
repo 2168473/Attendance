@@ -9,7 +9,6 @@ $.fn.form.settings.rules.checkPassword = function (value) {
         type: "POST",
         data: {
             password: value,
-            email: email,
         },
         dataType: "html",
         success: function (data) {
@@ -28,8 +27,7 @@ $.fn.form.settings.rules.checkEmail = function (value) {
         url: 'php/checkEmail.php',
         type: "POST",
         data: {
-            password: value,
-            email: email,
+            email: value,
         },
         dataType: "html",
         success: function (data) {
@@ -67,10 +65,7 @@ $('#login-form')
                         type: 'empty',
                         prompt: 'Please enter your password'
                     },
-                    {
-                        type: 'checkPassword',
-                        prompt: 'Wrong Password'
-                    }
+
                 ]
             },
             purpose: {
@@ -89,21 +84,19 @@ $('#login-form')
 /*===============Registration Validations===============*/
 //Check if Email is Existing
 $.fn.form.settings.rules.existingEmail = function (value) {
-    let email = document.getElementById('ea').value;
-    let result = false;
+    let result = true;
     $.ajax({
         async: false,
         url: 'php/checkEmail.php',
         type: "POST",
         data: {
-            password: value,
-            email: email,
+            email: value,
         },
         dataType: "html",
         success: function (data) {
             if (data) {
                 result = false;
-            } else {
+            }else{
                 result = true;
             }
         }
@@ -140,10 +133,6 @@ $('#registration-form')
                         type: 'email',
                         prompt: 'Please enter a valid email address'
                     },
-                    {
-                        type: 'existingEmail',
-                        prompt: 'Email Address not available'
-                    }
                 ]
             },
             mobile: {

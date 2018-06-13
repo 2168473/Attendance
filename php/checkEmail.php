@@ -15,6 +15,8 @@ if (isset($_POST['email'])) {
         $mysqli->close();
         if ($rows == 1){
             echo 'true';
+        }else{
+            echo 'false';
         }
     }
 }

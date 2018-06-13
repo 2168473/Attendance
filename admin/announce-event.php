@@ -84,7 +84,7 @@ include 'functions.php';
                 <tfoot>
                 <tr>
                     <th colspan="6" class="right aligned">
-                        <button class="ui blue button" id="add-event">Add Announcement/Event</button>
+                        <button class="ui button" id="add-event">Add Announcement/Event</button>
                     </th>
                 </tr>
                 </tfoot>

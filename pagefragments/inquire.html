@@ -1,57 +1,42 @@
-<div class="ui small modal" id="inquiry">
-    <form class="ui form segment" method="post" action="php/inquire.php"id="inquiry-form">
-        <div class="ui horizontal divider">
-            <h1>Inquire</h1>
-        </div>
-        
+    <div class="ui horizontal divider">
+        <h3>Inquiry</h3>
+    </div>
+    <form class="ui compact form" action="php/inquire.php">
         <div class="ui segment">
-            <!-- Full name field input-->
-            <div class="field">
-                <h2 class="ui medium header">Full Name</h2>
-                <div class="ui left icon input">
-                    <i class="user icon"></i>
-                    <input placeholder="First Name Last name" name="name" type="text">
-                </div>
-            </div>
-
-
-            <!-- Email Address field input-->
-            <div class="field">
-                <h2 class="ui medium header">Email Address</h2>
-                <div class="ui left icon input">
-                    <i class="envelope outline icon"></i>
-                    <input placeholder="Email" name="email" type="email">
-                </div>
-            </div>
-
-            <!-- Mobile number input -->
-            <div class="field">
-                <h2 class="ui medium header">Mobile Number</h2>
-                <div class="ui labeled input">
-                    <div class="ui label">
-                        +63
+            <div class="equal width fields">
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input placeholder="Full Name" type="text" name="name">
                     </div>
-                    <input placeholder="e.g. 91234567890" name="mobile" type="tel">
+                </div>
+                <div class="field">
+                    <div class="ui left icon input"><i class="envelope outline icon"></i>
+                        <input placeholder="user@email.com" type="email" name="email">
+                    </div>
                 </div>
             </div>
-
-            <!-- Subject field input-->
-            <div class="field">
-                <h2 class="ui medium header">Subject Matter</h2>
-                <div class="ui left icon input">
-                    <i class="envelope outline icon"></i>
-                    <input placeholder="Subject" name="subject" type="text">
+            <div class="equal width fields">
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="envelope icon"></i>
+                        <input placeholder="Subject Matter" type="text" name="subject">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui labeled input">
+                        <div class="ui label">+63</div>
+                        <input placeholder="Enter mobile number" type="text" name="mobile">
+                    </div>
                 </div>
             </div>
-
-            <!-- Message field -->
-            <div class="field">
-                <h2 class="ui medium header">Message</h2>
-                <textarea rows="3" placeholder="Enter message or concern here..." name="message"></textarea>
+            <div class="equal width fields">
+                <div class="field">
+                    <textarea rows="3" placeholder="Enter message here..."
+                              name="message"></textarea>
+                </div>
             </div>
-            <!-- Submit button -->
-            <button class="ui submit button fluid" name="send" id="inquire">Send</button>
-            <div class="ui error message"></div>
+            <div class="ui fluid large submit button">Submit</div>
         </div>
+        <div class="ui error message"></div>
     </form>
-</div>

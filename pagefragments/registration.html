@@ -1,65 +1,59 @@
-<div class="ui small modal register" id="register">
-    <form class="ui form segment" method="post" action="php/register.php" id="registration-form">
-        <div class="ui horizontal divider">
-            <h1>Create new account</h1>
-        </div>
+<div class="ui horizontal divider">
+    <h3>Registration</h3>
+    </div>
+    <form class="ui compact form" action="php/register.php">
         <div class="ui segment">
-            <div class="field">
-                <h2 class="ui medium header">Name</h2>
-                <div class="two fields">
-                    <div class="field">
-                        <div class="ui left icon input">
-                            <i class="user icon"></i>
-                            <input placeholder="First Name" name="first_name" type="text">
-                        </div>
+            <div class="equal width fields">
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input placeholder="First Name" type="text">
                     </div>
-                    <div class="field">
-                        <div class="ui left icon input">
-                            <i class="user icon"></i>
-                            <input placeholder="Last Name" name="last_name" type="text">
-                        </div>
+                </div>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input placeholder="Last Name" type="text">
                     </div>
                 </div>
             </div>
-            <div class="field">
-                <h2 class="ui medium header">Email Address</h2>
-                <div class="ui left icon input">
-                    <i class="envelope outline icon"></i>
-                    <input placeholder="Email" name="email" type="email">
-                </div>
-            </div>
-            <div class="field">
-                <h2 class="ui medium header">Mobile Number</h2>
-                <div class="ui labeled input">
-                    <div class="ui label">
-                        +63
+            <div class="equal width fields">
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="envelope outline icon"></i>
+                        <input placeholder="user@email.com" type="email">
                     </div>
-                    <input placeholder="e.g. 91234567890" name="mobile" type="tel">
+                </div>
+                <div class="field">
+                    <div class="ui labeled input">
+                        <div class="ui label">+63</div>
+                        <input placeholder="Enter mobile number" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="equal width fields">
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input placeholder="Enter password" type="password">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input placeholder="Confirm password" type="password">
+                    </div>
                 </div>
             </div>
             <div class="field">
-                <h2 class="ui medium header">Password</h2>
-                <div class="ui left icon input">
-                    <i class="lock icon"></i>
-                    <input type="password" name="password" placeholder="Enter password">
+                <div class="fluid field">
+                    <div class="ui left icon input">
+                        <i class="building outline icon"></i>
+                        <input placeholder="Company/Organization" type="text">
+                    </div>
                 </div>
             </div>
-            <div class="field">
-                <h2 class="ui medium header">Confirm Password</h2>
-                <div class="ui left icon input">
-                    <i class="lock icon"></i>
-                    <input type="password" name="confirm_password" placeholder="Confirm password">
-                </div>
-            </div>
-            <div class="field">
-                <h2 class="ui medium header">Company/Organization/School</h2>
-                <div class="ui left icon input">
-                    <i class="building outline icon"></i>
-                    <input placeholder="Company/Organization/School" name="company" type="text">
-                </div>
-            </div>
-            <button class="ui submit button fluid" name="register-btn">Register</button>
-            <div class="ui error message"></div>
+            <div class="ui fluid large submit button">Sign-up</div>
         </div>
-    </form>
-</div>
+        <div class="ui error message"></div>
+</form>

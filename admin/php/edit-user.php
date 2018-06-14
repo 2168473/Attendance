@@ -1,5 +1,5 @@
 <?php
-define('host', '192.168.1.23');
+define('host', 'localhost');
 define('user', 'root');
 define('password', '');
 define('database', 'logbook');

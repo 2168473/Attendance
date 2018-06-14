@@ -1,21 +1,18 @@
-<div class="ui small modal register" id="logout-modal">
-    <div class="ui raised segment">
-        <h2 class="teal header">
-            <div class="ui horizontal divider">
-                <h2>Enter E-mail to logout</h2>
-            </div>
-        </h2>
-        <form class="ui form very padded">
+<div class="ui tab segment" data-tab="logoutButton">
+    <div class="ui compact container">
+        <div class="ui horizontal divider">
+            <h3>Enter E-mail to logout</h3>
+        </div>
+        <form class="ui form very padded" id="logout-form" method="post" action="php/logout.php">
             <div class="ui segment">
                 <div class="field">
                     <div class="ui left icon input">
                         <i class="user icon"></i>
-                        <input type="text" name="email" placeholder="E-mail address">
+                        <input type="text" name="email" placeholder="E-mail address" id="logout_email">
                     </div>
                 </div>
                 <div class="ui fluid large submit button">Logout</div>
             </div>
-
             <div class="ui error message"></div>
         </form>
     </div>

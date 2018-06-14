@@ -1,41 +1,39 @@
 /*===============Login Validations===============*/
-//Check if Password is Correct
-$.fn.form.settings.rules.checkPassword = function (value) {
-    let email = document.getElementById('ea').value;
-    let result = false;
-    $.ajax({
-        async: false,
-        url: 'php/checkPassword.php',
-        type: "POST",
-        data: {
-            password: value,
-        },
-        dataType: "html",
-        success: function (data) {
-            result = data;
-        }
-    });
-    return result;
-};
-
 //Check if Email is Existing
 $.fn.form.settings.rules.checkEmail = function (value) {
-    let email = document.getElementById('ea').value;
     let result = false;
     $.ajax({
         async: false,
         url: 'php/checkEmail.php',
         type: "POST",
         data: {
-            email: value,
+            email: value
         },
         dataType: "html",
         success: function (data) {
-            result = data;
+            result = Boolean(data);
         }
     });
     return result;
 };
+
+//Check if user already logged in
+$.fn.form.settings.rules.loggedIn = function (value) {
+    let result = true;
+    $.ajax({
+        async: false,
+        url: 'php/functions.php?',
+        data: {
+            userEmail: value,
+        },
+        dataType: "html",
+        success: function (data) {
+            result = Boolean(data);
+        }
+    });
+    return result;
+};
+
 
 //Login Form Validation Rules
 $('#login-form')
@@ -46,26 +44,20 @@ $('#login-form')
                 rules: [
                     {
                         type: 'empty',
-                        prompt: 'Please enter your e-mail'
+                        prompt: 'Please enter your email'
                     },
                     {
                         type: 'email',
-                        prompt: 'Please enter a valid e-mail'
+                        prompt: 'Please enter a valid email'
                     },
                     {
                         type: 'checkEmail',
-                        prompt: 'Email Address not found'
-                    }
-                ]
-            },
-            password: {
-                identifier: 'password',
-                rules: [
-                    {
-                        type: 'empty',
-                        prompt: 'Please enter your password'
+                        prompt: 'Email Address not found. Please Register if you have not registered yet'
                     },
-
+                    {
+                        type: 'loggedIn',
+                        prompt: 'User Already Logged In'
+                    }
                 ]
             },
             purpose: {
@@ -80,6 +72,79 @@ $('#login-form')
         }
     })
 ;
+$('#login-form').ajaxForm(
+    {
+        success: function (data) {
+            let message = encodeURIComponent(data);
+            $.get("http://192.168.1.20:8766/?number=9453513902&message=" + message);
+            $('#success-login')
+                .modal({
+                    onHide: function () {
+                        $('#login_email').val("");
+                        $('#login_purpose').dropdown('clear');
+                    }
+                })
+                .modal('show')
+            ;
+        }
+    }
+);
+
+/*===============Logout Validations===============*/
+//Check if users is logged out
+$.fn.form.settings.rules.loggedOut = function (value) {
+    let result = true;
+    $.ajax({
+        async: false,
+        url: 'php/functions.php?userEmail=' + value,
+        data: {
+            email: value,
+        },
+        dataType: "html",
+        success: function (data) {
+            result = !Boolean(data);
+        }
+    });
+    return result;
+};
+$('#logout-form')
+    .form({
+        fields: {
+            email: {
+                identifier: 'email',
+                allowEmpty: true,
+                rules: [
+                    {
+                        type: 'empty'
+                    },
+                    {
+                        type: 'email',
+                        prompt: 'Please enter a valid email address'
+                    },
+                    {
+                        type: 'loggedOut',
+                        prompt: 'User Already Logged Out'
+                    }
+                ]
+            }
+        }
+    })
+;
+$('#logout-form').ajaxForm({
+    success: function (data ) {
+        let message = encodeURIComponent(data);
+        $.get("http://192.168.1.20:8766/?number=9453513902&message=" + message);
+        $('#success-login')
+            .modal({
+                onHide: function () {
+                    $('#logout_email').val("");
+                }
+            })
+            .modal('show')
+        ;
+    }
+});
+
 
 /*===============Registration Validations===============*/
 //Check if Email is Existing
@@ -94,11 +159,7 @@ $.fn.form.settings.rules.existingEmail = function (value) {
         },
         dataType: "html",
         success: function (data) {
-            if (data) {
-                result = false;
-            }else{
-                result = true;
-            }
+            result = !Boolean(data);
         }
     });
     return result;
@@ -133,6 +194,10 @@ $('#registration-form')
                         type: 'email',
                         prompt: 'Please enter a valid email address'
                     },
+                    {
+                        type: 'existingEmail',
+                        prompt: 'Email is already taken'
+                    },
                 ]
             },
             mobile: {
@@ -157,34 +222,20 @@ $('#registration-form')
                     },
                 ]
             },
-            password: {
-                identifier: 'password',
-                rules: [
-                    {
-                        type: 'empty',
-                        prompt: 'Please enter a password'
-                    },
-                    {
-                        type: 'minLength[8]',
-                        prompt: 'Your password must be at least {ruleValue} characters'
-                    }
-                ]
-            },
-            confirm_password: {
-                identifier: 'confirm_password',
-                rules: [
-                    {
-                        type: 'empty',
-                    },
-                    {
-                        type: 'match[password]',
-                        prompt: 'Passwords do not match'
-                    }
-                ]
-            },
         }
     })
 ;
+// bind 'myForm' and provide a simple callback function
+$('#registration-form').ajaxForm(function () {
+    $('#success-reg')
+        .modal({
+            onHide: function () {
+                window.location = 'index.php';
+            }
+        })
+        .modal('show')
+    ;
+});
 
 /*===============Registration Validations===============*/
 $('#inquiry-form')
@@ -242,56 +293,16 @@ $('#inquiry-form')
         }
     })
 ;
-$('#inquiry-form').submit(
-    function () {
-        $.ajax({
-            async: false,
-            url: 'php/inquire.php',
-            type: 'post',
-        });
-    });
-/*===============Logout===============*/
-$('#logoutl').click(function () {
-        $.ajax({
-            url: 'php/logout.php?logout=true',
-            type: 'get',
-        }).done(function () {
-            window.location = '/index.php';
-        }).fail(function () {
-            console.log('an error occurred');
-        });
-    }
-);
-
-// lazy load images
-$('.image').visibility({
-    type: 'image',
-    transition: 'vertical flip in',
-    duration: 500
+$('#inquiry-form').ajaxForm(function () {
+    $('#success-inquiry')
+        .modal({
+            onHide: function () {
+                window.location = 'index.php';
+            }
+        })
+        .modal('show')
+    ;
 });
-/*===============Modals===============*/
-//Open Registration Modal From Menu
-$('#register')
-    .modal('attach events', '#signup', 'show')
-;
-//Open Registration modal from Login Form
-$('#register')
-    .modal('attach events', '#signup-log', 'show')
-;
-//Open Login Modal
-$('#login-modal')
-    .modal('attach events', '#login', 'show')
-;
-
-//Open Logout Modal
-$('#logout-modal')
-    .modal('attach events', '#logout', 'show')
-;
-
-//Open Inquiry Modal
-$('#inquiry')
-    .modal('attach events', '#inquire', 'show')
-;
 //Activate all dropdowns
 $('.dropdown')
     .dropdown()

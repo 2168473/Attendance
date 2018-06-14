@@ -20,13 +20,12 @@ if (isset($_POST['register-btn']) || isset($_POST['company'])) {
     $company = strip_tags($company);
     $company = htmlspecialchars($company);
     $company = ucwords(strtolower($company));
-    $password = $_POST['password'];
-    $password = password_hash($password, 1);
-    $query = 'INSERT INTO `users` (first_name, last_name, userEmail, userMobile, userCompany, userPass,userLevel) VALUES (?,?,?,?,?,?,1)';
+    $query = 'INSERT INTO `users` (first_name, last_name, userEmail, userMobile, userCompany, userLevel) VALUES (?,?,?,?,?,1)';
     if ($stmt = $mysqli->prepare($query)) {
-        $stmt->bind_param('ssssss', $first_name, $last_name, $email, $mobile, $company, $password);
+        $stmt->bind_param('sssss', $first_name, $last_name, $email, $mobile, $company);
         $stmt->execute();
         $stmt->close();
+        echo "Success";
     }
     $mysqli->close();
     header('Location: ../index.php');

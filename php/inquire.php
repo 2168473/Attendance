@@ -6,7 +6,8 @@ use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
 require '../vendor/autoload.php';
-if (isset($_POST['send'])) {
+if (isset($_POST['send']) || isset($_POST['name']) || isset($_POST['email']) || isset($_POST['subject']) || isset
+    ($_POST['message'])) {
     $name = trim($_POST['name']);
     $name = strip_tags($name);
     $name = htmlspecialchars($name);
@@ -23,7 +24,7 @@ if (isset($_POST['send'])) {
     $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
     try {
         //Server settings
-        $mail->SMTPDebug = 2;                                 // Enable verbose debug output
+        $mail->SMTPDebug = 0;                                 // Enable verbose debug output
         $mail->isSMTP();                                      // Set mailer to use 2SMTP
         $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                               // Enable SMTP authentication
@@ -51,5 +52,6 @@ if (isset($_POST['send'])) {
     } catch (Exception $e) {
         echo 'Message could not be sent. Mailer Error: ';// $mail->ErrorInfo;
     }
-    header('Location: ../index.php');
+
+    //header('Location: ../index.php');
 }

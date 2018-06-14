@@ -9,7 +9,7 @@ if ($stmt = $mysqli->prepare("select count(userId) from sessions where sessionOu
     $stmt->fetch();
     $stmt->close();
 }
-if ($stmt = $mysqli->prepare("select count(userId) from sessions where sessionIn>=NOW();")) {
+if ($stmt = $mysqli->prepare("select count(userId) from sessions where sessionIn>=CURDATE();")) {
     $stmt->execute();
     $stmt->bind_result($todays_login);
     $stmt->fetch();
@@ -135,7 +135,7 @@ if ($stmt = $mysqli->prepare("select count(userId) from users;")) {
                     </div>
                 </div>
             </div>
-            <table id="users-log" class="ui striped selectable celled table">
+            <table id="users-log" class="ui striped celled table">
                 <thead>
                 <tr>
                     <th>Full Name</th>
@@ -170,27 +170,25 @@ if ($stmt = $mysqli->prepare("select count(userId) from users;")) {
 <script src="assets/js/admin.js"></script>
 <script>
     $.fn.dataTable.ext.search.push(
-        function (settings, data, dataIndex) {
-            var min = new Date($('#min').val());
-            var max = new Date($('#max').val());
-            var date = new Date(data[4]); // use data for the age column
-            if ((isNaN(min) && isNaN(max)) ||
+        function (settings, data) {
+            let min = new Date($('#min').val()+ ' 00:00:00');
+            let max = new Date($('#max').val()+ ' 23:59:59');
+            let date = new Date(data[5]); // use data for the age column
+            console.log('min: ' + min);
+            console.log('max: ' + min);
+            return (isNaN(min) && isNaN(max)) ||
                 (isNaN(min) && date <= max) ||
                 (min <= date && isNaN(max)) ||
-                (min <= date && date <= max)) {
-                return true;
-            }
-            return false;
+                (min <= date && date <= max);
+
         }
     );
 
-    $(document).ready(function () {
-        var table = $('#users-log').DataTable();
+    let table = $('#users-log').DataTable();
 
-        // Event listener to the two range filtering inputs to redraw on input
-        $('#min, #max').change(function () {
-            table.draw();
-        });
+    // Event listener to the two range filtering inputs to redraw on input
+    $('#min, #max').change(function () {
+        table.draw();
     });
     $('#min_date').calendar({
         type: 'date',
@@ -198,20 +196,19 @@ if ($stmt = $mysqli->prepare("select count(userId) from users;")) {
         formatter: {
             date: function (date) {
                 if (!date) return '';
-                var day = date.getDate() + '';
+                let day = date.getDate() + '';
                 if (day.length < 2) {
                     day = '0' + day;
                 }
-                var month = (date.getMonth() + 1) + '';
+                let month = (date.getMonth() + 1) + '';
                 if (month.length < 2) {
                     month = '0' + month;
                 }
-                var year = date.getFullYear();
+                let year = date.getFullYear();
                 return year + '-' + month + '-' + day;
             }
         },
         onHide: function () {
-            console.log('a;sldkfj;ladskfj;kldfsaj;lfsdajl');
             $('#users-log').DataTable().draw();
         }
 
@@ -222,20 +219,19 @@ if ($stmt = $mysqli->prepare("select count(userId) from users;")) {
         formatter: {
             date: function (date) {
                 if (!date) return '';
-                var day = date.getDate() + '';
+                let day = date.getDate() + '';
                 if (day.length < 2) {
                     day = '0' + day;
                 }
-                var month = (date.getMonth() + 1) + '';
+                let month = (date.getMonth() + 1) + '';
                 if (month.length < 2) {
                     month = '0' + month;
                 }
-                var year = date.getFullYear();
+                let year = date.getFullYear();
                 return year + '-' + month + '-' + day;
             }
         },
         onHide: function () {
-            console.log('a;sldkfj;ladskfj;kldfsaj;lfsdajl');
             $('#users-log').DataTable().draw();
         }
     });

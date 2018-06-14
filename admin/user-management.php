@@ -106,7 +106,7 @@ include 'php/functions.php';
             $('#first_name').val(data['first_name']);
             $('#last_name').val(data['last_name']);
             $('#email').val(data['userEmail']);
-            $('#mobile').val(String(data['userMobile']).substring(4));
+            $('#mobile').val(String(data['userMobile']).substring(3));
             $('#company').val(data['userCompany']);
             $('#user_level').val(data['userLevel']);
             $('#userId').val(id);

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14a55fd8-8c4f-4d1c-afef-05c2ffc43868" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/php/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/php/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/connect.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/connect.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,11 +17,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="admin.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="admin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
+            <state relative-caret-position="727">
               <caret line="236" column="14" selection-start-line="236" selection-start-column="14" selection-end-line="236" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="connect.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/connect.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/php/functions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+              <folding>
+                <element signature="n#getUserLogs#0;n#!!top" />
+                <element signature="n#getUsers#0;n#!!top" />
+                <element signature="n#getUser#0;n#!!top" />
+                <element signature="n#getAnnouncements#0;n#!!top" />
+                <element signature="n#getAnnouncement#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -138,7 +163,6 @@
         <option value="$PROJECT_DIR$/php/register.php" />
         <option value="$PROJECT_DIR$/admin/functions.php" />
         <option value="$PROJECT_DIR$/admin/functions.php" />
-        <option value="$PROJECT_DIR$/php/connect.php" />
         <option value="$PROJECT_DIR$/admin/edit-event.php" />
         <option value="$PROJECT_DIR$/php/checkEmail.php" />
         <option value="$PROJECT_DIR$/admin/edit-event.html" />
@@ -161,12 +185,13 @@
         <option value="$PROJECT_DIR$/admin/user-management.php" />
         <option value="$PROJECT_DIR$/admin/pagefragments/delete-user.html" />
         <option value="$PROJECT_DIR$/admin/pagefragments/delete-event.html" />
-        <option value="$PROJECT_DIR$/admin/php/functions.php" />
         <option value="$PROJECT_DIR$/sendSMS.php" />
         <option value="$PROJECT_DIR$/sample.html" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/assets/js/admin.js" />
         <option value="$PROJECT_DIR$/admin.php" />
+        <option value="$PROJECT_DIR$/php/connect.php" />
+        <option value="$PROJECT_DIR$/admin/php/functions.php" />
       </list>
     </option>
   </component>
@@ -209,6 +234,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -251,13 +277,17 @@
             </path>
             <path>
               <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Attendance" type="462c0819:PsiDirectoryNode" />
+              <item name="php" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -330,11 +360,12 @@
       <workItem from="1528852793957" duration="6000" />
       <workItem from="1528853043904" duration="23831000" />
       <workItem from="1528901838917" duration="310000" />
+      <workItem from="1528939230550" duration="894000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="203509000" />
+    <option name="totallyTimeSpent" value="204403000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -347,8 +378,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21331316" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21633889" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32972136" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50075644" side_tool="true" weight="0.32972136" />
@@ -357,14 +389,14 @@
       <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49924356" weight="0.32972136" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32972136" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49924356" visible="true" weight="0.39164087" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49924356" visible="true" weight="0.39164087" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="PHP-CGI Server" order="8" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="PHP-CGI Server" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32972136" />
@@ -408,6 +440,34 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4012">
+          <caret line="236" column="14" selection-start-line="236" selection-start-column="14" selection-end-line="236" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="2" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/admin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2975">
@@ -577,20 +637,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sendsms.php" />
-    <entry file="file://$PROJECT_DIR$/admin/php/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="103" column="75" selection-start-line="103" selection-start-column="75" selection-end-line="103" selection-end-column="75" />
-          <folding>
-            <element signature="n#getUserLogs#0;n#!!top" />
-            <element signature="n#getUsers#0;n#!!top" />
-            <element signature="n#getUser#0;n#!!top" />
-            <element signature="n#getAnnouncements#0;n#!!top" />
-            <element signature="n#getAnnouncement#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sample.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -621,8 +667,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
+        <state relative-caret-position="727">
           <caret line="236" column="14" selection-start-line="236" selection-start-column="14" selection-end-line="236" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/connect.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/php/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+          <folding>
+            <element signature="n#getUserLogs#0;n#!!top" />
+            <element signature="n#getUsers#0;n#!!top" />
+            <element signature="n#getUser#0;n#!!top" />
+            <element signature="n#getAnnouncements#0;n#!!top" />
+            <element signature="n#getAnnouncement#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>

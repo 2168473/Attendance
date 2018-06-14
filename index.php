@@ -55,15 +55,14 @@ date_default_timezone_set('Asia/Manila');
                         $mysqli->close();
                         foreach ($events as $event) {
                             echo "
-                                        <div class='item'>
-                                            <div class='imgTitle'>
-                                                <h2 class='blogTitle'>$event[0]</h2>
-                                                <img src='data:image;base64," . base64_encode($event[3]) . "'>
-                                             </div>
-                                                <p>$event[1]</p>
-                                                <a href=''>Read More</a>
-                                        </div>
-                                    ";
+                              <div class='item'>
+                              <div class='imgTitle'>
+                                  <h2 class='blogTitle'>$event[0]</h2>
+                                <img src='data:image;base64," . base64_encode($event[3]) . "'>
+                                </div>
+                                <p>$event[1]</p>
+                                <a href='pagefragments/eventViewer.html'>Read More</a>
+                           </div>";
                         }
                         ?>
                     </div>

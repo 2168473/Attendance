@@ -28,10 +28,7 @@ date_default_timezone_set('Asia/Manila');
                     <img class="logo" src="assets/images/logo.png">
                     &nbsp;Calle Uno
                 </div>
-
             </a>
-
-
         </div>
     </div>
 
@@ -58,15 +55,14 @@ date_default_timezone_set('Asia/Manila');
                         $mysqli->close();
                         foreach ($events as $event) {
                             echo "
-                                        <div class='item'>
-                                            <div class='imgTitle'>
-                                                <h2 class='blogTitle'>$event[0]</h2>
-                                                <img src='data:image;base64," . base64_encode($event[3]) . "'>
-                                             </div>
-                                                <p>$event[1]</p>
-                                                <a href='pagefragments/eventViewer.html'>Read More</a>
-                                        </div>
-                                    ";
+                              <div class='item'>
+                              <div class='imgTitle'>
+                                  <h2 class='blogTitle'>$event[0]</h2>
+                                <img src='data:image;base64," . base64_encode($event[3]) . "'>
+                                </div>
+                                <p>$event[1]</p>
+                                <a href='pagefragments/eventViewer.html'>Read More</a>
+                           </div>";
                         }
                         ?>
                     </div>
@@ -140,36 +136,46 @@ date_default_timezone_set('Asia/Manila');
     </div>
 </div>
 
+    
+    <!--Scripts-->
+    <script src="assets/library/jquery.min.js"></script>
+    <script src="assets/library/semantic/semantic.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/library/multislider.js"></script>
 
-<!--Scripts-->
-<script src="assets/library/jquery.min.js"></script>
-<script src="assets/library/semantic/semantic.min.js"></script>
-<script src="assets/js/script.js"></script>
-<script src="assets/library/multislider.js"></script>
-<script>
-    $('#mixedSlider').multislider({
-        duration: 1000,
-        interval: 7500
-    });
-    $('.menu .item')
-        .tab()
-    ;
-    $('.ui.button')
-        .on('click', function () {
-            // programmatically activating tab
-            $.tab('change tab', 'loginButton');
-            $.tab('change tab', 'logoutButton');
-            $.tab('change tab', 'signupButton');
-        })
-    ;
-    $('.tabular.menu .item').tab();
-    $('.ui.sticky')
-        .sticky({
-            context: '#bottom'
-        })
-    ;
-
-</script>
+    <script>
+        $('#mixedSlider').multislider({
+            duration: 1000,
+            interval: 7500
+        });
+        $('.menu .item')
+            .tab()
+        ;
+        
+        $('.tabular.menu .item').tab();
+        
+        $('.ui.button')
+            .on('click', function () {
+                $.tab('change tab', 'loginButton');
+                $.tab('change tab', 'logoutButton');
+                $.tab('change tab', 'signupButton');
+            })
+        ;
+        $('.long.modal')
+          .modal('show')
+        ;
+                
+        $('.ui.sticky')
+            .sticky({
+                context: '#bottom'
+            })
+        ;
+        
+        $('.tiny.modal')
+          .modal('show')
+        ;
+    </script>
+    
 </body>
 
 </html>

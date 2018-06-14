@@ -3,19 +3,19 @@ session_start();
 date_default_timezone_set('Asia/Manila');
 include 'admin/php/functions.php';
 $mysqli = new mysqli(host, user, password, database);
-if ($stmt = $mysqli->prepare("select count(userId) from sessions where sessionOut='0000-00-00 00:00:00';")){
+if ($stmt = $mysqli->prepare("select count(userId) from sessions where sessionOut='0000-00-00 00:00:00';")) {
     $stmt->execute();
     $stmt->bind_result($current_users);
     $stmt->fetch();
     $stmt->close();
 }
-if ($stmt = $mysqli->prepare("select count(userId) from sessions where sessionIn>=NOW();")){
+if ($stmt = $mysqli->prepare("select count(userId) from sessions where sessionIn>=NOW();")) {
     $stmt->execute();
     $stmt->bind_result($todays_login);
     $stmt->fetch();
     $stmt->close();
 }
-if ($stmt = $mysqli->prepare("select count(userId) from users;")){
+if ($stmt = $mysqli->prepare("select count(userId) from users;")) {
     $stmt->execute();
     $stmt->bind_result($total_users);
     $stmt->fetch();
@@ -46,7 +46,7 @@ if ($stmt = $mysqli->prepare("select count(userId) from users;")){
         Admin <i class="dropdown icon"></i>
         <div class="menu">
             <div class="item">Logout</div>
-            
+
         </div>
     </a>
 </div>
@@ -64,18 +64,18 @@ if ($stmt = $mysqli->prepare("select count(userId) from users;")){
             Announcements<br>/Events
         </a>
         <a class="item" href="admin/user-management.php">
-            <i class="users icon" ></i>
+            <i class="users icon"></i>
             User Account<br> Management
         </a>
     </div>
     <div id="content">
         <div class="ui basic">
-            
+
             <!-- Header/ Title section -->
             <div class="ui container">
                 <div class="ui horizontal divider">User client logs</div>
             </div>
-            
+
             <!-- Three headers -->
             <div class="ui stackable grid">
                 <div class="three column row">
@@ -84,7 +84,7 @@ if ($stmt = $mysqli->prepare("select count(userId) from users;")){
                         <div class="ui segment">
                             Number of Current Logged-In Users
                             <h1>
-                                <?php echo $current_users?>
+                                <?php echo $current_users ?>
                             </h1>
                         </div>
                     </div>
@@ -93,7 +93,7 @@ if ($stmt = $mysqli->prepare("select count(userId) from users;")){
                         <div class="ui segment">
                             Number of Logins Today
                             <h1>
-                                <?php echo $todays_login?>
+                                <?php echo $todays_login ?>
                             </h1>
                         </div>
 
@@ -103,23 +103,38 @@ if ($stmt = $mysqli->prepare("select count(userId) from users;")){
                         <div class="ui segment">
                             Total Accounts Registered
                             <h1>
-                                <?php echo $total_users?>
+                                <?php echo $total_users ?>
                             </h1>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="ui form">
+                <div class="two fields">
+                    <div class="two fields">
+                        <div class="field">
+                            <label>Start date</label>
+                            <div class="ui calendar" id="min_date">
+                                <div class="ui input left icon">
+                                    <i class="calendar icon"></i>
+                                    <input type="text" id="min" placeholder="Start">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>End date</label>
+                            <div class="ui calendar" id="max_date">
+                                <div class="ui input left icon">
+                                    <i class="calendar icon"></i>
+                                    <input type="text" id="max" placeholder="End">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <table>
-                <tbody><tr>
-                    <td>Minimum age:</td>
-                    <td><input type="text" id="min" name="min"></td>
-                </tr>
-                <tr>
-                    <td>Maximum age:</td>
-                    <td><input type="text" id="max" name="max"></td>
-                </tr>
-                </tbody>
-            </table>
             <table id="users-log" class="ui striped selectable celled table">
                 <thead>
                 <tr>
@@ -150,33 +165,80 @@ if ($stmt = $mysqli->prepare("select count(userId) from users;")){
     </div>
 </div>
 <!--Scripts-->
+<script src="assets/library/calendar.min.js"></script>
 <script src="assets/library/semantic/semantic.min.js"></script>
 <script src="assets/js/admin.js"></script>
 <script>
     $.fn.dataTable.ext.search.push(
-        function( settings, data, dataIndex) {
-            let max = new Date('2018-06-12 16:49:19');
-            let min = new Date('2018-06-12 10:00:00');
-            var age = new Date(data[5]) || 0; // use data for the age column
-
-            if ( ( isNaN( min ) && isNaN( max ) ) ||
-                ( isNaN( min ) && age <= max ) ||
-                ( min <= age   && isNaN( max ) ) ||
-                ( min <= age   && age <= max ) )
-            {
+        function (settings, data, dataIndex) {
+            var min = new Date($('#min').val());
+            var max = new Date($('#max').val());
+            var date = new Date(data[4]); // use data for the age column
+            if ((isNaN(min) && isNaN(max)) ||
+                (isNaN(min) && date <= max) ||
+                (min <= date && isNaN(max)) ||
+                (min <= date && date <= max)) {
                 return true;
             }
             return false;
         }
     );
 
-    $(document).ready(function() {
+    $(document).ready(function () {
+        var table = $('#users-log').DataTable();
 
         // Event listener to the two range filtering inputs to redraw on input
-        $('#min, #max').keyup( function() {
-            userlogs.draw();
-        } );
-    } );
+        $('#min, #max').change(function () {
+            table.draw();
+        });
+    });
+    $('#min_date').calendar({
+        type: 'date',
+        endCalendar: $('#max_date'),
+        formatter: {
+            date: function (date) {
+                if (!date) return '';
+                var day = date.getDate() + '';
+                if (day.length < 2) {
+                    day = '0' + day;
+                }
+                var month = (date.getMonth() + 1) + '';
+                if (month.length < 2) {
+                    month = '0' + month;
+                }
+                var year = date.getFullYear();
+                return year + '-' + month + '-' + day;
+            }
+        },
+        onHide: function () {
+            console.log('a;sldkfj;ladskfj;kldfsaj;lfsdajl');
+            $('#users-log').DataTable().draw();
+        }
+
+    });
+    $('#max_date').calendar({
+        type: 'date',
+        startCalendar: $('#min_date'),
+        formatter: {
+            date: function (date) {
+                if (!date) return '';
+                var day = date.getDate() + '';
+                if (day.length < 2) {
+                    day = '0' + day;
+                }
+                var month = (date.getMonth() + 1) + '';
+                if (month.length < 2) {
+                    month = '0' + month;
+                }
+                var year = date.getFullYear();
+                return year + '-' + month + '-' + day;
+            }
+        },
+        onHide: function () {
+            console.log('a;sldkfj;ladskfj;kldfsaj;lfsdajl');
+            $('#users-log').DataTable().draw();
+        }
+    });
 </script>
 </body>
 

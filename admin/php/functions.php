@@ -29,7 +29,7 @@ function getUserLogs()
 
 /**
  * Fetch Users from the database
- * @return array wchich contains the userid, first name, last name, email, mobile, company and the user level
+ * @return array which contains the userid, first name, last name, email, mobile, company and the user level
  */
 function getUsers()
 {
@@ -52,20 +52,20 @@ function getUsers()
 
 /**
  * Fetch Users from the database
- * @return array wchich contains the userid, first name, last name, email, mobile, company and the user level
+ * @return array which contains the userid, first name, last name, and mobile.
  */
 function getUserPayments()
 {
     $mysqli = new mysqli(host, user, password, database);
     $data = [];
-    $query = "SELECT userId, first_name, last_name, userEmail, userMobile, userCompany, userLevel from users;";
+    $query = "SELECT first_name, last_name, sum(userPayment) from users NATURAL JOIN sessions WHERE sessionNotes ='Drop-in Coworking' GROUP BY userId;";
 
     if ($stmt = $mysqli->prepare($query)) {
         $stmt->execute();
 
-        $stmt->bind_result($id, $first_name, $last_name, $userEmail, $userMobile, $userCompany, $userLevel);
+        $stmt->bind_result($first_name, $last_name, $userPayment);
         while ($stmt->fetch()) {
-            $data[] = array($id, $first_name, $last_name, $userEmail, $userMobile, $userCompany, $userLevel);
+            $data[] = array($first_name, $last_name, $userPayment);
         }
         $stmt->close();
     }

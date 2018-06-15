@@ -119,34 +119,7 @@ include 'php/functions.php';
         });
 
     }
-    function deleteUser(id) {
-        $.get("php/functions.php?getUser=" + id, function (data) {
-            document.getElementById('user_name').innerHTML = data['first_name'] + ' ' + data['last_name'];
-            document.getElementById('userName').innerHTML = data['first_name'] + ' ' + data['last_name'];
-        });
-        $('#del-user')
-            .modal({
-                closable: false,
-                onDeny: function () {
-                    return true;
-                },
-                onApprove: function () {
-                    $.ajax({
-                        url: 'php/del-user.php?userId='+id,
-                        beforeSend: function () {
-                            $('#success-del-user').modal({
-                                onDeny: function () {
-                                    window.location = '/admin/user-management.php';
-                                }
-                            }).modal('show');
-                        }
-                    });
-
-                }
-            })
-            .modal('show')
-        ;
-    }
+    
     </script>
 </body>
 

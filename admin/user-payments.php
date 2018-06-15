@@ -60,36 +60,12 @@ include 'php/functions.php';
                 <div class="ui horizontal divider">Payments</div>
             </div>
             
-            <div class="ui form">
-                <div class="two fields">
-                    <div class="two fields">
-                        <div class="field">
-                            <label>Start date</label>
-                            <div class="ui calendar" id="min_date">
-                                <div class="ui input left icon">
-                                    <i class="calendar icon"></i>
-                                    <input type="text" id="min" placeholder="Start">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label>End date</label>
-                            <div class="ui calendar" id="max_date">
-                                <div class="ui input left icon">
-                                    <i class="calendar icon"></i>
-                                    <input type="text" id="max" placeholder="End">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <table id="users" class="ui striped selectable celled table">
                 <thead>
                 <tr>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Mobile Number</th>
                     <th>Payments Made</th>
                         
                 </tr>
@@ -99,7 +75,7 @@ include 'php/functions.php';
                 $data = getUserPayments();
                 foreach ($data as $datum) {
                     echo '<tr>';
-                    for ($x = 1; $x < count($datum); $x++) {
+                    for ($x = 0; $x < count($datum); $x++) {
                         echo "<td>$datum[$x]</td>";
                     }
                 
@@ -112,10 +88,6 @@ include 'php/functions.php';
         </div>
     </div>
 </div>
-<?php
-    include 'pagefragments/edit-user.html';
-    include 'pagefragments/delete-user.html';
-?>
     
     
 <!--Scripts-->

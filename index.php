@@ -34,6 +34,9 @@
                 <div id="mixedSlider">
                     <div class="MS-content">
                         <?php
+                        function get_words($sentence, $count = 10) {
+                            return implode(' ', array_slice(explode(' ', $sentence), 0, $count));
+                        }
                         $events = [];
                         require 'php/connect.php';
                         $query = "SELECT eventId, title, content, cover_image from events where end_date >= '" . date
@@ -42,8 +45,7 @@
                             $stmt->execute();
                             $stmt->bind_result($eventId, $title, $content, $cover_image);
                             while ($stmt->fetch()) {
-                                $array = explode('.', $content);
-                                $intro = $array[0] . '.';
+                                $intro = get_words($content,25).'...';
                                 $events[] = array($eventId, $title, $intro, $content, $cover_image);
                             }
                             $stmt->close();
@@ -111,6 +113,7 @@
 <!--Scripts-->
 
 <script src="assets/library/jquery.min.js"></script>
+<script src="assets/library/sweetalert.min.js"></script>
 <script src="assets/library/jquery.form.min.js"></script>
 <script src="assets/library/semantic/semantic.min.js"></script>
 <script src="assets/library/multislider.js"></script>
@@ -121,8 +124,9 @@ function viewEvent(eventId){
         document.getElementById('view_header').innerHTML = data['title'];
         document.getElementById('view_content').innerHTML = data['content'];
         document.getElementById('view_cover_image').src = data['cover_image'];
+        $('#viewEvent').modal('show');
     });
-    ;$('#viewEvent').modal('show');
+    ;
 }
 </script>
 </body>

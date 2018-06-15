@@ -52,6 +52,6 @@ if (isset($_POST['send']) || isset($_POST['name']) || isset($_POST['email']) || 
     } catch (Exception $e) {
         echo 'Message could not be sent. Mailer Error: ';// $mail->ErrorInfo;
     }
-
-    //header('Location: ../index.php');
+}else{
+    echo "Failed";
 }

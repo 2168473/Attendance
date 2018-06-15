@@ -234,6 +234,20 @@ $('#registration-form').form({
 });
 
 /*===============Registration Validations===============*/
+$('#send')
+    .api({
+        responseAsync: function(settings, callback) {
+            var response = {
+                success: true
+            };
+            // do any asynchronous task here
+            setTimeout(function() {
+                callback(response);
+            }, 5000);
+        }
+    })
+
+;
 $('#inquiry-form').form({
     fields: {
         name: {
@@ -287,14 +301,24 @@ $('#inquiry-form').form({
         },
     }
 }).ajaxForm(function () {
-    $('#success-inquiry')
-        .modal({
-            onHide: function () {
-                window.location = 'index.php';
-            }
-        })
-        .modal('show')
-    ;
+    swal({
+        title: "Good job!",
+        text: "You clicked the button!",
+        icon: "success",
+        button: "Aww yiss!",
+    });
+    // $('#success-inquiry')
+    //     .modal('show')
+    //     .modal({
+    //         onHide: function () {
+    //             $('#name').val("");
+    //             $('#email').val("");
+    //             $('#subject').val("");
+    //             $('#mobile').val("");
+    //             $('#message').val("");
+    //         }
+    //     })
+    // ;
 });
 
 //Activate all dropdowns

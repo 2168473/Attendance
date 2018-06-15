@@ -16,10 +16,26 @@ function isLoggedIn($userEmail, $mysqli){
     }
     $mysqli->close();
     if (!in_array($email, $users)){
-        echo 'true';
+        return 'true';
     }
 }
 
 if (isset($_GET['userEmail'])){
-    isLoggedIn($_GET['userEmail'], $mysqli);
+    echo isLoggedIn($_GET['userEmail'], $mysqli);
+}
+
+if (isset($_GET['eventId'])){
+    $query = "SELECT title, content, cover_image from events where eventId = ?";
+    if ($stmt = $mysqli->prepare($query)){
+        $stmt->bind_param('s', $_GET['eventId']);
+        $stmt->execute();
+        $stmt->bind_result($title, $content, $cover_image);
+        $stmt->fetch();
+        $cover_image = "data:image;base64,".base64_encode($cover_image);
+        $data = array('title'=>$title, 'content'=>$content, 'cover_image'=>$cover_image);
+        $data = json_encode($data);
+        $stmt->close();
+    }
+    $mysqli->close();
+    echo $data;
 }

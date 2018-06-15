@@ -1,8 +1,3 @@
-<?php
-session_start();
-date_default_timezone_set('Asia/Manila');
-
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +11,7 @@ date_default_timezone_set('Asia/Manila');
 
     <link rel="stylesheet" href="assets/library/semantic/semantic.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/library/font-awesome.min.css">
 </head>
 
 <body>
@@ -41,14 +36,15 @@ date_default_timezone_set('Asia/Manila');
                         <?php
                         $events = [];
                         require 'php/connect.php';
-                        $query = "SELECT title, content, cover_image from events where end_date >= '" . date("Y-m-d") . "';";
+                        $query = "SELECT eventId, title, content, cover_image from events where end_date >= '" . date
+                            ("Y-m-d") . "'";
                         if ($stmt = $mysqli->prepare($query)) {
                             $stmt->execute();
-                            $stmt->bind_result($title, $content, $cover_image);
+                            $stmt->bind_result($eventId, $title, $content, $cover_image);
                             while ($stmt->fetch()) {
                                 $array = explode('.', $content);
                                 $intro = $array[0] . '.';
-                                $events[] = array($title, $intro, $content, $cover_image);
+                                $events[] = array($eventId, $title, $intro, $content, $cover_image);
                             }
                             $stmt->close();
                         }
@@ -57,11 +53,11 @@ date_default_timezone_set('Asia/Manila');
                             echo "
                               <div class='item'>
                               <div class='imgTitle'>
-                                  <h2 class='blogTitle'>$event[0]</h2>
-                                <img src='data:image;base64," . base64_encode($event[3]) . "'>
+                                  <h2 class='blogTitle'>$event[1]</h2>
+                                <img src='data:image;base64," . base64_encode($event[4])."'>
                                 </div>
-                                <p>$event[1]</p>
-                                <a href='pagefragments/eventViewer.html'>Read More</a>
+                                <p>$event[2]</p>
+                                <a onclick='viewEvent($event[0])' >Read More</a>
                            </div>";
                         }
                         ?>
@@ -117,17 +113,18 @@ date_default_timezone_set('Asia/Manila');
 <script src="assets/library/jquery.min.js"></script>
 <script src="assets/library/jquery.form.min.js"></script>
 <script src="assets/library/semantic/semantic.min.js"></script>
-<script src="assets/js/script.js"></script>
 <script src="assets/library/multislider.js"></script>
+<script src="assets/js/script.js"></script>
 <script>
-
-    $('#mixedSlider').multislider({
-        duration: 1000,
-        interval: 7500
+function viewEvent(eventId){
+    $.get('php/functions.php?eventId=' + eventId, function (data) {
+        console.log(data);
+        console.log($('#view_header').val(data['title']));
+        $('#view_content').val(data['content']);
+        $('#view_cover_image').attr(data['cover_image']);
     });
-    $('.menu .item')
-        .tab()
-    ;
+    ;$('#viewEvent').modal('show');
+}
 </script>
 </body>
 

@@ -185,8 +185,8 @@ body {
     border-radius: 0;
 }
 #body {
-    padding:10px;
-    padding-bottom:60px;	/* Height of the footer */
+    /* Height of the footer */
+    padding: 10px 10px 60px;
 }
 #footer {
     position:absolute;

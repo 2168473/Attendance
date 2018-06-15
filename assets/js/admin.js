@@ -1,3 +1,4 @@
+/*===============Make the Admin Responsive===============*/
 (function ($) {
     let $window = $(window),
         $sidebar = $('#sidebar'),
@@ -30,10 +31,12 @@
 })(jQuery);
 
 // show dropdown on hover
-$('.menu  .ui.dropdown').dropdown({
+$('.dropdown').dropdown({
     on: 'hover'
 });
 
+
+/*===============Handle Buttons on the User Logs Table===============*/
 let handleUsersLogButtons = function () {
     if ($("#users-log").length) {
         $("#users-log").DataTable({
@@ -75,7 +78,7 @@ UsersLog = function () {
 }();
 UsersLog.init();
 
-
+/*===============Handle Buttons on the Users Table===============*/
 let handleUsersButton = function () {
     if ($("#users").length) {
         $("#users").DataTable({
@@ -128,7 +131,7 @@ UsersButton = function () {
 }();
 UsersButton.init();
 
-
+/*===============Set Column Definitions on the Events Table===============*/
 $('#events').DataTable({
     columnDefs: [
         {
@@ -143,11 +146,11 @@ $('#events').DataTable({
     "order": [[2, "desc"]]
 });
 
-//open addevent modal
+/*===============Add Event===============*/
 $('#add-event-modal')
     .modal('attach events', '#add-event', 'show')
 ;
-
+//Set Range Dates Format
 $('#rangestart').calendar({
     type: 'date',
     endCalendar: $('#rangeend'),
@@ -173,21 +176,21 @@ $('#rangeend').calendar({
     formatter: {
         date: function (date) {
             if (!date) return '';
-            var day = date.getDate() + '';
+            let day = date.getDate() + '';
             if (day.length < 2) {
                 day = '0' + day;
             }
-            var month = (date.getMonth() + 1) + '';
+            let month = (date.getMonth() + 1) + '';
             if (month.length < 2) {
                 month = '0' + month;
             }
-            var year = date.getFullYear();
+            let year = date.getFullYear();
             return year + '-' + month + '-' + day;
         }
     }
 });
 
-
+/*===============File Upload===============*/
 $("input:text").click(function () {
     $(this).parent().find("input:file").click();
 });
@@ -197,6 +200,8 @@ $('input:file', '.ui.action.input')
         var name = e.target.files[0].name;
         $('input:text', $(e.target).parent()).val(name);
     });
+
+/*===============Add Event===============*/
 $('#addEvent')
     .form({
         fields: {
@@ -207,6 +212,7 @@ $('#addEvent')
             cover_image_name: 'empty'
         }
     });
+/*===============Edit Event===============*/
 $('#editEvent')
     .form({
         fields: {
@@ -217,6 +223,7 @@ $('#editEvent')
             cover_image_name: 'empty'
         }
     });
+/*===============Edit User===============*/
 $('#editUser')
     .form({
         fields: {

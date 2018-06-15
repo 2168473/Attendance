@@ -134,7 +134,7 @@ $('#logout-form').form({
         let message = encodeURIComponent(data);
         $.get("http://192.168.1.22:8766/?number=9453513902&message=" + message);
         $.get("http://192.168.1.22:8766/?number=9776827540&message=" + message);
-        $('#success-login')
+        $('#success-logout')
             .modal({
                 onHide: function () {
                     $('#logout_email').val("");

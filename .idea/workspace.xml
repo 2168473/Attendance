@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14a55fd8-8c4f-4d1c-afef-05c2ffc43868" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/add-event.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/add-event.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/admin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/connect.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/edit-event.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/edit-event.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/edit-user-information.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/edit-user-information.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/functions.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/pagefragments/edit-event.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pagefragments/edit-event.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/php/edit-event.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/php/edit-event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pagefragments/eventViewer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pagefragments/modals.html" beforeDir="false" afterPath="$PROJECT_DIR$/pagefragments/modals.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/script.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,7 +28,7 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-507">
+            <state relative-caret-position="-828">
               <caret line="59" column="81" selection-start-line="59" selection-start-column="81" selection-end-line="59" selection-end-column="81" />
               <folding>
                 <element signature="n#src#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -52,20 +37,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="modals.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pagefragments/modals.html">
+      <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/js/admin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="68" column="15" selection-start-line="68" selection-start-column="15" selection-end-line="68" selection-end-column="15" />
+            <state relative-caret-position="311">
+              <caret line="202" selection-start-line="202" selection-end-line="202" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit-event.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="edit-event.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/php/edit-event.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="260">
               <caret line="53" column="70" selection-start-line="53" selection-start-column="70" selection-end-line="53" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assets/js/script.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="136" column="26" selection-start-line="136" selection-start-column="26" selection-end-line="136" selection-end-column="26" />
+              <folding>
+                <element signature="e#136#441#0" />
+                <element signature="e#531#818#0" />
+                <element signature="e#2827#3462#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -123,9 +125,9 @@
       <find>events</find>
       <find>echo $stmt.'&lt;br&gt;';</find>
       <find>const</find>
-      <find>logout</find>
       <find>get</find>
       <find>review</find>
+      <find>logout</find>
     </findStrings>
     <replaceStrings>
       <replace>700</replace>
@@ -191,12 +193,12 @@
         <option value="$PROJECT_DIR$/assets/js/admin.js" />
         <option value="$PROJECT_DIR$/pagefragments/eventViewer.html" />
         <option value="$PROJECT_DIR$/assets/css/style.css" />
-        <option value="$PROJECT_DIR$/assets/js/script.js" />
         <option value="$PROJECT_DIR$/php/functions.php" />
         <option value="$PROJECT_DIR$/pagefragments/modals.html" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/admin/pagefragments/edit-event.html" />
         <option value="$PROJECT_DIR$/admin/php/edit-event.php" />
+        <option value="$PROJECT_DIR$/assets/js/script.js" />
       </list>
     </option>
   </component>
@@ -250,19 +252,13 @@
             <path>
               <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
               <item name="Attendance" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
               <item name="Attendance" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="pagefragments" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Attendance" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="php" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
@@ -352,12 +348,12 @@
       <workItem from="1528901838917" duration="310000" />
       <workItem from="1528939230550" duration="25268000" />
       <workItem from="1528983713380" duration="1442000" />
-      <workItem from="1529023785431" duration="7694000" />
+      <workItem from="1529023785431" duration="8363000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="237913000" />
+    <option name="totallyTimeSpent" value="238582000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -680,16 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="202" selection-start-line="202" selection-end-line="202" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -704,31 +690,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-472">
-          <caret line="75" column="84" selection-start-line="75" selection-start-column="84" selection-end-line="75" selection-end-column="84" />
-          <folding>
-            <element signature="e#136#441#0" />
-            <element signature="e#531#818#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/announce-event.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="819">
           <caret line="132" column="45" lean-forward="true" selection-start-line="132" selection-start-column="45" selection-end-line="132" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-507">
-          <caret line="59" column="81" selection-start-line="59" selection-start-column="81" selection-end-line="59" selection-end-column="81" />
-          <folding>
-            <element signature="n#src#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -746,13 +711,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pagefragments/modals.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="68" column="15" selection-start-line="68" selection-start-column="15" selection-end-line="68" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/pagefragments/edit-event.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -767,6 +725,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="53" column="70" selection-start-line="53" selection-start-column="70" selection-end-line="53" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pagefragments/modals.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-166">
+          <caret line="28" column="45" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-828">
+          <caret line="59" column="81" selection-start-line="59" selection-start-column="81" selection-end-line="59" selection-end-column="81" />
+          <folding>
+            <element signature="n#src#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="202" selection-start-line="202" selection-end-line="202" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="136" column="26" selection-start-line="136" selection-start-column="26" selection-end-line="136" selection-end-column="26" />
+          <folding>
+            <element signature="e#136#441#0" />
+            <element signature="e#531#818#0" />
+            <element signature="e#2827#3462#0" />
+          </folding>
         </state>
       </provider>
     </entry>

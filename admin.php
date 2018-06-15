@@ -42,11 +42,10 @@ if ($stmt = $mysqli->prepare("select count(userId) from users;")) {
 </head>
 <body>
 <div class="ui menu" id="menu">
-    <a href="#" class="ui right floated dropdown item">
+    <a href="index.php" class="ui right floated dropdown item">
         Admin <i class="dropdown icon"></i>
         <div class="menu">
             <div class="item">Logout</div>
-
         </div>
     </a>
 </div>

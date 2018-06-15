@@ -37,5 +37,6 @@ if (isset($_GET['eventId'])){
         $stmt->close();
     }
     $mysqli->close();
+    header("Content-Type: application/json");
     echo $data;
 }

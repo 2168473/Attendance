@@ -9,15 +9,12 @@ if (mysqli_connect_errno()) {
     exit();
 }
 $eventId = $_POST['eventId'];
-echo $eventId;
-echo $_POST['title'];
 if (isset($_POST['title'])){
     $query = "UPDATE events SET title = ? WHERE eventId = ?";
     if ($stmt = $mysqli->prepare($query)){
         $stmt->bind_param('ss', $_POST['title'], $eventId);
         $stmt->execute();
         $stmt->close();
-        echo "Successful title";
     }
 }
 if (isset($_POST['content'])){
@@ -44,7 +41,7 @@ if (isset($_POST['end_date'])){
         $stmt->close();
     }
 }
-if (isset($_POST['cover_image'])){
+if (isset($_FILES['cover_image'])){
     $imgData = "";
     mysqli_set_charset($mysqli, 'utf8');
     if ($_FILES['cover_image']['error'] == UPLOAD_ERR_OK) {
@@ -52,11 +49,12 @@ if (isset($_POST['cover_image'])){
             $imgData = file_get_contents($_FILES['cover_image']['tmp_name']);
         }
     }
-    $query = "UPDATE events SET cover_image = ? WHERE eventId = ?";
+    $query = "UPDATE events SET cover_image = ?, cover_image_name =? WHERE eventId = ?";
     if ($stmt = $mysqli->prepare($query)){
-        $stmt->bind_param('ss', $_POST['cover_image'], $eventId);
+        $stmt->bind_param('sss', $imgData, $_POST['cover_image_name'], $eventId);
         $stmt->execute();
         $stmt->close();
+        echo 'success';
     }
 }
 $mysqli->close();

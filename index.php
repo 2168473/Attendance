@@ -57,7 +57,7 @@
                                 <img src='data:image;base64," . base64_encode($event[4])."'>
                                 </div>
                                 <p>$event[2]</p>
-                                <a onclick='viewEvent($event[0])' >Read More</a>
+                                <a href='' onclick='viewEvent($event[0]); return false' >Read More</a>
                            </div>";
                         }
                         ?>
@@ -118,10 +118,9 @@
 <script>
 function viewEvent(eventId){
     $.get('php/functions.php?eventId=' + eventId, function (data) {
-        console.log(data);
-        console.log($('#view_header').val(data['title']));
-        $('#view_content').val(data['content']);
-        $('#view_cover_image').attr(data['cover_image']);
+        document.getElementById('view_header').innerHTML = data['title'];
+        document.getElementById('view_content').innerHTML = data['content'];
+        document.getElementById('view_cover_image').src = data['cover_image'];
     });
     ;$('#viewEvent').modal('show');
 }

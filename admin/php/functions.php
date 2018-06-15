@@ -51,6 +51,29 @@ function getUsers()
 }
 
 /**
+ * Fetch Users from the database
+ * @return array wchich contains the userid, first name, last name, email, mobile, company and the user level
+ */
+function getUserPayments()
+{
+    $mysqli = new mysqli(host, user, password, database);
+    $data = [];
+    $query = "SELECT userId, first_name, last_name, userEmail, userMobile, userCompany, userLevel from users;";
+
+    if ($stmt = $mysqli->prepare($query)) {
+        $stmt->execute();
+
+        $stmt->bind_result($id, $first_name, $last_name, $userEmail, $userMobile, $userCompany, $userLevel);
+        while ($stmt->fetch()) {
+            $data[] = array($id, $first_name, $last_name, $userEmail, $userMobile, $userCompany, $userLevel);
+        }
+        $stmt->close();
+    }
+    $mysqli->close();
+    return $data;
+}
+
+/**
  * Fetch a user with a given id from the database.
  * @param $id - id of the to be fetched.
  * @return array|string contains the user details in a json format.

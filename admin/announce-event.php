@@ -24,11 +24,10 @@ include 'php/functions.php';
 </head>
 <body>
 <div class="ui menu" id="menu">
-    <a href="#" class="ui right floated dropdown item">
+    <a href="../index.php" class="ui right floated dropdown item">
         Admin <i class="dropdown icon"></i>
-        <div class="menu">
-            <div class="item">Logout</div>
-
+        <div class="menu" href="../index.php">
+            <div class="item" >Logout</div>
         </div>
     </a>
 </div>
@@ -45,9 +44,13 @@ include 'php/functions.php';
             <i class="newspaper outline icon"></i>
             Announcements<br>/Events
         </a>
-        <a href="user-management.php" class="item">
-            <i class="users icon"></i>
+        <a class="item" href="user-management.php">
+            <i class="users icon" ></i>
             User Account <br>Management
+        </a>
+        <a class="item" href="user-payments.php">
+            <i class="users icon" ></i>
+            User Payments
         </a>
     </div>
     <div id="content">

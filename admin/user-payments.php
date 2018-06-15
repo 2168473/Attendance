@@ -1,26 +1,7 @@
 <?php
 session_start();
 date_default_timezone_set('Asia/Manila');
-include 'admin/php/functions.php';
-$mysqli = new mysqli(host, user, password, database);
-if ($stmt = $mysqli->prepare("select count(userId) from sessions where sessionOut='0000-00-00 00:00:00';")) {
-    $stmt->execute();
-    $stmt->bind_result($current_users);
-    $stmt->fetch();
-    $stmt->close();
-}
-if ($stmt = $mysqli->prepare("select count(userId) from sessions where sessionIn>=CURDATE();")) {
-    $stmt->execute();
-    $stmt->bind_result($todays_login);
-    $stmt->fetch();
-    $stmt->close();
-}
-if ($stmt = $mysqli->prepare("select count(userId) from users;")) {
-    $stmt->execute();
-    $stmt->bind_result($total_users);
-    $stmt->fetch();
-    $stmt->close();
-}
+include 'php/functions.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,20 +12,21 @@ if ($stmt = $mysqli->prepare("select count(userId) from users;")) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
     <!-- Site Properties -->
-    <title>Calle Uno: Client Logs</title>
+    <title>Calle Uno: User Payment Management</title>
 
-    <link rel="stylesheet" href="assets/library/semantic/semantic.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/library/DataTables/datatables.css">
-    <link rel="stylesheet" href="assets/css/admin.css">
-    <script src="assets/library/jquery.min.js"></script>
-    <script src="assets/library/DataTables/datatables.js"></script>
+    <link rel="stylesheet" href="../assets/library/semantic/semantic.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/library/DataTables/datatables.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/library/calendar.min.css">
+    <script src="../assets/library/jquery.min.js"></script>
+    <script src="../assets/library/DataTables/datatables.js"></script>
 </head>
 <body>
 <div class="ui menu" id="menu">
-    <a href="index.php" class="ui right floated dropdown item">
+    <a href="../index.php" class="ui right floated dropdown item">
         Admin <i class="dropdown icon"></i>
-        <div class="menu" href="index.php">
+        <div class="menu" href="../index.php">
             <div class="item">Logout</div>
         </div>
     </a>
@@ -52,68 +34,32 @@ if ($stmt = $mysqli->prepare("select count(userId) from users;")) {
 <div class="ui bottom attached pusher">
     <div class="ui visible inverted labeled left vertical sidebar menu" id="sidebar">
         <div class="header item">
-            <a href="admin.php"><img class="ui small image centered mini" id="logo" src="assets/images/logo.png"></a>
+            <a href="../admin.php"><img class="ui small image centered mini" id="logo" src="../assets/images/logo.png"></a>
         </div>
-        <a class="item active" href="admin.php">
+        <a class="item" href="../admin.php">
             <i class="block layout icon"></i>
             User Client Logs
         </a>
-        <a class="item" href="admin/announce-event.php">
+        <a class="item" href="announce-event.php">
             <i class="newspaper outline icon"></i>
             Announcements<br>/Events
         </a>
-        <a class="item" href="admin/user-management.php">
-            <i class="users icon"></i>
-            User Account<br> Management
+        <a class="item" href="user-management.php">
+            <i class="users icon" ></i>
+            User Account <br>Management
         </a>
-        <a class="item" href="admin/user-payments.php">
+        <a class="item active" href="user-payments.php">
             <i class="users icon" ></i>
             User Payments
         </a>
     </div>
     <div id="content">
+        
         <div class="ui basic">
-
-            <!-- Header/ Title section -->
             <div class="ui container">
-                <div class="ui horizontal divider">User client logs</div>
+                <div class="ui horizontal divider">Payments</div>
             </div>
-
-            <!-- Three headers -->
-            <div class="ui stackable grid">
-                <div class="three column row">
-                    <!-- First cell -->
-                    <div class="column">
-                        <div class="ui segment">
-                            Number of Current Logged-In Users
-                            <h1>
-                                <?php echo $current_users ?>
-                            </h1>
-                        </div>
-                    </div>
-                    <!-- Second cell -->
-                    <div class="column">
-                        <div class="ui segment">
-                            Number of Logins Today
-                            <h1>
-                                <?php echo $todays_login ?>
-                            </h1>
-                        </div>
-
-                    </div>
-                    <!-- Third cell -->
-                    <div class="column">
-                        <div class="ui segment">
-                            Total Accounts Registered
-                            <h1>
-                                <?php echo $total_users ?>
-                            </h1>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <br>
+            
             <div class="ui form">
                 <div class="two fields">
                     <div class="two fields">
@@ -138,39 +84,44 @@ if ($stmt = $mysqli->prepare("select count(userId) from users;")) {
                     </div>
                 </div>
             </div>
-            <table id="users-log" class="ui striped celled table">
+            <table id="users" class="ui striped selectable celled table">
                 <thead>
                 <tr>
-                    <th>Full Name</th>
-                    <th>E-mail Address</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
                     <th>Mobile Number</th>
-                    <th>Organization</th>
-                    <th>Time in</th>
-                    <th>Time out</th>
-                    <th>Purpose</th>
+                    <th>Payments Made</th>
+                        
                 </tr>
                 </thead>
                 <tbody>
                 <?php
-                $data = getUserLogs();
+                $data = getUserPayments();
                 foreach ($data as $datum) {
                     echo '<tr>';
-                    foreach ($datum as $item) {
-                        echo "<td>$item</td>";
+                    for ($x = 1; $x < count($datum); $x++) {
+                        echo "<td>$datum[$x]</td>";
                     }
-                    echo '</tr>';
+                
                 }
+                    
                 ?>
+
                 </tbody>
             </table>
-
         </div>
     </div>
 </div>
+<?php
+    include 'pagefragments/edit-user.html';
+    include 'pagefragments/delete-user.html';
+?>
+    
+    
 <!--Scripts-->
-<script src="assets/library/calendar.min.js"></script>
-<script src="assets/library/semantic/semantic.min.js"></script>
-<script src="assets/js/admin.js"></script>
+<script src="../assets/library/semantic/semantic.min.js"></script>
+<script src="../assets/library/calendar.min.js"></script>
+<script src="../assets/js/admin.js"></script>
 <script>
     $.fn.dataTable.ext.search.push(
         function (settings, data) {
@@ -238,7 +189,24 @@ if ($stmt = $mysqli->prepare("select count(userId) from users;")) {
             $('#users-log').DataTable().draw();
         }
     });
-</script>
+    
+    
+    function editUser(id) {
+        $.get("php/functions.php?getUser=" + id, function (data) {
+            $('#first_name').val(data['first_name']);
+            $('#last_name').val(data['last_name']);
+            $('#email').val(data['userEmail']);
+            $('#mobile').val(String(data['userMobile']).substring(3));
+            $('#company').val(data['userCompany']);
+            $('#user_level').val(data['userLevel']);
+            $('#userId').val(id);
+            $('#edit-user-modal')
+                .modal('show')
+            ;
+        });
+
+    }
+    </script>
 </body>
 
 </html>

@@ -5,7 +5,7 @@ include 'php/functions.php';
 ?>
 <!DOCTYPE html>
 <html>
-<head>
+<head>  
     <!-- Standard Meta -->
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -24,11 +24,10 @@ include 'php/functions.php';
 </head>
 <body>
 <div class="ui menu" id="menu">
-    <a href="#" class="ui right floated dropdown item">
+    <a href="../index.php" class="ui right floated dropdown item">
         Admin <i class="dropdown icon"></i>
-        <div class="menu">
+        <div class="menu" href="../index.php">
             <div class="item">Logout</div>
-            
         </div>
     </a>
 </div>
@@ -48,6 +47,10 @@ include 'php/functions.php';
         <a class="item active" href="user-management.php">
             <i class="users icon" ></i>
             User Account <br>Management
+        </a>
+        <a class="item" href="user-payments.php">
+            <i class="users icon" ></i>
+            User Payments
         </a>
     </div>
     <div id="content">

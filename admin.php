@@ -76,8 +76,12 @@ if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
             User Account<br> Management
         </a>
         <a class="item" href="admin/user-payments.php">
-            <i class="users icon" ></i>
+            <i class="money icon" ></i>
             User Payments
+        </a>
+        <a class="item" href="admin/configure-sms.php">
+            <i class="mobile icon"></i>
+            SMS Configuration
         </a>
     </div>
     <div id="content">

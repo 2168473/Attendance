@@ -1,6 +1,17 @@
 <?php
 require_once 'php/sms_config.php';
 include 'php/functions.php';
+
+if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
+    && $_SERVER['PHP_AUTH_USER'] === 'admin'
+    && $_SERVER['PHP_AUTH_PW'] === 'verystrongpassword') {
+    // User is properly authenticated...
+    } else {
+    header('WWW-Authenticate: Basic realm="Calle Uno: Secured Site"');
+    header('HTTP/1.0 401 Unauthorized');
+    exit('Unauthorized access detected.');
+    }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,13 +54,17 @@ include 'php/functions.php';
             <i class="newspaper outline icon"></i>
             Announcements<br>/Events
         </a>
-        <a class="item active" href="user-management.php">
+        <a class="item" href="user-management.php">
             <i class="users icon"></i>
             User Account <br>Management
         </a>
         <a class="item" href="user-payments.php">
-            <i class="users icon"></i>
+            <i class="money icon"></i>
             User Payments
+        </a>
+        <a class="item active" href="configure-sms.php">
+            <i class="mobile icon"></i>
+            SMS Configuration
         </a>
     </div>
     <div id="content">

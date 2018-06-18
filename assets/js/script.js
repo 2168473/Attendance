@@ -91,7 +91,7 @@ $('#login-form').form({
             });
             swal({
                 title: "Success!",
-                text: "You are now Logged in. Don't forget to logout!",
+                text: "You are now Logged in.\n Don't forget to logout!",
                 icon: "success",
                 timer: 2500,
                 buttons: false,
@@ -158,7 +158,7 @@ $('#logout-form').form({
             sessionId = data['sessionId'];
             if (data['Drop-in Coworking']){
                 swal({
-                    text: 'Total amount to be paid: Php1.00',
+                    text: 'Amount to be paid: \n(Regular) P500.00 \n(Off Member) P350.00 \n(Student) P250.00',
                     content: "input",
                     button: {
                         text: "Pay",
@@ -192,7 +192,7 @@ $('#logout-form').form({
 
         swal({
             title: "Success!",
-            text: "You are now logged out! Don't forget to come back!",
+            text: "You are now logged out!\n Don't forget to come back!",
             icon: "success",
             timer: 2500,
             button: false

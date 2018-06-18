@@ -71,7 +71,7 @@ include 'php/functions.php';
                                 <input type="text" name="port" value="<?php echo $config['port'] ?>">
                             </div>
                             <div class="field">
-                                <label for="number">Phone Number</label>
+                                <label for="number">Recipient's Phone Number</label>
                                 <input type="text" name="number" value="<?php echo $config['number'] ?>">
                             </div>
                             <div class="field">

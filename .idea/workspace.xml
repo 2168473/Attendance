@@ -3,42 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="14a55fd8-8c4f-4d1c-afef-05c2ffc43868" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/add-event.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/add-event.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/admin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/announce-event.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/announce-event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/connect.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/edit-event.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/edit-event.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/edit-user-information.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/edit-user-information.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/functions.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/pagefragments/add-event.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pagefragments/add-event.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/pagefragments/admin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/pagefragments/delete-event.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/pagefragments/delete-user.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/pagefragments/edit-event.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pagefragments/edit-event.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/pagefragments/edit-user.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pagefragments/edit-user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/php/add-event.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/php/add-event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/php/connect.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/php/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/php/del-event.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/php/del-event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/php/del-user.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/php/del-user.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/php/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/php/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/user-management.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/user-management.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/user-payments.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/user-payments.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/configure-sms.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/configure-sms.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pagefragments/eventViewer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pagefragments/modals.html" beforeDir="false" afterPath="$PROJECT_DIR$/pagefragments/eventView.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/Untitled-1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/ViaNettSMS.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/checkPassword.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/logout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/sendSMS.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/htpasswd.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -78,20 +45,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="script.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="187" column="13" selection-start-line="187" selection-start-column="13" selection-end-line="187" selection-end-column="13" />
+            <state relative-caret-position="-658">
+              <caret line="87" column="17" selection-start-line="87" selection-start-column="17" selection-end-line="87" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="configure-sms.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="configure-sms.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin/configure-sms.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="34" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
+            <state relative-caret-position="306">
+              <caret line="73" column="63" selection-start-line="73" selection-start-column="63" selection-end-line="73" selection-end-column="63" />
               <folding>
                 <element signature="n#style#0;n#label#0;n#div#4;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -112,7 +79,7 @@
         <entry file="file://$PROJECT_DIR$/admin/user-payments.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-646">
-              <caret line="62" column="31" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="31" />
+              <caret line="71" column="31" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -241,10 +208,10 @@
         <option value="$PROJECT_DIR$/sms_config" />
         <option value="$PROJECT_DIR$/admin/php/functions.php" />
         <option value="$PROJECT_DIR$/admin/php/sms_config.php" />
-        <option value="$PROJECT_DIR$/admin/configure-sms.php" />
         <option value="$PROJECT_DIR$/admin/user-payments.php" />
         <option value="$PROJECT_DIR$/assets/js/admin.js" />
         <option value="$PROJECT_DIR$/assets/js/script.js" />
+        <option value="$PROJECT_DIR$/admin/configure-sms.php" />
       </list>
     </option>
   </component>
@@ -274,7 +241,7 @@
       <path value="$PROJECT_DIR$/mailing/vendor/composer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="697" />
     <option name="height" value="775" />
@@ -293,28 +260,6 @@
             <path>
               <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
               <item name="Attendance" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Attendance" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Attendance" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="php" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Attendance" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Attendance" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
@@ -407,12 +352,12 @@
       <workItem from="1529156967171" duration="5225000" />
       <workItem from="1529208286828" duration="7363000" />
       <workItem from="1529228474385" duration="7351000" />
-      <workItem from="1529282052863" duration="17176000" />
+      <workItem from="1529282052863" duration="18112000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="299705000" />
+    <option name="totallyTimeSpent" value="300641000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -424,10 +369,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2473525" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2473525" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32972136" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50075644" side_tool="true" weight="0.32972136" />
@@ -487,11 +432,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/library/multislider.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-612" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/library/sweetalert.min.js" />
     <entry file="file://$PROJECT_DIR$/admin/php/logged-in-users.php" />
     <entry file="file://$PROJECT_DIR$/admin/php/del-event.php">
@@ -731,16 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/configure-sms.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="34" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
-          <folding>
-            <element signature="n#style#0;n#label#0;n#div#4;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sms_config">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -751,7 +681,7 @@
     <entry file="file://$PROJECT_DIR$/admin/user-payments.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-646">
-          <caret line="62" column="31" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="31" />
+          <caret line="71" column="31" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -765,10 +695,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/htpasswd.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="187" column="13" selection-start-line="187" selection-start-column="13" selection-end-line="187" selection-end-column="13" />
+        <state relative-caret-position="-658">
+          <caret line="87" column="17" selection-start-line="87" selection-start-column="17" selection-end-line="87" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/configure-sms.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="73" column="63" selection-start-line="73" selection-start-column="63" selection-end-line="73" selection-end-column="63" />
+          <folding>
+            <element signature="n#style#0;n#label#0;n#div#4;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

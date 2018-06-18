@@ -1,6 +1,17 @@
 <?php
 require_once 'php/sms_config.php';
 include 'php/functions.php';
+
+if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
+    && $_SERVER['PHP_AUTH_USER'] === 'admin'
+    && $_SERVER['PHP_AUTH_PW'] === 'verystrongpassword') {
+    // User is properly authenticated...
+    } else {
+    header('WWW-Authenticate: Basic realm="Calle Uno: Secured Site"');
+    header('HTTP/1.0 401 Unauthorized');
+    exit('Unauthorized access detected.');
+    }
+
 ?>
 <!DOCTYPE html>
 <html>

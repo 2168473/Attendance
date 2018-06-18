@@ -175,11 +175,6 @@ let handleUsersButton = function () {
                             .css('display', 'none');
                     }
                 }
-            ],columnDefs: [
-                {
-                    "targets": 5,
-                    "orderable": false,
-                }
             ],
         });
     }

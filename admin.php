@@ -1,8 +1,6 @@
 <?php
-session_start();
-date_default_timezone_set('Asia/Manila');
+require_once 'php/config.php';
 include 'admin/php/functions.php';
-$mysqli = new mysqli(host, user, password, database);
 if ($stmt = $mysqli->prepare("select count(userId) from sessions where sessionOut='0000-00-00 00:00:00';")) {
     $stmt->execute();
     $stmt->bind_result($current_users);
@@ -152,7 +150,7 @@ if ($stmt = $mysqli->prepare("select count(userId) from users;")) {
                 </thead>
                 <tbody>
                 <?php
-                $data = getUserLogs();
+                $data = getUserLogs($mysqli);
                 foreach ($data as $datum) {
                     echo '<tr>';
                     foreach ($datum as $item) {

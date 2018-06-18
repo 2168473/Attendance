@@ -31,48 +31,6 @@
 
     <div class="ui wide container" id="body">
         <div class="ui stackable centered two column grid">
-            <div class="column">
-                <h1>Announcements and Events</h1>
-                <div id="mixedSlider">
-                    <div class="MS-content">
-                        <?php
-                        function get_words($sentence, $count = 10) {
-                            return implode(' ', array_slice(explode(' ', $sentence), 0, $count));
-                        }
-                        $events = [];
-                        require_once 'php/config.php';
-                        $query = "SELECT eventId, title, content, cover_image FROM events WHERE end_date >= '" . date
-                            ("Y-m-d") . "' AND start_date <= '" . date("Y-m-d") . "'";
-                        if ($stmt = $mysqli->prepare($query)) {
-                            $stmt->execute();
-                            $stmt->bind_result($eventId, $title, $content, $cover_image);
-                            while ($stmt->fetch()) {
-                                $intro = get_words($content,25).'...';
-                                $events[] = array($eventId, $title, $intro, $content, $cover_image);
-                            }
-                            $stmt->close();
-                        }
-                        $mysqli->close();
-                        foreach ($events as $event) {
-                            echo "
-                              <div class='item'>
-                              <div class='imgTitle'>
-                                  <h2 class='blogTitle'>$event[1]</h2>
-                                <img src='data:image;base64," . base64_encode($event[4])."'>
-                                </div>
-                                <p>$event[2]</p>
-                                <a href='' onclick='viewEvent($event[0]); return false' >Read More</a>
-                           </div>";
-                        }
-                        ?>
-                    </div>
-                    <div class="MS-controls">
-                        <button class="MS-left"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
-                        <button class="MS-right"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
-                    </div>
-                </div>
-            </div>
-
             <!-- Form Section -->
             <div class="column">
                 <div class="ui top attached tabular menu">
@@ -101,7 +59,35 @@
                 <!-- Inquiry Form -->
                 <?php include_once 'pagefragments/inquire.html' ?>
 
-            </div> <!-- End of right section (Form Area) -->
+            </div>
+            <div class="column">
+                <h1>Announcements and Events</h1>
+                <div id="mixedSlider">
+                    <div class="MS-content">
+                        <?php
+                        require_once 'php/config.php';
+                        require_once 'php/functions.php';
+                        $events =  getEvents($mysqli);
+                        foreach ($events as $event) {
+                            echo "
+                              <div class='item'>
+                              <div class='imgTitle'>
+                                  <h2 class='blogTitle'>$event[1]</h2>
+                                <img src='data:image;base64," . base64_encode($event[4])."'>
+                                </div>
+                                <p>$event[2]</p>
+                                <a href='' onclick='viewEvent($event[0]); return false' >Read More</a>
+                           </div>";
+                        }
+                        ?>
+                    </div>
+                    <div class="MS-controls">
+                        <button class="MS-left"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                        <button class="MS-right"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </div>
+            <!-- End of right section (Form Area) -->
         </div> <!-- End of Grid -->
 
     </div> <!-- End of wide container -->
@@ -111,7 +97,10 @@
         </div>
     </div>
 </div>
-<?php include_once 'pagefragments/modals.html'?>
+<?php
+include_once 'pagefragments/eventView.html';
+header('Access-Control-Allow-Headers: x-requested-with');
+?>
 <!--Scripts-->
 
 <script src="assets/library/jquery.min.js"></script>

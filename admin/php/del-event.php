@@ -1,5 +1,5 @@
 <?php
-require_once 'connect.php';
+require_once 'config.php';
 if (isset($_GET['eventId'])){
     $query = 'DELETE FROM `events` WHERE eventId = ?';
     if ($stmt = $mysqli->prepare($query)){

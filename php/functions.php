@@ -68,3 +68,27 @@ if (isset($_GET['payment']) && isset($_GET['sessionId'])){
     }
     $mysqli->close();
 }
+function get_words($sentence, $count = 10) {
+    return implode(' ', array_slice(explode(' ', $sentence), 0, $count));
+}
+function getEvents($mysqli) {
+    $query = "SELECT eventId, title, content, cover_image FROM events WHERE end_date >= '" . date
+        ("Y-m-d") . "' AND start_date <= '" . date("Y-m-d") . "'";
+    $events = [];
+    if ($stmt = $mysqli->prepare($query)) {
+        $stmt->execute();
+        $eventId ='';
+        $title ='';
+        $content ='';
+        $cover_image ='';
+
+        $stmt->bind_result($eventId, $title, $content, $cover_image);
+        while ($stmt->fetch()) {
+            $intro = get_words($content,25).'...';
+            $events[] = array($eventId, $title, $intro, $content, $cover_image);
+        }
+        $stmt->close();
+    }
+    $mysqli->close();
+    return $events;
+}

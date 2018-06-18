@@ -94,6 +94,48 @@ UsersLog = function () {
 }();
 UsersLog.init();
 
+
+/*===============Handle Buttons on the User Payments Table===============*/
+let handlePaymentsButtons = function () {
+    if ($("#payments").length) {
+        $("#payments").DataTable({
+            dom: '<"ui container"<"ui stackable grid"<"seven wide column"B><"four wide column"l><"right aligned ' +
+            'five ' +
+            'wide column"f>>t<"ui stackable two column grid"<"column"i><"right aligned column"p>>>',
+            buttons: [{
+                extend: "copy",
+                className: "btn-sm"
+            },
+                {
+                    extend: "csv",
+                    className: "btn-sm"
+                },
+                {
+                    extend: "pdfHtml5",
+                    className: "btn-sm"
+                },
+                {
+                    extend: "print",
+                    className: "btn-sm",
+                    customize: function (win) {
+                        $(win.document.body).find('')
+                            .css('display', 'none');
+                    }
+                }
+            ]
+        });
+    }
+};
+Payments = function () {
+    "use strict";
+    return {
+        init: function () {
+            handlePaymentsButtons();
+        }
+    };
+}();
+Payments.init();
+
 /*===============Handle Buttons on the Users Table===============*/
 let handleUsersButton = function () {
     if ($("#users").length) {
@@ -226,17 +268,7 @@ $('#addEvent')
             content: 'empty',
             start_date: 'empty',
             end_date: 'empty',
-
-            cover_image_name: {
-                identifier: 'cover_image_name',
-                rules: [
-                    {
-                        type: 'empty'
-                    }, {
-                        type: 'containsInArray[.png, .jpg, .jpeg, .gif, .tiff, .tif]',
-                        prompt: 'File must be an image!'
-                    }]
-            }
+            cover_image_name: 'containsInArray[.png, .jpg, .jpeg, .gif, .tiff, .tif]'
         }
     }).ajaxForm(function () {
     $('#add-event-modal').modal('hide');
@@ -408,7 +440,7 @@ function deleteUser(id) {
                 });
                 setTimeout(location.reload.bind(location), 1000);
             } else {
-                swal(data['title'] + " is safe!");
+                swal(data['first_name'] +' ' + data['last_name'] + " is safe!");
             }
         });
     });

@@ -1,6 +1,5 @@
 <?php
-session_start();
-date_default_timezone_set('Asia/Manila');
+require_once 'php/config.php';
 include 'php/functions.php';
 ?>
 <!DOCTYPE html>
@@ -61,7 +60,7 @@ include 'php/functions.php';
             </div>
             
             
-            <table id="users" class="ui striped selectable celled table">
+            <table id="payments" class="ui striped selectable celled table">
                 <thead>
                 <tr>
                     <th>First Name</th>
@@ -72,17 +71,14 @@ include 'php/functions.php';
                 </thead>
                 <tbody>
                 <?php
-                $data = getUserPayments();
+                $data = getUserPayments($mysqli);
                 foreach ($data as $datum) {
                     echo '<tr>';
                     for ($x = 0; $x < count($datum); $x++) {
                         echo "<td>$datum[$x]</td>";
                     }
-                
                 }
-                    
                 ?>
-
                 </tbody>
             </table>
         </div>

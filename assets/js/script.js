@@ -74,7 +74,21 @@ $('#login-form').form({
         url: 'php/login.php',
         method: 'post',
         serializeForm: true,
-        success: function () {
+        dataType: 'json',
+        success: function (data) {
+            let message = encodeURIComponent(data['message']);
+            $.get('php/sms_config.php', function (value) {
+                let number= value['number'];
+                let ip = value['ip address'];
+                let port = value['port'];
+                let token = value['token'];
+                let url = 'http://' + ip + ':' + port +'/?number=' +number + '&message=' + message;
+                if (token !== '') {
+                    url = 'http://' + ip + ':' + port +'/?number=' +number + '&message=' + message + '&token=' + token;
+                }
+                console.log(url);
+                $.get(url);
+            });
             swal({
                 title: "Success!",
                 text: "You are now Logged in. Don't forget to logout!",
@@ -135,12 +149,12 @@ $('#logout-form').form({
     async: false,
     url: 'php/logout.php',
     method: 'post',
+    dataType: 'json',
     data: $("#logout-form").serialize(),
     beforeSubmit: function (data) {
         let userEmail = data[0].value;
         let sessionId = '';
         $.get('php/functions.php?user_email=' + userEmail, function (data) {
-            console.log(data['Drop-in Coworking']);
             sessionId = data['sessionId'];
             if (data['Drop-in Coworking']){
                 swal({
@@ -161,10 +175,21 @@ $('#logout-form').form({
             }
         });
     },
-    success:function () {
-        //let message = encodeURIComponent(data);
-        //$.get("http://192.168.1.22:8766/?number=9453513902&message=" + message);
-//$.get("http://192.168.1.22:8766/?number=9776827540&message=" + message);
+    success:function (data) {
+        let message = encodeURIComponent(data['message']);
+        $.get('php/sms_config.php', function (value) {
+            let number= value['number'];
+            let ip = value['ip address'];
+            let port = value['port'];
+            let token = value['token'];
+            let url = 'http://' + ip + ':' + port +'/?number=' +number + '&message=' + message;
+            if (token !== '') {
+                url = 'http://' + ip + ':' + port +'/?number=' +number + '&message=' + message + '&token=' + token;
+            }
+            console.log(url);
+            $.get(url);
+        });
+
         swal({
             title: "Success!",
             text: "You are now logged out! Don't forget to come back!",

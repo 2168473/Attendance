@@ -1,5 +1,5 @@
 <?php
-require_once 'connect.php';
+require_once 'config.php';
 if (isset($_GET['userId'])){
     $query = 'DELETE FROM `users` WHERE userId = ?';
     if ($stmt = $mysqli->prepare($query)){

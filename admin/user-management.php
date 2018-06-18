@@ -22,12 +22,12 @@ include 'php/functions.php';
 </head>
 <body>
 <div class="ui menu" id="menu">
-    <div class="ui right floated dropdown item">
+    <a href="../index.php" class="ui right floated dropdown item">
         Admin <i class="dropdown icon"></i>
-        <div class="menu" >
-            <a href="/" class="item">Logout</a>
+        <div class="menu" href="../index.php">
+            <div class="item">Logout</div>
         </div>
-    </div>
+    </a>
 </div>
 <div class="ui bottom attached pusher">
     <div class="ui visible inverted labeled left vertical sidebar menu" id="sidebar">

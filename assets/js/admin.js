@@ -1,3 +1,19 @@
+// function to check if the text contains an element from the array
+$.fn.form.settings.rules.containsInArray = function (value, csv) {
+    let array = String(csv).split(','); // you're separating the string by commas
+    let isContains = false; // return value
+    // for each element check it usign contains function
+    $.each(array, function (index, elem) {
+        if ($.fn.form.settings.rules.contains(value, $.trim(elem))) {
+            // if condition are meet set the result as true
+            // and breaks the loop
+            isContains = true;
+            return false;
+        }
+    });
+    return isContains;
+};
+
 /*===============Make the Admin Responsive===============*/
 (function ($) {
     let $window = $(window),
@@ -91,7 +107,7 @@ let handleUsersButton = function () {
                 exportOptions: {
                     columns: [0, 1, 2, 3, 4, 5]
                 }
-                },
+            },
                 {
                     extend: "csv",
                     className: "btn-sm",
@@ -146,6 +162,7 @@ $('#events').DataTable({
     "order": [[2, "desc"]]
 });
 
+
 /*===============Add Event===============*/
 $('#add-event-modal')
     .modal('attach events', '#add-event', 'show')
@@ -157,15 +174,15 @@ $('#rangestart').calendar({
     formatter: {
         date: function (date) {
             if (!date) return '';
-            var day = date.getDate() + '';
+            let day = date.getDate() + '';
             if (day.length < 2) {
                 day = '0' + day;
             }
-            var month = (date.getMonth() + 1) + '';
+            let month = (date.getMonth() + 1) + '';
             if (month.length < 2) {
                 month = '0' + month;
             }
-            var year = date.getFullYear();
+            let year = date.getFullYear();
             return year + '-' + month + '-' + day;
         }
     }
@@ -197,7 +214,7 @@ $("input:text").click(function () {
 
 $('input:file', '.ui.action.input')
     .on('change', function (e) {
-        var name = e.target.files[0].name;
+        let name = e.target.files[0].name;
         $('input:text', $(e.target).parent()).val(name);
     });
 
@@ -209,9 +226,29 @@ $('#addEvent')
             content: 'empty',
             start_date: 'empty',
             end_date: 'empty',
-            cover_image_name: 'empty'
+
+            cover_image_name: {
+                identifier: 'cover_image_name',
+                rules: [
+                    {
+                        type: 'empty'
+                    }, {
+                        type: 'containsInArray[.png, .jpg, .jpeg, .gif, .tiff, .tif]',
+                        prompt: 'File must be an image!'
+                    }]
+            }
         }
+    }).ajaxForm(function () {
+    $('#add-event-modal').modal('hide');
+    swal({
+        title: "Success!",
+        text: "Event added!",
+        icon: "success",
+        timer: 2500,
+        button: false
     });
+    setTimeout(location.reload.bind(location), 1000);
+});
 /*===============Edit Event===============*/
 $('#editEvent')
     .form({
@@ -220,9 +257,19 @@ $('#editEvent')
             content: 'empty',
             start_date: 'empty',
             end_date: 'empty',
-            cover_image_name: 'empty'
+            cover_image_name: 'containsInArray[.png, .jpg, .jpeg, .gif, .tiff, .tif]'
         }
+}).ajaxForm(function () {
+    $('#edit-event-modal').modal('hide');
+    swal({
+        title: "Success!",
+        text: "Changes saved!",
+        icon: "success",
+        timer: 2500,
+        button: false
     });
+    setTimeout(location.reload.bind(location), 1000);
+});
 /*===============Edit User===============*/
 $('#editUser')
     .form({
@@ -232,6 +279,137 @@ $('#editUser')
             email: ['empty', 'email'],
             mobile: ['empty', 'maxLength[10]', 'minLength[7]'],
             company: 'empty',
-            user_level: ['integer', 'empty']
         }
+    }).ajaxForm(function () {
+    $('#edit-user-modal').modal('hide');
+    swal({
+        title: "Success!",
+        text: "Changes saved!",
+        icon: "success",
+        timer: 2500,
+        button: false
     });
+    setTimeout(location.reload.bind(location), 1000);
+});
+
+function editEvent(id) {
+    $.get("php/functions.php?getAnnouncement=" + id, function (data) {
+        $('#eventStart').calendar({
+            type: 'date',
+            endCalendar: $('#eventEnd'),
+            formatter: {
+                date: function (date) {
+                    if (!date) return '';
+                    let day = date.getDate() + '';
+                    if (day.length < 2) {
+                        day = '0' + day;
+                    }
+                    let month = (date.getMonth() + 1) + '';
+                    if (month.length < 2) {
+                        month = '0' + month;
+                    }
+                    let year = date.getFullYear();
+                    return year + '-' + month + '-' + day;
+                }
+            },
+        });
+        $('#eventStart').calendar("set date", new Date(data['start_date']));
+        $('#eventEnd').calendar({
+            type: 'date',
+            startCalendar: $('#eventStart'),
+            formatter: {
+                date: function (date) {
+                    if (!date) return '';
+                    let day = date.getDate() + '';
+                    if (day.length < 2) {
+                        day = '0' + day;
+                    }
+                    let month = (date.getMonth() + 1) + '';
+                    if (month.length < 2) {
+                        month = '0' + month;
+                    }
+                    let year = date.getFullYear();
+                    return year + '-' + month + '-' + day;
+                }
+            }
+        });
+        $('#eventEnd').calendar("set date", new Date(data['end_date']));
+        $('#title').val(data['title']);
+        $('#cover_image_name').val(data['cover_image_name']);
+        $('#text_content').val(data['content']);
+        $('#eventId').val(id);
+        $('#edit-event-modal')
+            .modal('show')
+        ;
+    });
+}
+
+function deleteEvent(id) {
+    $.get("php/functions.php", {getAnnouncement: id}, function (data) {
+        swal({
+            title: "Are you sure?",
+            text: "Delete " + data['title'],
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Poof! " + data['title'] + " has been deleted!", {
+                        icon: "success", buttons: false
+                    });
+                    $.ajax({
+                        url: 'php/del-event.php',
+                        data:{
+                            eventId: id
+                        }
+                    });
+                    setTimeout(location.reload.bind(location), 1000);
+                } else {
+                    swal(data['title'] + " is safe!");
+                }
+            });
+    });
+}
+
+function editUser(id) {
+    $.get("php/functions.php?getUser=" + id, function (data) {
+        $('#first_name').val(data['first_name']);
+        $('#last_name').val(data['last_name']);
+        $('#email').val(data['userEmail']);
+        $('#mobile').val(String(data['userMobile']).substring(3));
+        $('#company').val(data['userCompany']);
+        $('#userId').val(id);
+        $('#edit-user-modal')
+            .modal('show')
+        ;
+    });
+
+}
+
+function deleteUser(id) {
+    $.get("php/functions.php?getUser=" + id, function (data) {
+        swal({
+            title: "Are you sure?",
+            text: "Delete " + data['first_name'] + ' ' + data['last_name'],
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                swal("Poof! " + data['first_name'] + ' ' + data['last_name'] + " has been deleted!", {
+                    icon: "success", buttons: false
+                });
+                $.ajax({
+                    url: 'php/del-user.php',
+                    data:{
+                        userId: id
+                    }
+                });
+                setTimeout(location.reload.bind(location), 1000);
+            } else {
+                swal(data['title'] + " is safe!");
+            }
+        });
+    });
+}

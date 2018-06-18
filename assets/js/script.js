@@ -1,3 +1,4 @@
+$.fn.api.settings.debug = true;
 /*===============Login Validations===============*/
 //Check if Email is Existing
 $.fn.form.settings.rules.checkEmail = function (value) {
@@ -22,7 +23,7 @@ $.fn.form.settings.rules.loggedIn = function (value) {
     let result = true;
     $.ajax({
         async: false,
-        url: 'php/functions.php?',
+        url: 'php/functions.php',
         data: {
             userEmail: value,
         },
@@ -70,20 +71,21 @@ $('#login-form').form({
     }
 }).ajaxForm(
     {
-        success: function (data) {
-            let message = encodeURIComponent(data);
-            $.get("http://192.168.1.22:8766/?number=9453513902&message=" + message);
-            $.get("http://192.168.1.22:8766/?number=9776827540&message=" + message);
-            $('#success-login')
-                .modal({
-                    onHide: function () {
-                        $('#login_email').val("");
-                        $('#login_purpose').dropdown('clear');
-                    }
-                })
-                .modal('show')
-            ;
+        url: 'php/login.php',
+        method: 'post',
+        serializeForm: true,
+        success: function () {
+            swal({
+                title: "Success!",
+                text: "You are now Logged in. Don't forget to logout!",
+                icon: "success",
+                timer: 2500,
+                buttons: false,
+            });
+            $('#login_email').val("");
+            $('#login_purpose').dropdown('clear');
         }
+
     }
 );
 
@@ -93,7 +95,7 @@ $.fn.form.settings.rules.loggedOut = function (value) {
     let result = true;
     $.ajax({
         async: false,
-        url: 'php/functions.php?',
+        url: 'php/functions.php',
         data: {
             userEmail: value,
         },
@@ -130,21 +132,49 @@ $('#logout-form').form({
         }
     }
 }).ajaxForm({
-    success: function (data ) {
-        let message = encodeURIComponent(data);
-        $.get("http://192.168.1.22:8766/?number=9453513902&message=" + message);
-        $.get("http://192.168.1.22:8766/?number=9776827540&message=" + message);
-        $('#success-logout')
-            .modal({
-                onHide: function () {
-                    $('#logout_email').val("");
-                }
-            })
-            .modal('show')
-        ;
+    async: false,
+    url: 'php/logout.php',
+    method: 'post',
+    data: $("#logout-form").serialize(),
+    beforeSubmit: function (data) {
+        let userEmail = data[0].value;
+        let sessionId = '';
+        $.get('php/functions.php?user_email=' + userEmail, function (data) {
+            console.log(data['Drop-in Coworking']);
+            sessionId = data['sessionId'];
+            if (data['Drop-in Coworking']){
+                swal({
+                    text: 'Total amount to be paid: Php1.00',
+                    content: "input",
+                    button: {
+                        text: "Pay",
+                        closeModal: false,
+                    },
+                })
+                    .then(payment => {
+                        $.get('php/functions.php?sessionId=' + sessionId + '&payment=' + payment);
+                        swal({
+                            title: "Successfully Paid",
+                            icon: 'success',
+                        });
+                    });
+            }
+        });
+    },
+    success:function () {
+        //let message = encodeURIComponent(data);
+        //$.get("http://192.168.1.22:8766/?number=9453513902&message=" + message);
+//$.get("http://192.168.1.22:8766/?number=9776827540&message=" + message);
+        swal({
+            title: "Success!",
+            text: "You are now logged out! Don't forget to come back!",
+            icon: "success",
+            timer: 2500,
+            button: false
+        });
+        $('#logout_email').val("");
     }
 });
-
 
 /*===============Registration Validations===============*/
 //Check if Email already Taken
@@ -222,32 +252,26 @@ $('#registration-form').form({
             ]
         },
     }
-}).ajaxForm(function () {
-    $('#success-reg')
-        .modal({
-            onHide: function () {
-                window.location = 'index.php';
-            }
-        })
-        .modal('show')
-    ;
+}).ajaxForm({
+    url: 'php/register.php',
+    method: 'post',
+    success: function () {
+        swal({
+            title: "Success!",
+            text: "You are now Registered. You may now Log in!",
+            icon: "success",
+            timer: 2500,
+            button: false
+        });
+        $('#first_name').val("");
+        $('#last_name').val("");
+        $('#email').val("");
+        $('#company').val("");
+        $('#mobile').val("");
+    }
 });
-
+let notice;
 /*===============Registration Validations===============*/
-$('#send')
-    .api({
-        responseAsync: function(settings, callback) {
-            var response = {
-                success: true
-            };
-            // do any asynchronous task here
-            setTimeout(function() {
-                callback(response);
-            }, 5000);
-        }
-    })
-
-;
 $('#inquiry-form').form({
     fields: {
         name: {
@@ -300,26 +324,34 @@ $('#inquiry-form').form({
             ]
         },
     }
-}).ajaxForm(function () {
-    swal({
-        title: "Good job!",
-        text: "You clicked the button!",
-        icon: "success",
-        button: "Aww yiss!",
-    });
-    // $('#success-inquiry')
-    //     .modal('show')
-    //     .modal({
-    //         onHide: function () {
-    //             $('#name').val("");
-    //             $('#email').val("");
-    //             $('#subject').val("");
-    //             $('#mobile').val("");
-    //             $('#message').val("");
-    //         }
-    //     })
-    // ;
-});
+}).api(
+    {
+        url: 'php/inquire.php',
+        method: 'post',
+        serializeForm: true,
+        beforeXHR: function () {
+            notice = swal({
+                title: "Sending...",
+                text: "Please wait, your inquiry is being sent!",
+                icon: "info",
+                buttons: false
+            });
+        },
+        onResponse: function () {
+            swal({
+                title: "Success!",
+                text: "Your Inquiry has been sent!",
+                icon: "success",
+                timer: 2500,
+            });
+            $('#name').val("");
+            $('#subject').val("");
+            $('#message').val("");
+            $('#email_address').val("");
+            $('#mobile_number').val("");
+        }
+    }
+);
 
 //Activate all dropdowns
 $('.dropdown')
@@ -336,3 +368,13 @@ $('#mixedSlider').multislider({
 $('.menu .item')
     .tab()
 ;
+
+function viewEvent(eventId){
+    $.get('php/functions.php?eventId=' + eventId, function (data) {
+        document.getElementById('view_header').innerHTML = data['title'];
+        document.getElementById('view_content').innerHTML = data['content'];
+        document.getElementById('view_cover_image').src = data['cover_image'];
+        $('#viewEvent').modal('show');
+    });
+    ;
+}

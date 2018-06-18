@@ -1,6 +1,5 @@
 <?php
-include 'connect.php';
-date_default_timezone_set('Asia/Manila');
+require_once 'config.php';
 
 if (isset($_POST['email'])){
     $query = "SELECT `userId`, `first_name`, `last_name` from users where userEmail = ?";
@@ -18,7 +17,9 @@ if (isset($_POST['email'])){
         $stmt->execute();
         $stmt->close();
         $Message = $first_name.' '.$last_name.' has logged out at '.date('Y-m-d H:i:s');
-        echo $Message;
+        echo json_encode(['response_message'=>$Message, 'success'=> true]);
+    }else{
+        echo json_encode(['response_message'=>$Message, 'success'=> false]);
     }
     $mysqli->close();
 }

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +13,7 @@
     <link rel="stylesheet" href="assets/library/semantic/semantic.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/library/font-awesome.min.css">
+
 </head>
 
 <body>
@@ -38,9 +40,9 @@
                             return implode(' ', array_slice(explode(' ', $sentence), 0, $count));
                         }
                         $events = [];
-                        require 'php/connect.php';
-                        $query = "SELECT eventId, title, content, cover_image from events where end_date >= '" . date
-                            ("Y-m-d") . "'";
+                        require_once 'php/config.php';
+                        $query = "SELECT eventId, title, content, cover_image FROM events WHERE end_date >= '" . date
+                            ("Y-m-d") . "' AND start_date <= '" . date("Y-m-d") . "'";
                         if ($stmt = $mysqli->prepare($query)) {
                             $stmt->execute();
                             $stmt->bind_result($eventId, $title, $content, $cover_image);
@@ -113,22 +115,13 @@
 <!--Scripts-->
 
 <script src="assets/library/jquery.min.js"></script>
+<script src="assets/library/jquery.serialize-object.min.js"></script>
 <script src="assets/library/sweetalert.min.js"></script>
 <script src="assets/library/jquery.form.min.js"></script>
 <script src="assets/library/semantic/semantic.min.js"></script>
 <script src="assets/library/multislider.js"></script>
 <script src="assets/js/script.js"></script>
-<script>
-function viewEvent(eventId){
-    $.get('php/functions.php?eventId=' + eventId, function (data) {
-        document.getElementById('view_header').innerHTML = data['title'];
-        document.getElementById('view_content').innerHTML = data['content'];
-        document.getElementById('view_cover_image').src = data['cover_image'];
-        $('#viewEvent').modal('show');
-    });
-    ;
-}
-</script>
+
 </body>
 
 </html>

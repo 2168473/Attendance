@@ -1,30 +1,27 @@
 <?php
-date_default_timezone_set('Asia/Manila');
-include 'connect.php';
+require_once 'config.php';
 
 if (isset($_POST['email'])) {
     $email = trim($_POST['email']);
     $email = strip_tags($email);
     $email = htmlspecialchars($email);
-    $userPayment = 0;
     $reason = trim($_POST['purpose']);
     $reason = strip_tags($reason);
     $reason = htmlspecialchars($reason);
     $query = "SELECT * FROM users where userEmail = ?;";
-    $query_log = "INSERT INTO sessions(userId, sessionIn, userPayment, sessionNotes) VALUES(?,CURRENT_TIMESTAMP(),?,?)";
+    $query_log = "INSERT INTO sessions(userId, sessionIn, userPayment, sessionNotes) VALUES(?,CURRENT_TIMESTAMP(),0,?)";
     if ($stmt = $mysqli->prepare($query)) {
         $stmt->bind_param('s', $email);
         $stmt->execute();
-        $stmt->bind_result($id, $first_name, $last_name, $userEmail, $userMobile, $userCompany, $userLevel);
+        $stmt->bind_result($id, $first_name, $last_name, $userEmail, $userMobile, $userCompany);
         $rows = $stmt->fetch();
         $stmt->close();
         if ($rows == 1) {
             $Message = $first_name . ' ' . $last_name . ' has logged in at ' . date('Y-m-d H:i:s') . ' as a ' . $_POST['purpose'];
             if ($stmt = $mysqli->prepare($query_log)) {
-                $stmt->bind_param('sss', $id, $userPayment, $reason);
+                $stmt->bind_param('ss', $id, $reason);
                 $stmt->execute();
                 $stmt->close();
-                echo $Message;
             }
             $mysqli->close();
         }
@@ -32,4 +29,6 @@ if (isset($_POST['email'])) {
     } else {
         $mysqli->close();
     }
+    $data = ["message"=>$Message, "success"=>true];
+    echo json_encode($data);
 }

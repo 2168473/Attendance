@@ -1,5 +1,5 @@
 <?php
-include 'connect.php';
+require_once 'config.php';
 
 if (isset($_POST['register-btn']) || isset($_POST['company'])) {
     $first_name = trim($_POST['first_name']);
@@ -20,13 +20,14 @@ if (isset($_POST['register-btn']) || isset($_POST['company'])) {
     $company = strip_tags($company);
     $company = htmlspecialchars($company);
     $company = ucwords(strtolower($company));
-    $query = 'INSERT INTO `users` (first_name, last_name, userEmail, userMobile, userCompany, userLevel) VALUES (?,?,?,?,?,1)';
+    $query = 'INSERT INTO `users` (first_name, last_name, userEmail, userMobile, userCompany) VALUES (?,?,?,?,?)';
     if ($stmt = $mysqli->prepare($query)) {
         $stmt->bind_param('sssss', $first_name, $last_name, $email, $mobile, $company);
         $stmt->execute();
         $stmt->close();
-        echo "Success";
+        echo json_encode(['success'=>true]);
+    }else{
+        echo json_encode(['success'=>false]);
     }
     $mysqli->close();
-    header('Location: ../index.php');
 }

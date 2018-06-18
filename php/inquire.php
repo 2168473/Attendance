@@ -21,37 +21,35 @@ if (isset($_POST['send']) || isset($_POST['name']) || isset($_POST['email']) || 
     $message = trim($_POST['message']);
     $message = strip_tags($message);
     $message = htmlspecialchars($message);
-    $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+    $mail = new PHPMailer(true);                      // Passing `true` enables exceptions
     try {
         //Server settings
-        $mail->SMTPDebug = 0;                                 // Enable verbose debug output
-        $mail->isSMTP();                                      // Set mailer to use 2SMTP
-        $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-        $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail->Username = 'vakenme@gmail.com';                 // SMTP username
-        $mail->Password = 'passwordkona110;';                           // SMTP password
-        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-        $mail->Port = 587;                                    // TCP port to connect to
+        $mail->SMTPDebug = 0;                                   // Enable verbose debug output
+        $mail->isSMTP();                                        // Set mailer to use 2SMTP
+        $mail->Host = 'smtp.gmail.com';                         // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                                 // Enable SMTP authentication
+        $mail->Username = 'vakenme@gmail.com';                  // SMTP username
+        $mail->Password = 'passwordkona110;';                   // SMTP password
+        $mail->SMTPSecure = 'tls';                              // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 587;                                      // TCP port to connect to
 
         //Recipients
         $mail->setFrom($email, $name);
         $mail->addAddress('gmonoten25@gmail.com', 'Gaspar Monoten');     // Add a recipient
         $mail->addReplyTo($email, $name);
 
-        //Attachments
-        // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-        //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-
         //Content
-        $mail->isHTML(true);                                  // Set email format to HTML
+        $mail->isHTML(true);                             // Set email format to HTML
         $mail->Subject = $subject;
         $mail->Body = $message;
 
         $mail->send();
-        echo 'Message has been sent';
+        $status_message =  'Message has been sent';
+        $data = ["status"=>$status_message, "success"=> true];
     } catch (Exception $e) {
-        echo 'Message could not be sent. Mailer Error: ';// $mail->ErrorInfo;
+        $status_message = 'Message could not be sent. Mailer Error: ';// $mail->ErrorInfo;
+        $data = ["status"=>$status_message, "success"=> false];
     }
-}else{
-    echo "Failed";
+
+    echo json_encode($data);
 }

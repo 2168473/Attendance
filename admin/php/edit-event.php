@@ -41,7 +41,7 @@ if (isset($_POST['end_date'])){
         $stmt->close();
     }
 }
-if (isset($_FILES['cover_image'])){
+if (($_FILES['cover_image']['name']) != ''){
     $imgData = "";
     mysqli_set_charset($mysqli, 'utf8');
     if ($_FILES['cover_image']['error'] == UPLOAD_ERR_OK) {

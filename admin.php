@@ -42,12 +42,12 @@ if ($stmt = $mysqli->prepare("select count(userId) from users;")) {
 </head>
 <body>
 <div class="ui menu" id="menu">
-    <a href="index.php" class="ui right floated dropdown item">
+    <div class="ui right floated dropdown item">
         Admin <i class="dropdown icon"></i>
-        <div class="menu" href="index.php">
-            <div class="item">Logout</div>
+        <div class="menu">
+            <a class="item" href="index.php">Logout</a>
         </div>
-    </a>
+    </div>
 </div>
 <div class="ui bottom attached pusher">
     <div class="ui visible inverted labeled left vertical sidebar menu" id="sidebar">

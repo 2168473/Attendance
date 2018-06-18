@@ -99,96 +99,13 @@ include 'php/functions.php';
 <?php
 include 'pagefragments/add-event.html';
 include 'pagefragments/edit-event.html';
-include 'pagefragments/delete-event.html';
 ?>
 <!--Scripts-->
 
-<script>
-    function editEvent(id) {
-        $.get("php/functions.php?getAnnouncement=" + id, function (data) {
-            $('#start-date').calendar({
-                type: 'date',
-                endCalendar: $('#end-date'),
-                formatter: {
-                    date: function (date) {
-                        if (!date) return '';
-                        var day = date.getDate() + '';
-                        if (day.length < 2) {
-                            day = '0' + day;
-                        }
-                        var month = (date.getMonth() + 1) + '';
-                        if (month.length < 2) {
-                            month = '0' + month;
-                        }
-                        var year = date.getFullYear();
-                        return year + '-' + month + '-' + day;
-                    }
-                },
-            });
-            $('#start-date').calendar("set date", new Date(data['start_date']));
-            $('#end-date').calendar({
-                type: 'date',
-                startCalendar: $('#start-date'),
-                formatter: {
-                    date: function (date) {
-                        if (!date) return '';
-                        var day = date.getDate() + '';
-                        if (day.length < 2) {
-                            day = '0' + day;
-                        }
-                        var month = (date.getMonth() + 1) + '';
-                        if (month.length < 2) {
-                            month = '0' + month;
-                        }
-                        var year = date.getFullYear();
-                        return year + '-' + month + '-' + day;
-                    }
-                }
-            });
-            $('#end-date').calendar("set date", new Date(data['end_date']));
-            $('#title').val(data['title']);
-            $('#cover_image_name').val(data['cover_image_name']);
-            $('#text_content').val(data['content']);
-            $('#eventId').val(id);
-            $('#edit-event-modal')
-                .modal('show')
-            ;
-        });
-    }
-
-    function deleteEvent(id) {
-        $.get("php/functions.php?getAnnouncement=" + id, function (data) {
-            document.getElementById('ev-title').innerHTML = data['title'];
-            document.getElementById('event-title').innerHTML = data['title'];
-        });
-        $('#del-event')
-            .modal({
-                closable: false,
-                onDeny: function () {
-                    return true;
-                },
-                onApprove: function () {
-                    $.ajax({
-                        url: 'php/del-event.php?eventId='+id,
-                        beforeSend: function () {
-                            $('#success-del').modal({
-                                onDeny: function () {
-                                    window.location = '/admin/announce-event.php';
-                                }
-                            }).modal('show');
-                        }
-                    });
-
-                }
-            })
-            .modal('show')
-        ;
-
-    }
-
-</script>
 <script src="../assets/library/semantic/semantic.min.js"></script>
 <script src="../assets/library/calendar.min.js"></script>
+<script src="../assets/library/jquery.form.min.js"></script>
+<script src="../assets/library/sweetalert.min.js"></script>
 <script src="../assets/js/admin.js"></script>
 
 </body>

@@ -1,6 +1,4 @@
 <?php
-session_start();
-date_default_timezone_set('Asia/Manila');
 include 'php/functions.php';
 ?>
 <!DOCTYPE html>
@@ -24,12 +22,12 @@ include 'php/functions.php';
 </head>
 <body>
 <div class="ui menu" id="menu">
-    <a href="../index.php" class="ui right floated dropdown item">
+    <div class="ui right floated dropdown item">
         Admin <i class="dropdown icon"></i>
-        <div class="menu" href="../index.php">
-            <div class="item">Logout</div>
+        <div class="menu" >
+            <a href="/" class="item">Logout</a>
         </div>
-    </a>
+    </div>
 </div>
 <div class="ui bottom attached pusher">
     <div class="ui visible inverted labeled left vertical sidebar menu" id="sidebar">
@@ -66,7 +64,6 @@ include 'php/functions.php';
                     <th>E-mail Address</th>
                     <th>Mobile Number</th>
                     <th>Organization</th>
-                    <th>Level</th>
                     <th>Action</th>
                         
                 </tr>
@@ -96,31 +93,14 @@ include 'php/functions.php';
 </div>
 <?php
     include 'pagefragments/edit-user.html';
-    include 'pagefragments/delete-user.html';
 ?>
 <!--Scripts-->
 <script src="../assets/library/semantic/semantic.min.js"></script>
 <script src="../assets/library/calendar.min.js"></script>
+<script src="../assets/library/jquery.form.min.js"></script>
+<script src="../assets/library/sweetalert.min.js"></script>
 <script src="../assets/js/admin.js"></script>
-<script>
 
-    function editUser(id) {
-        $.get("php/functions.php?getUser=" + id, function (data) {
-            $('#first_name').val(data['first_name']);
-            $('#last_name').val(data['last_name']);
-            $('#email').val(data['userEmail']);
-            $('#mobile').val(String(data['userMobile']).substring(3));
-            $('#company').val(data['userCompany']);
-            $('#user_level').val(data['userLevel']);
-            $('#userId').val(id);
-            $('#edit-user-modal')
-                .modal('show')
-            ;
-        });
-
-    }
-    
-    </script>
 </body>
 
 </html>

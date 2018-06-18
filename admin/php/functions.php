@@ -35,14 +35,14 @@ function getUsers()
 {
     $mysqli = new mysqli(host, user, password, database);
     $data = [];
-    $query = "SELECT userId, first_name, last_name, userEmail, userMobile, userCompany, userLevel from users;";
+    $query = "SELECT userId, first_name, last_name, userEmail, userMobile, userCompany from users;";
 
     if ($stmt = $mysqli->prepare($query)) {
         $stmt->execute();
 
-        $stmt->bind_result($id, $first_name, $last_name, $userEmail, $userMobile, $userCompany, $userLevel);
+        $stmt->bind_result($id, $first_name, $last_name, $userEmail, $userMobile, $userCompany);
         while ($stmt->fetch()) {
-            $data[] = array($id, $first_name, $last_name, $userEmail, $userMobile, $userCompany, $userLevel);
+            $data[] = array($id, $first_name, $last_name, $userEmail, $userMobile, $userCompany);
         }
         $stmt->close();
     }
@@ -81,16 +81,16 @@ function getUserPayments()
 function getUser($id)
 {
     $mysqli = new mysqli(host, user, password, database);
-    $query = "SELECT userId, first_name, last_name, userEmail, userMobile, userCompany, userLevel from users WHERE userId = ?;";
+    $query = "SELECT userId, first_name, last_name, userEmail, userMobile, userCompany from users WHERE userId = ?;";
     $data = '';
 
     if ($stmt = $mysqli->prepare($query)) {
         $stmt->bind_param('s', $id);
         $stmt->execute();
-        $stmt->bind_result($id, $first_name, $last_name, $userEmail, $userMobile, $userCompany, $userLevel);
+        $stmt->bind_result($id, $first_name, $last_name, $userEmail, $userMobile, $userCompany);
         $stmt->fetch();
         $data = array("id"=>$id, "first_name"=>$first_name, "last_name"=>$last_name, "userEmail"=>$userEmail,
-            "userMobile"=>$userMobile, "userCompany"=>$userCompany, "userLevel"=>$userLevel);
+            "userMobile"=>$userMobile, "userCompany"=>$userCompany);
         $stmt->close();
     }
     $mysqli->close();

@@ -86,6 +86,7 @@ $('#login-form').form({
                 if (token !== '') {
                     url = 'http://' + ip + ':' + port +'/?number=' +number + '&message=' + message + '&token=' + token;
                 }
+                console.log(url);
                 $.get(url);
             });
             swal({
@@ -185,6 +186,7 @@ $('#logout-form').form({
             if (token !== '') {
                 url = 'http://' + ip + ':' + port +'/?number=' +number + '&message=' + message + '&token=' + token;
             }
+            console.log(url);
             $.get(url);
         });
 

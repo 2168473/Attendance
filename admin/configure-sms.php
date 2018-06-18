@@ -86,7 +86,7 @@ if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
                                 <input type="text" name="port" value="<?php echo $config['port'] ?>">
                             </div>
                             <div class="field">
-                                <label for="number">Recipient's Phone Number</label>
+                                <label for="number">Phone Number</label>
                                 <input type="text" name="number" value="<?php echo $config['number'] ?>">
                             </div>
                             <div class="field">

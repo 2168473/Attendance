@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14a55fd8-8c4f-4d1c-afef-05c2ffc43868" name="Default" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/dashboard.php" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/script.js" afterDir="false" />
+>>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,20 +36,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file leaf-file-name="dashboard.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin/dashboard.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="277">
               <caret line="70" column="35" lean-forward="true" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="35" />
+=======
+      <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assets/js/script.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="157">
+              <caret line="291" column="64" selection-start-line="291" selection-start-column="64" selection-end-line="291" selection-end-column="64" />
+              <folding>
+                <element signature="e#904#1812#0" />
+              </folding>
+>>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/php/functions.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="124">
               <caret line="229" column="56" selection-start-line="229" selection-start-column="56" selection-end-line="229" selection-end-column="56" />
+=======
+      <file leaf-file-name="dashboard.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/dashboard.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="107">
+              <caret line="190" column="35" selection-start-line="190" selection-start-column="35" selection-end-line="190" selection-end-column="35" />
+>>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
             </state>
           </provider>
         </entry>
@@ -64,7 +87,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+<<<<<<< HEAD
       <find>inquiry</find>
+=======
+>>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
       <find>2000</find>
       <find>delete</find>
       <find>containsInArr</find>
@@ -94,6 +120,10 @@
       <find>color</find>
       <find>#3085d6</find>
       <find>sms</find>
+<<<<<<< HEAD
+=======
+      <find>ajaxform</find>
+>>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
     </findStrings>
     <replaceStrings>
       <replace>700</replace>
@@ -155,7 +185,6 @@
         <option value="$PROJECT_DIR$/php/login.php" />
         <option value="$PROJECT_DIR$/php/config.php" />
         <option value="$PROJECT_DIR$/admin/php/config.php" />
-        <option value="$PROJECT_DIR$/php/sms_config.php" />
         <option value="$PROJECT_DIR$/admin.php" />
         <option value="$PROJECT_DIR$/admin/announce-event.php" />
         <option value="$PROJECT_DIR$/admin/user-management.php" />
@@ -165,6 +194,14 @@
         <option value="$PROJECT_DIR$/assets/library/sweetalert.min.js" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/assets/library/sweetalert2.all.js" />
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/assets/js/admin.js" />
+        <option value="$PROJECT_DIR$/admin/configure-sms.php" />
+        <option value="$PROJECT_DIR$/admin/php/functions.php" />
+        <option value="$PROJECT_DIR$/php/sms_config.php" />
+        <option value="$PROJECT_DIR$/admin/dashboard.php" />
+>>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
         <option value="$PROJECT_DIR$/assets/js/script.js" />
         <option value="$PROJECT_DIR$/assets/js/admin.js" />
         <option value="$PROJECT_DIR$/admin/configure-sms.php" />
@@ -224,6 +261,31 @@
             </path>
             <path>
               <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
+<<<<<<< HEAD
+=======
+              <item name="Attendance" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Attendance" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="php" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Attendance" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Attendance" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
+>>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
               <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
             </path>
           </expand>
@@ -314,12 +376,20 @@
       <workItem from="1529228474385" duration="7351000" />
       <workItem from="1529282052863" duration="17176000" />
       <workItem from="1529330972055" duration="9235000" />
+<<<<<<< HEAD
       <workItem from="1529369485059" duration="9921000" />
+=======
+      <workItem from="1529369485059" duration="13206000" />
+>>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="322351000" />
+=======
+    <option name="totallyTimeSpent" value="325636000" />
+>>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -337,13 +407,21 @@
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2549168" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32972136" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50075644" side_tool="true" weight="0.32972136" />
+=======
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5015129" side_tool="true" weight="0.39164087" />
+>>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49924356" weight="0.32972136" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32972136" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49924356" visible="true" weight="0.39164087" />
+=======
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49848714" visible="true" weight="0.39164087" />
+>>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -577,7 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/sms_config.php" />
     <entry file="file://$PROJECT_DIR$/admin/user-management.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -585,6 +662,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/admin/php/sms_config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -592,6 +670,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assets/library/sweetalert2.all.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5757">
+          <caret line="3416" column="24" selection-start-line="3416" selection-start-column="24" selection-end-line="3416" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/library/sweetalert.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret column="1283" lean-forward="true" selection-end-column="40802" />
+=======
     <entry file="file://$PROJECT_DIR$/assets/library/sweetalert2.all.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5757">
@@ -631,11 +721,79 @@
           <folding>
             <element signature="n#!!block;n#editUser#0" />
           </folding>
+>>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pagefragments/inquire.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="39" column="22" selection-start-line="34" selection-start-column="15" selection-end-line="39" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/library/jquery.canvasjs.min.js" />
+    <entry file="file://$PROJECT_DIR$/assets/library/Chart.bundle.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="90">
+          <caret line="107" column="57" selection-start-line="107" selection-start-column="57" selection-end-line="107" selection-end-column="57" />
+=======
+        <state relative-caret-position="-119">
+          <caret line="75" column="31" selection-start-line="75" selection-start-column="31" selection-end-line="75" selection-end-column="31" />
+>>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/sms_config.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="243">
+          <caret line="492" selection-start-line="492" selection-end-line="492" />
+          <folding>
+            <element signature="n#!!block;n#editUser#0" />
+          </folding>
+=======
+        <state relative-caret-position="170">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/php/sms_config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/php/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="229" column="56" selection-start-line="229" selection-start-column="56" selection-end-line="229" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/configure-sms.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1819">
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="190" column="35" selection-start-line="190" selection-start-column="35" selection-end-line="190" selection-end-column="35" />
+>>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="17">
           <caret line="193" column="25" selection-start-line="193" selection-start-column="25" selection-end-line="193" selection-end-column="25" />
           <folding>
@@ -676,6 +834,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
           <caret line="70" column="35" lean-forward="true" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="35" />
+=======
+        <state relative-caret-position="157">
+          <caret line="291" column="64" selection-start-line="291" selection-start-column="64" selection-end-line="291" selection-end-column="64" />
+          <folding>
+            <element signature="e#904#1812#0" />
+          </folding>
+>>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
         </state>
       </provider>
     </entry>

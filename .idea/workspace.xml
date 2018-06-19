@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14a55fd8-8c4f-4d1c-afef-05c2ffc43868" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/configure-sms.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/configure-sms.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/php/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/php/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/dashboard.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,8 +35,8 @@
       <file leaf-file-name="dashboard.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin/dashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="232" column="48" selection-start-line="232" selection-start-column="48" selection-end-line="232" selection-end-column="48" />
+            <state relative-caret-position="277">
+              <caret line="70" column="35" lean-forward="true" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -191,6 +188,8 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
       <path value="$PROJECT_DIR$/assets/library/semantic/package.json" />
+      <path value="$PROJECT_DIR$/semantic/dist/package.json" />
+      <path value="$PROJECT_DIR$/semantic/tasks/config/admin/templates/package.json" />
     </packageJsonPaths>
   </component>
   <component name="PhpServers">
@@ -222,33 +221,6 @@
             <path>
               <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
               <item name="Attendance" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Attendance" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Attendance" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="php" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Attendance" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Attendance" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="library" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Attendance" type="462c0819:PsiDirectoryNode" />
-              <item name="pagefragments" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Attendance" type="b2602c69:ProjectViewProjectNode" />
@@ -342,12 +314,12 @@
       <workItem from="1529228474385" duration="7351000" />
       <workItem from="1529282052863" duration="17176000" />
       <workItem from="1529330972055" duration="9235000" />
-      <workItem from="1529369485059" duration="8388000" />
+      <workItem from="1529369485059" duration="9921000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="320818000" />
+    <option name="totallyTimeSpent" value="322351000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -702,8 +674,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="232" column="48" selection-start-line="232" selection-start-column="48" selection-end-line="232" selection-end-column="48" />
+        <state relative-caret-position="277">
+          <caret line="70" column="35" lean-forward="true" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="35" />
         </state>
       </provider>
     </entry>

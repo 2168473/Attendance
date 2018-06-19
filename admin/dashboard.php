@@ -1,18 +1,3 @@
-<?php
-require_once 'php/sms_config.php';
-include 'php/functions.php';
-
-if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
-    && $_SERVER['PHP_AUTH_USER'] === 'admin'
-    && $_SERVER['PHP_AUTH_PW'] === 'verystrongpassword') {
-    // User is properly authenticated...
-} else {
-    header('WWW-Authenticate: Basic realm="Calle Uno: Secured Site"');
-    header('HTTP/1.0 401 Unauthorized');
-    exit('Unauthorized access detected.');
-}
-
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,7 +45,6 @@ if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
             <i class="money icon"></i>
             User Payments
         </a>
-<<<<<<< HEAD
         <a class="item" href="configure-sms.php">
             <i class="mobile icon"></i>
             SMS Configuration
@@ -69,37 +53,25 @@ if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
             <i class="chart pie icon"></i>
             Statistics/Graph
         </a>
-=======
-        <a class="item active" href="configure-sms.php">
-            <i class="mobile icon"></i>
-            SMS Configuration
-        </a>
->>>>>>> 0e60839a843eae1b9154d12757731411b7b4820d
     </div>
     <div id="content">
         <div class="ui two column grid">
-            <div class="row">
-                <div class="column">
-                    <div class="ui segment">
-                        <canvas id="loginCount" height="200"></canvas>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="column">
-                        <div class="ui segment">
-                            <canvas id="purpose" height="200"></canvas>
-                        </div>
-                    </div>
+            <div class="column">
+                <div class="ui segment">
+                    <canvas id="loginCount" height="200"></canvas>
                 </div>
             </div>
-            <div class="row">
-                <div class="column">
-                    <div class="ui segment">
-                        <canvas id="payments" height="200"></canvas>
-                    </div>
+            <div class="column">
+                <div class="ui segment">
+                    <canvas id="purpose" height="200"></canvas>
                 </div>
-                <div class="column"></div>
             </div>
+            <div class="column">
+                <div class="ui segment">
+                    <canvas id="payments" height="200"></canvas>
+                </div>
+            </div>
+            <div class="column"></div>
         </div>
     </div>
 </div>
@@ -215,11 +187,7 @@ if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
             data: {
                 labels: days,
                 datasets: [{
-<<<<<<< HEAD
                     label: 'Amount Collected',
-=======
-                    label: 'Number of Logins',
->>>>>>> 0e60839a843eae1b9154d12757731411b7b4820d
                     data: payments,
                     borderColor: '#41A9F4',
                 }],

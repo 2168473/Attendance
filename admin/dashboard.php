@@ -60,6 +60,7 @@ if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
             <i class="money icon"></i>
             User Payments
         </a>
+<<<<<<< HEAD
         <a class="item" href="configure-sms.php">
             <i class="mobile icon"></i>
             SMS Configuration
@@ -68,6 +69,12 @@ if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
             <i class="chart pie icon"></i>
             Statistics/Graph
         </a>
+=======
+        <a class="item active" href="configure-sms.php">
+            <i class="mobile icon"></i>
+            SMS Configuration
+        </a>
+>>>>>>> 0e60839a843eae1b9154d12757731411b7b4820d
     </div>
     <div id="content">
         <div class="ui two column grid">
@@ -208,7 +215,11 @@ if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
             data: {
                 labels: days,
                 datasets: [{
+<<<<<<< HEAD
                     label: 'Amount Collected',
+=======
+                    label: 'Number of Logins',
+>>>>>>> 0e60839a843eae1b9154d12757731411b7b4820d
                     data: payments,
                     borderColor: '#41A9F4',
                 }],

@@ -189,7 +189,6 @@
                 datasets: [{
                     label: 'Amount Collected',
                     data: payments,
-                    borderColor: '#41A9F4',
                 }],
                 borderWidth: 1
             },

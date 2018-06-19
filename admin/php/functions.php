@@ -235,3 +235,19 @@ if(isset($_GET['payments'])){
     header('Content-Type: application/json');
     echo json_encode($data);
 }
+
+if (isset($_GET['logout'])){
+    echo 'session destroyed';
+    session_start();
+    session_destroy();
+}
+if (isset($_GET['admin-user'])) {
+    if ($_GET['admin-user'] === 'admin'){
+        echo true;
+    }
+}
+if (isset($_GET['admin-password'])) {
+    if ($_GET['admin-password'] === 'verystrongpassword'){
+        echo true;
+    }
+}

@@ -490,3 +490,8 @@ $("#sms").form({
         });
     }
 });
+
+function logout(){
+    $.get('/admin/php/functions.php?logout=true');
+    window.location = '/admin/login.php ';
+}

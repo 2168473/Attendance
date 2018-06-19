@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 //Set error reporting
 error_reporting(0);
@@ -13,4 +14,8 @@ if (mysqli_connect_errno()) {
     header("HTTP/1.0 500 Internal Server Error");
     die();
 
+}
+
+if (!isset($_SESSION['id'])){
+    header('Location: /admin/login.php');
 }

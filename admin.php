@@ -19,16 +19,16 @@ if ($stmt = $mysqli->prepare("select count(userId) from users;")) {
     $stmt->fetch();
     $stmt->close();
 }
-
-if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
-    && $_SERVER['PHP_AUTH_USER'] === 'admin'
-    && $_SERVER['PHP_AUTH_PW'] === 'verystrongpassword') {
-    // User is properly authenticated...
-    } else {
-    header('WWW-Authenticate: Basic realm="Calle Uno: Secured Site"');
-    header('HTTP/1.0 401 Unauthorized');
-    exit('Unauthorized access detected');
-    }
+//
+//if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
+//    && $_SERVER['PHP_AUTH_USER'] === 'admin'
+//    && $_SERVER['PHP_AUTH_PW'] === 'verystrongpassword') {
+//    // User is properly authenticated...
+//    } else {
+//    header('WWW-Authenticate: Basic realm="Calle Uno: Secured Site"');
+//    header('HTTP/1.0 401 Unauthorized');
+//    exit('Unauthorized access detected');
+//    }
 
 ?>
 <!DOCTYPE html>
@@ -43,7 +43,6 @@ if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
     <title>Calle Uno: Client Logs</title>
 
     <link rel="stylesheet" href="assets/library/semantic/semantic.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/library/DataTables/datatables.css">
     <link rel="stylesheet" href="assets/css/admin.css">
     <script src="assets/library/jquery.min.js"></script>
@@ -54,7 +53,7 @@ if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
     <div class="ui right floated dropdown item">
         Admin <i class="dropdown icon"></i>
         <div class="menu">
-            <a class="item" href="index.php">Logout</a>
+            <div class="item" onclick="logout()">Logout</div>
         </div>
     </div>
 </div>

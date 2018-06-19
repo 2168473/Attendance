@@ -1,3 +1,14 @@
+<?php
+//if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
+//    && $_SERVER['PHP_AUTH_USER'] === 'admin'
+//    && $_SERVER['PHP_AUTH_PW'] === 'verystrongpassword') {
+//    // User is properly authenticated...
+//} else {
+//    header('WWW-Authenticate: Basic realm="Calle Uno: Secured Site"');
+//    header('HTTP/1.0 401 Unauthorized');
+//    exit('Unauthorized access detected');
+//}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,19 +21,17 @@
     <title>Calle Uno: User Accounts Management</title>
 
     <link rel="stylesheet" href="../assets/library/semantic/semantic.min.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/admin.css">
-    <link rel="stylesheet" href="../assets/library/calendar.min.css">
     <script src="../assets/library/jquery.min.js"></script>
 </head>
 <body>
 <div class="ui menu" id="menu">
-    <a href="../index.php" class="ui right floated dropdown item">
+    <div class="ui right floated dropdown item">
         Admin <i class="dropdown icon"></i>
-        <div class="menu" href="../index.php">
-            <div class="item">Logout</div>
+        <div class="menu">
+            <div class="item" onclick="logout()">Logout</div>
         </div>
-    </a>
+    </div>
 </div>
 <div class="ui bottom attached pusher">
     <div class="ui visible inverted labeled left vertical sidebar menu" id="sidebar">
@@ -78,9 +87,6 @@
 
 <!--Scripts-->
 <script src="../assets/library/semantic/semantic.min.js"></script>
-<script src="../assets/library/calendar.min.js"></script>
-<script src="../assets/library/jquery.form.min.js"></script>
-<script src="../assets/library/sweetalert.min.js"></script>
 <script src="../assets/library/Chart.bundle.min.js"></script>
 <script src="../assets/js/admin.js"></script>
 <script>

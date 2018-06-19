@@ -182,11 +182,7 @@ $('#logout-form').form({
                 swal({
                     type: 'success',
                     title: 'Success!',
-<<<<<<< HEAD
-                    text: "You are now logged out! \nCome back again!",
-=======
                     text: "You are now logged out! \nDon't forget to come back!",
->>>>>>> 7179ddc8270d268df32e129a748a78681fbcfdb8
                     showConfirmButton: false,
                     timer: 2500
                 });
@@ -293,11 +289,7 @@ $('#registration-form').form({
         swal({
             type: 'success',
             title: 'Success!',
-<<<<<<< HEAD
-            text: "You are now Registered. \nYou may now Log in!",
-=======
             text: "You are now Registered. You may now Log in!",
->>>>>>> 7179ddc8270d268df32e129a748a78681fbcfdb8
             showConfirmButton: false,
             timer: 2500
         });

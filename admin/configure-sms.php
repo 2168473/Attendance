@@ -1,17 +1,6 @@
 <?php
 require_once 'php/sms_config.php';
 include 'php/functions.php';
-
-if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
-    && $_SERVER['PHP_AUTH_USER'] === 'admin'
-    && $_SERVER['PHP_AUTH_PW'] === 'verystrongpassword') {
-    // User is properly authenticated...
-    } else {
-    header('WWW-Authenticate: Basic realm="Calle Uno: Secured Site"');
-    header('HTTP/1.0 401 Unauthorized');
-    exit('Unauthorized access detected.');
-    }
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -66,6 +55,10 @@ if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
             <i class="mobile icon"></i>
             SMS Configuration
         </a>
+        <a class="item" href="dashboard.php">
+            <i class="chart pie icon"></i>
+            Statistics/Graph
+        </a>
     </div>
     <div id="content">
         <div class="ui basic">
@@ -79,19 +72,20 @@ if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
                         <div class="five fields">
                             <div class="field">
                                 <label for="ip_address">IP Address</label>
-                                <input type="text" name="ip_address" value="<?php echo $config['ip address'] ?>">
+                                <input type="text" id="ip" name="ip_address" value="<?php echo $config['ip address']
+                                ?>">
                             </div>
                             <div class="field">
                                 <label for="port">Port Number</label>
-                                <input type="text" name="port" value="<?php echo $config['port'] ?>">
+                                <input type="text" id="port" name="port" value="<?php echo $config['port'] ?>">
                             </div>
                             <div class="field">
                                 <label for="number">Phone Number</label>
-                                <input type="text" name="number" value="<?php echo $config['number'] ?>">
+                                <input type="tel" name="number" value="<?php echo $config['number'] ?>">
                             </div>
                             <div class="field">
                                 <label for="number">Token</label>
-                                <input type="password" name="token" value="<?php echo $config ['token']?>">
+                                <input type="password" id="token" name="token" value="<?php echo $config ['token'] ?>">
                             </div>
                             <div class="field">
                                 <label for="button" style="visibility: hidden;">button</label>
@@ -102,44 +96,40 @@ if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
                     </div>
                 </form>
             </div>
+
+            <div class="ui segment very padded">
+                <form class="ui form very padded" action="" method="get" id="sendSMS">
+                    <div class="ui horizontal divider">Send SMS</div>
+                    <div class="field">
+                        <div class="four fields">
+                            <div class="field">
+                                <label>Recipient Number</label>
+                                <div class="ui labeled input">
+                                    <input placeholder="Enter mobile number" type="text" name="recipient">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Message:</label>
+                        <textarea rows="3" placeholder="Enter message here..." name="message"></textarea>
+                    </div>
+                    <div class="field">
+                        <button class="ui button">Send</button>
+                    </div>
+                    <div class="ui error message"></div>
+
+                </form>
+            </div>
         </div>
     </div>
 </div>
-<?php
-include 'pagefragments/edit-user.html';
-?>
 <!--Scripts-->
 <script src="../assets/library/semantic/semantic.min.js"></script>
 <script src="../assets/library/calendar.min.js"></script>
 <script src="../assets/library/jquery.form.min.js"></script>
 <script src="../assets/library/sweetalert.min.js"></script>
 <script src="../assets/js/admin.js"></script>
-<script>
-    $.fn.form.settings.rules.ip_address = function (value) {
-        let expression = /((^\s*((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))\s*$)|(^\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))(%.+)?\s*$))/;
-        return expression.test(value);
-    };
-    $("#sms").form({
-        fields: {
-            ip_address: ['ip_address', 'empty'],
-            port: ['empty','integer'],
-            number: ['empty','integer', 'minLength[7]', 'maxLength[11]'],
-        }
-    }).ajaxForm({
-        url: 'php/functions.php',
-        method: 'post',
-        success: function () {
-            swal({
-                title: "Success!",
-                text: "Changes have been saved!",
-                icon: "success",
-                timer: 2500,
-                button: false
-            });
-        }
-    });
-
-</script>
 </body>
 
 </html>

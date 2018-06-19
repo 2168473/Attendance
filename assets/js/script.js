@@ -78,23 +78,23 @@ $('#login-form').form({
         success: function (data) {
             let message = encodeURIComponent(data['message']);
             $.get('php/sms_config.php', function (value) {
-                let number= value['number'];
+                let number = value['number'];
                 let ip = value['ip address'];
                 let port = value['port'];
                 let token = value['token'];
-                let url = 'http://' + ip + ':' + port +'/?number=' +number + '&message=' + message;
+                let url = 'http://' + ip + ':' + port + '/?number=' + number + '&message=' + message;
                 if (token !== '') {
-                    url = 'http://' + ip + ':' + port +'/?number=' +number + '&message=' + message + '&token=' + token;
+                    url = 'http://' + ip + ':' + port + '/?number=' + number + '&message=' + message + '&token=' + token;
                 }
                 console.log(url);
                 $.get(url);
             });
             swal({
-                title: "Success!",
-                text: "You are now Logged in. \nDon't forget to logout!",
-                icon: "success",
-                timer: 2500,
-                buttons: false,
+                type: 'success',
+                title: 'Success!',
+                text: 'You are now Logged in. \nDon\'t forget to logout!',
+                showConfirmButton: false,
+                timer: 2500
             });
             $('#login_email').val("");
             $('#login_purpose').dropdown('clear');
@@ -156,46 +156,52 @@ $('#logout-form').form({
         let sessionId = '';
         $.get('php/functions.php?user_email=' + userEmail, function (data) {
             sessionId = data['sessionId'];
-            if (data['Drop-in Coworking']){
-                swal({
-                    text: 'Total amount to be paid: Php1.00',
-                    content: "input",
-                    button: {
-                        text: "Pay",
-                        closeModal: false,
-                    },
-                })
-                    .then(payment => {
-                        $.get('php/functions.php?sessionId=' + sessionId + '&payment=' + payment);
+            if (data['Drop-in Coworking']) {
+                (async function getName() {
+                    const {value: payment} =  await swal({
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        title: 'Total amount to be paid: Php1.00',
+                        input: 'number',
+                        showCancelButton: false,
+                        inputValidator: (value) => {
+                            return (value <= 0 || value == null) && 'Please enter a valid value!'
+                        }
+                    });
+
+                    if (payment) {
                         swal({
+                            type: 'success',
                             title: "Successfully Paid",
+                            text: "You are now logged out! \nDon't forget to come back!",
                             icon: 'success',
                         });
-                    });
+                        $.get('php/functions.php?sessionId=' + sessionId + '&payment=' + payment);
+                    }
+                })();
+            }else {
+                swal({
+                    type: 'success',
+                    title: 'Success!',
+                    text: "You are now logged out! \nCome back again!",
+                    showConfirmButton: false,
+                    timer: 2500
+                });
             }
         });
     },
-    success:function (data) {
+    success: function (data) {
         let message = encodeURIComponent(data['message']);
         $.get('php/sms_config.php', function (value) {
-            let number= value['number'];
+            let number = value['number'];
             let ip = value['ip address'];
             let port = value['port'];
             let token = value['token'];
-            let url = 'http://' + ip + ':' + port +'/?number=' +number + '&message=' + message;
+            let url = 'http://' + ip + ':' + port + '/?number=' + number + '&message=' + message;
             if (token !== '') {
-                url = 'http://' + ip + ':' + port +'/?number=' +number + '&message=' + message + '&token=' + token;
+                url = 'http://' + ip + ':' + port + '/?number=' + number + '&message=' + message + '&token=' + token;
             }
-            console.log(url);
             $.get(url);
-        });
-
-        swal({
-            title: "Success!",
-            text: "You are now logged out! \nDon't forget to come back!",
-            icon: "success",
-            timer: 2500,
-            button: false
         });
         $('#logout_email').val("");
     }
@@ -282,11 +288,11 @@ $('#registration-form').form({
     method: 'post',
     success: function () {
         swal({
-            title: "Success!",
-            text: "You are now Registered. You may now Log in!",
-            icon: "success",
-            timer: 2500,
-            button: false
+            type: 'success',
+            title: 'Success!',
+            text: "You are now Registered. \nYou may now Log in!",
+            showConfirmButton: false,
+            timer: 2500
         });
         $('#first_name').val("");
         $('#last_name').val("");
@@ -295,7 +301,6 @@ $('#registration-form').form({
         $('#mobile').val("");
     }
 });
-let notice;
 /*===============Registration Validations===============*/
 $('#inquiry-form').form({
     fields: {
@@ -355,18 +360,20 @@ $('#inquiry-form').form({
         method: 'post',
         serializeForm: true,
         beforeXHR: function () {
-            notice = swal({
-                title: "Sending...",
+            swal({
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                type: 'info',
+                title: 'Sending...',
                 text: "Please wait, your inquiry is being sent!",
-                icon: "info",
-                buttons: false
+                showConfirmButton: false,
             });
         },
         onResponse: function () {
             swal({
                 title: "Success!",
                 text: "Your Inquiry has been sent!",
-                icon: "success",
+                type: "success",
                 timer: 2500,
             });
             $('#name').val("");
@@ -394,12 +401,11 @@ $('.menu .item')
     .tab()
 ;
 
-function viewEvent(eventId){
+function viewEvent(eventId) {
     $.get('php/functions.php?eventId=' + eventId, function (data) {
         document.getElementById('view_header').innerHTML = data['title'];
         document.getElementById('view_content').innerHTML = data['content'];
         document.getElementById('view_cover_image').src = data['cover_image'];
         $('#viewEvent').modal('show');
     });
-    ;
 }

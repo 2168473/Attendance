@@ -83,6 +83,10 @@ if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
             <i class="mobile icon"></i>
             SMS Configuration
         </a>
+        <a class="item" href="admin/dashboard.php">
+            <i class="chart pie icon"></i>
+            Statistics/Graph
+        </a>
     </div>
     <div id="content">
         <div class="ui basic">

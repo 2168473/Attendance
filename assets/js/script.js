@@ -91,11 +91,7 @@ $('#login-form').form({
             swal({
                 type: 'success',
                 title: 'Success!',
-<<<<<<< HEAD
                 text: 'You are now Logged in. \n Don\'t forget to logout!',
-=======
-                text: 'You are now Logged in. \nDon\'t forget to logout!',
->>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
                 showConfirmButton: false,
                 timer: 2500
             });
@@ -164,11 +160,7 @@ $('#logout-form').form({
                     const {value: payment} =  await swal({
                         allowOutsideClick: false,
                         allowEscapeKey: false,
-<<<<<<< HEAD
                         title: 'Total amount to be paid: \nPhp500.00 (Regular) \nPhp350.00 (Off-Members) \nPhp250.00 (Student)',
-=======
-                        title: 'Total amount to be paid: Php1.00',
->>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
                         input: 'number',
                         showCancelButton: false,
                         inputValidator: (value) => {
@@ -180,11 +172,7 @@ $('#logout-form').form({
                         swal({
                             type: 'success',
                             title: "Successfully Paid",
-<<<<<<< HEAD
-                            text: "You are now logged out! \n Don't forget to come back!",
-=======
                             text: "You are now logged out! \nDon't forget to come back!",
->>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
                             icon: 'success',
                         });
                         $.get('php/functions.php?sessionId=' + sessionId + '&payment=' + payment);
@@ -194,11 +182,7 @@ $('#logout-form').form({
                 swal({
                     type: 'success',
                     title: 'Success!',
-<<<<<<< HEAD
-                    text: "You are now logged out! \nCome back again!",
-=======
                     text: "You are now logged out! \nDon't forget to come back!",
->>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
                     showConfirmButton: false,
                     timer: 2500
                 });
@@ -305,11 +289,7 @@ $('#registration-form').form({
         swal({
             type: 'success',
             title: 'Success!',
-<<<<<<< HEAD
-            text: "You are now Registered. \nYou may now Log in!",
-=======
             text: "You are now Registered. You may now Log in!",
->>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
             showConfirmButton: false,
             timer: 2500
         });

@@ -125,21 +125,13 @@
                         display: true,
                         scaleLabel: {
                             display: true,
-<<<<<<< HEAD
                             labelString: 'Login Count'
-=======
-                            labelString: 'Number of Login'
->>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
                         }
                     }]
                 },
                 title: {
                     display: true,
-<<<<<<< HEAD
                     text: 'Daily Login'
-=======
-                    text: 'Number of Login'
->>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
                 }
             }
         });
@@ -174,11 +166,7 @@
                 },
                 title: {
                     display: true,
-<<<<<<< HEAD
                     text: 'Total Logins (Type of Members)'
-=======
-                    text: 'Purpose Statistics'
->>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
                 }
             }
         });
@@ -201,10 +189,6 @@
                 datasets: [{
                     label: 'Amount Collected',
                     data: payments,
-<<<<<<< HEAD
-                    borderColor: '#41A9F4',
-=======
->>>>>>> 2b9d16209a6e510b245be27071ab4a830335fb88
                 }],
                 borderWidth: 1
             },

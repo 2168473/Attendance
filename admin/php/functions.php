@@ -185,3 +185,53 @@ $file = fopen("../../sms_config","w");
 echo fwrite($file,$string);
 fclose($file);
 }
+
+if(isset($_GET['logins'])){
+    $data = [];
+    $query = "select count(sessionId)logout, DATE_FORMAT(sessionOut, '%M %e %Y')days from sessions group by  DATE_FORMAT(sessionIn, 
+'%Y-%m-%d');";
+    if ($stmt = $mysqli->prepare($query)){
+        $stmt->execute();
+        $stmt->bind_result($logins, $days);
+        while ($stmt->fetch()){
+
+            $data[] = array('logins'=>$logins, 'days'=>$days);
+        }
+        $stmt->close();
+    }
+    $mysqli->close();
+    header('Content-Type: application/json');
+    echo json_encode($data);
+}
+
+if(isset($_GET['purpose'])){
+    $data = [];
+    $query = "SELECT count(sessionId), sessionNotes FROM sessions GROUP BY sessionNotes;";
+    if ($stmt = $mysqli->prepare($query)){
+        $stmt->execute();
+        $stmt->bind_result($sessionCount, $sessionNote);
+        while ($stmt->fetch()){
+            $data[] = array('sessionCount'=>$sessionCount, 'sessionNote'=>$sessionNote);
+        }
+        $stmt->close();
+    }
+    $mysqli->close();
+    header('Content-Type: application/json');
+    echo json_encode($data);
+}
+
+if(isset($_GET['payments'])){
+    $data = [];
+    $query = "SELECT sum(userPayment),DATE_FORMAT(sessionIn, '%M %e %Y')days  FROM sessions GROUP BY days;";
+    if ($stmt = $mysqli->prepare($query)){
+        $stmt->execute();
+        $stmt->bind_result($payments, $days);
+        while ($stmt->fetch()){
+            $data[] = array('payments'=>$payments, 'days'=>$days);
+        }
+        $stmt->close();
+    }
+    $mysqli->close();
+    header('Content-Type: application/json');
+    echo json_encode($data);
+}

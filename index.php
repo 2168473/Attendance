@@ -105,7 +105,7 @@ header('Access-Control-Allow-Headers: x-requested-with');
 
 <script src="assets/library/jquery.min.js"></script>
 <script src="assets/library/jquery.serialize-object.min.js"></script>
-<script src="assets/library/sweetalert.min.js"></script>
+<script src="assets/library/sweetalert2.all.js"></script>
 <script src="assets/library/jquery.form.min.js"></script>
 <script src="assets/library/semantic/semantic.min.js"></script>
 <script src="assets/library/multislider.js"></script>

@@ -45,15 +45,19 @@ include 'php/functions.php';
         </div>
         <a class="item" href="../admin.php">
             <i class="block layout icon"></i>
-            User Client Logs
+            Dashboard
         </a>
-        <a class="item active" href="announce-event.php">
-            <i class="newspaper outline icon"></i>
-            Announcements<br>/Events
+        <a class="item" href="userlogs.php">
+            <i class="clipboard icon"></i>
+            User Logs
         </a>
         <a class="item" href="user-management.php">
             <i class="users icon" ></i>
             User Account <br>Management
+        </a>
+        <a class="item active" href="announce-event.php">
+            <i class="newspaper outline icon"></i>
+            Announcements<br>/Events
         </a>
         <a class="item" href="user-payments.php">
             <i class="money icon" ></i>
@@ -62,10 +66,6 @@ include 'php/functions.php';
         <a class="item" href="configure-sms.php">
             <i class="mobile icon"></i>
             SMS Configuration
-        </a>
-        <a class="item" href="dashboard.php">
-            <i class="chart pie icon"></i>
-            Statistics/Graph
         </a>
     </div>
     <div id="content">
@@ -100,13 +100,6 @@ include 'php/functions.php';
                 }
                 ?>
                 </tbody>
-                <tfoot>
-                <tr>
-                    <th colspan="6" class="right aligned">
-                        <button class="ui button" id="add-event">Add Announcement/Event</button>
-                    </th>
-                </tr>
-                </tfoot>
             </table>
         </div>
     </div>

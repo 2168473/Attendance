@@ -175,11 +175,11 @@ if (isset($_GET['getUser'])) {
     header('Content-Type: application/json');
     echo getUser($_GET['getUser'], $mysqli);
 }
-if (isset($_POST['ip_address'])){
-    $ip = $_POST['ip_address'];
-    $port = $_POST['port'];
-    $number = $_POST['number'];
-    $token = $_POST['token'];
+if (isset($_GET['ip_address'])){
+    $ip = $_GET['ip_address'];
+    $port = $_GET['port'];
+    $number = $_GET['number'];
+    $token = $_GET['token'];
     $string = "ip address: $ip\nport: $port\nnumber: $number\ntoken: $token";
 $file = fopen("../../sms_config","w");
 echo fwrite($file,$string);
@@ -188,13 +188,12 @@ fclose($file);
 
 if(isset($_GET['logins'])){
     $data = [];
-    $query = "select count(sessionId)logout, DATE_FORMAT(sessionOut, '%M %e %Y')days from sessions group by  DATE_FORMAT(sessionIn, 
+    $query = "select count(sessionId), DATE_FORMAT(sessionIn, '%M %e %Y') from sessions group by  DATE_FORMAT(sessionIn, 
 '%Y-%m-%d');";
     if ($stmt = $mysqli->prepare($query)){
         $stmt->execute();
         $stmt->bind_result($logins, $days);
         while ($stmt->fetch()){
-
             $data[] = array('logins'=>$logins, 'days'=>$days);
         }
         $stmt->close();

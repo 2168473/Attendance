@@ -34,7 +34,7 @@ $.fn.form.settings.rules.loggedIn = function (value) {
     });
     return result;
 };
-
+let timers = [];
 //Login Form Validation Rules
 $('#login-form').form({
     fields: {
@@ -76,6 +76,7 @@ $('#login-form').form({
         serializeForm: true,
         dataType: 'json',
         success: function (data) {
+            console.log(data);
             let message = encodeURIComponent(data['message']);
             $.get('php/sms_config.php', function (value) {
                 let number = value['number'];
@@ -87,6 +88,54 @@ $('#login-form').form({
                     url = 'http://' + ip + ':' + port + '/?number=' + number + '&message=' + message + '&token=' + token;
                 }
                 $.get(url);
+            });
+            let userEmail = data.email;
+            let sessionId = '';
+            $.get('php/functions.php?user_email=' + userEmail, function (data) {
+                sessionId = data['sessionId'];
+                let newTimer = new Timer();
+                newTimer.start();
+                newTimer.addEventListener('secondsUpdated', function (e) {
+                    $('#basicUsage').html(newTimer.getTimeValues().toString());
+                    if (newTimer.getTimeValues().toString() == '23:59:59') {
+                        alert("time's up");
+                    }
+                });
+                timers[sessionId] = newTimer;
+                console.log(timers);
+                if (data['Drop-in Coworking']) {
+                    (async function getName() {
+                        const {value: payment} = await swal({
+                            allowOutsideClick: false,
+                            allowEscapeKey: false,
+                            title: 'Total amount to be paid: \nPhp500.00 (Regular) \nPhp350.00 (Off-Members) \nPhp250.00 (Student)',
+                            input: 'number',
+                            showCancelButton: false,
+                            inputValidator: (value) => {
+                                return (value <= 0 || value == null) && 'Please enter a valid value!'
+                            }
+                        });
+
+                        if (payment) {
+                            swal({
+                                type: 'success',
+                                title: "Successfully Paid",
+                                text: "You are now Logged in! \nDon't forget to logout!",
+                                showConfirmButton: false,
+                                timer: 2500
+                            });
+                            $.get('php/functions.php?sessionId=' + sessionId + '&payment=' + payment);
+                        }
+                    })();
+                } else {
+                    swal({
+                        type: 'success',
+                        title: 'Success!',
+                        text: "You are now logged in! \nDon't forget to logout!",
+                        showConfirmButton: false,
+                        timer: 2500
+                    });
+                }
             });
             swal({
                 type: 'success',
@@ -149,46 +198,6 @@ $('#logout-form').form({
     url: 'php/logout.php',
     method: 'post',
     dataType: 'json',
-    data: $("#logout-form").serialize(),
-    beforeSubmit: function (data) {
-        let userEmail = data[0].value;
-        let sessionId = '';
-        $.get('php/functions.php?user_email=' + userEmail, function (data) {
-            sessionId = data['sessionId'];
-            if (data['Drop-in Coworking']) {
-                (async function getName() {
-                    const {value: payment} =  await swal({
-                        allowOutsideClick: false,
-                        allowEscapeKey: false,
-                        title: 'Total amount to be paid: \nPhp500.00 (Regular) \nPhp350.00 (Off-Members) \nPhp250.00 (Student)',
-                        input: 'number',
-                        showCancelButton: false,
-                        inputValidator: (value) => {
-                            return (value <= 0 || value == null) && 'Please enter a valid value!'
-                        }
-                    });
-
-                    if (payment) {
-                        swal({
-                            type: 'success',
-                            title: "Successfully Paid",
-                            text: "You are now logged out! \nDon't forget to come back!",
-                            icon: 'success',
-                        });
-                        $.get('php/functions.php?sessionId=' + sessionId + '&payment=' + payment);
-                    }
-                })();
-            }else {
-                swal({
-                    type: 'success',
-                    title: 'Success!',
-                    text: "You are now logged out! \nDon't forget to come back!",
-                    showConfirmButton: false,
-                    timer: 2500
-                });
-            }
-        });
-    },
     success: function (data) {
         let message = encodeURIComponent(data['message']);
         $.get('php/sms_config.php', function (value) {
@@ -201,6 +210,13 @@ $('#logout-form').form({
                 url = 'http://' + ip + ':' + port + '/?number=' + number + '&message=' + message + '&token=' + token;
             }
             $.get(url);
+        });
+        swal({
+            type: 'success',
+            title: 'Success!',
+            text: "You are now logged out! \nDon't forget to come back!",
+            showConfirmButton: false,
+            timer: 2500
         });
         $('#logout_email').val("");
     }
@@ -281,7 +297,8 @@ $('#registration-form').form({
                 },
             ]
         },
-    }
+    },
+    keyboardShortcuts: false
 }).ajaxForm({
     url: 'php/register.php',
     method: 'post',
@@ -400,11 +417,11 @@ $('.menu .item')
     .tab()
 ;
 
-function viewEvent(eventId) {
+let viewEvent = function (eventId) {
     $.get('php/functions.php?eventId=' + eventId, function (data) {
         document.getElementById('view_header').innerHTML = data['title'];
         document.getElementById('view_content').innerHTML = data['content'];
         document.getElementById('view_cover_image').src = data['cover_image'];
         $('#viewEvent').modal('show');
     });
-}
+};

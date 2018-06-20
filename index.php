@@ -61,6 +61,9 @@
 
             </div>
             <div class="column">
+                <h4>Result</h4>
+                <script src="//www.powr.io/powr.js?external-type=html"></script>
+                <div class="powr-countdown-timer" id="a923e3ef_1529462947"></div>
                 <h1>Announcements and Events</h1>
                 <div id="mixedSlider">
                     <div class="MS-content">
@@ -109,6 +112,7 @@ header('Access-Control-Allow-Headers: x-requested-with');
 <script src="assets/library/jquery.form.min.js"></script>
 <script src="assets/library/semantic/semantic.min.js"></script>
 <script src="assets/library/multislider.js"></script>
+<script src="assets/library/easytimer.min.js"></script>
 <script src="assets/js/script.js"></script>
 
 </body>

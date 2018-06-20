@@ -11,12 +11,11 @@ if (isset($_GET['userEmail'])) {
         $stmt->bind_result($email);
         while ($stmt->fetch()) {
             $users[] = $email;
-           // echo $email;
         }
         $stmt->close();
     }
     $mysqli->close();
-    if (!in_array($email, $users)) {
+    if (!in_array($_GET['userEmail'], $users)) {
         echo 'true';
     }
 }

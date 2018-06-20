@@ -191,6 +191,9 @@ UsersButton.init();
 
 /*===============Set Column Definitions on the Events Table===============*/
 $('#events').DataTable({
+    dom: '<"ui container"<"ui stackable grid"<"seven wide column"B><"four wide column"l><"right aligned ' +
+    'five ' +
+    'wide column"f>>t<"ui stackable two column grid"<"column"i><"right aligned column"p>>>',
     columnDefs: [
         {
             "targets": [4, 5],
@@ -201,7 +204,13 @@ $('#events').DataTable({
             "targets": 1
         }
     ],
-    "order": [[2, "desc"]]
+    "order": [[2, "desc"]],
+    buttons: [
+        {
+            text: 'Add Announcement/event',
+            attr: { id: 'add-event'}
+        }
+    ]
 });
 
 
@@ -302,28 +311,6 @@ $('#editEvent')
     });
     setTimeout(location.reload.bind(location), 1000);
 });
-/*===============Edit User===============*/
-$('#editUser')
-    .form({
-        fields: {
-            first_name: 'empty',
-            last_name: 'empty',
-            email: ['empty', 'email'],
-            mobile: ['empty', 'maxLength[10]', 'minLength[7]'],
-            company: 'empty',
-        }
-    }).ajaxForm(function () {
-    $('#edit-user-modal').modal('hide');
-    swal({
-        title: "Success!",
-        text: "Changes saved!",
-        icon: "success",
-        timer: 2500,
-        button: false
-    });
-    setTimeout(location.reload.bind(location), 1000);
-});
-
 function editEvent(id) {
     $.get("php/functions.php?getAnnouncement=" + id, function (data) {
         $('#eventStart').calendar({
@@ -445,52 +432,6 @@ function deleteUser(id) {
         });
     });
 }
-
-$.fn.form.settings.rules.ip_address = function (value) {
-    let expression = /((^\s*((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))\s*$)|(^\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))(%.+)?\s*$))/;
-    return expression.test(value);
-};
-$('#sendSMS').form({
-    fields: {
-        recipient: ['empty', 'integer', 'minLength[7]', 'maxLength[11]'],
-        message: ['empty']
-    }
-}).ajaxForm({
-    url: 'http://' + $('#ip').val() + ':' + $('#port').val() + '/',
-    data: {
-        token: $('#token').val(),
-    },
-    success: function () {
-        swal({
-            title: "Success!",
-            text: "Message Sent",
-            icon: "success",
-            timer: 2500,
-        });
-        $('#ip').val('');
-        $('#port').val('');
-    }
-});
-$("#sms").form({
-    fields: {
-        ip_address: ['ip_address', 'empty'],
-        port: ['empty', 'integer'],
-        number: ['empty', 'integer', 'minLength[7]', 'maxLength[11]'],
-    }
-}).ajaxForm({
-    url: 'php/functions.php',
-    method: 'post',
-    success: function () {
-        swal({
-            title: "Success!",
-            text: "Changes have been saved!",
-            icon: "success",
-            timer: 2500,
-            button: false
-        });
-    }
-});
-
 function logout(){
     $.get('/admin/php/functions.php?logout=true');
     window.location = '/admin/login.php ';

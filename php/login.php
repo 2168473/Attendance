@@ -29,6 +29,6 @@ if (isset($_POST['email'])) {
     } else {
         $mysqli->close();
     }
-    $data = ["message"=>$Message, "success"=>true];
+    $data = ["message"=>$Message, "success"=>true, "reason"=>$reason, "email"=>$email];
     echo json_encode($data);
 }

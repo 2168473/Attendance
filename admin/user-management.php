@@ -1,15 +1,6 @@
 <?php
 require_once 'php/config.php';
 include 'php/functions.php';
-//if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
-//    && $_SERVER['PHP_AUTH_USER'] === 'admin'
-//    && $_SERVER['PHP_AUTH_PW'] === 'verystrongpassword') {
-//    // User is properly authenticated...
-//    } else {
-//    header('WWW-Authenticate: Basic realm="Calle Uno: Secured Site"');
-//    header('HTTP/1.0 401 Unauthorized');
-//    exit('Unauthorized access detected');
-//    }
 ?>
 
 <!DOCTYPE html>
@@ -45,15 +36,19 @@ include 'php/functions.php';
         </div>
         <a class="item" href="../admin.php">
             <i class="block layout icon"></i>
-            User Client Logs
+            Dashboard
         </a>
-        <a class="item" href="announce-event.php">
-            <i class="newspaper outline icon"></i>
-            Announcements<br>/Events
+        <a class="item" href="userlogs.php">
+            <i class="clipboard icon"></i>
+            User Logs
         </a>
         <a class="item active" href="user-management.php">
             <i class="users icon" ></i>
             User Account <br>Management
+        </a>
+        <a class="item" href="announce-event.php">
+            <i class="newspaper outline icon"></i>
+            Announcements<br>/Events
         </a>
         <a class="item" href="user-payments.php">
             <i class="money icon" ></i>
@@ -62,10 +57,6 @@ include 'php/functions.php';
         <a class="item" href="configure-sms.php">
             <i class="mobile icon"></i>
             SMS Configuration
-        </a>
-        <a class="item" href="dashboard.php">
-            <i class="chart pie icon"></i>
-            Statistics/Graph
         </a>
     </div>
     <div id="content">
@@ -116,7 +107,28 @@ include 'php/functions.php';
 <script src="../assets/library/jquery.form.min.js"></script>
 <script src="../assets/library/sweetalert.min.js"></script>
 <script src="../assets/js/admin.js"></script>
-
+<script>
+    $('#editUser')
+        .form({
+            fields: {
+                first_name: 'empty',
+                last_name: 'empty',
+                email: ['empty', 'email'],
+                mobile: ['empty', 'maxLength[10]', 'minLength[7]'],
+                company: 'empty',
+            }
+        }).ajaxForm(function () {
+        $('#edit-user-modal').modal('hide');
+        swal({
+            title: "Success!",
+            text: "Changes saved!",
+            icon: "success",
+            timer: 2500,
+            button: false
+        });
+        setTimeout(location.reload.bind(location), 1000);
+    });
+</script>
 </body>
 
 </html>

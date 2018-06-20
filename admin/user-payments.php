@@ -1,15 +1,6 @@
 <?php
 require_once 'php/config.php';
 include 'php/functions.php';
-//if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
-//    && $_SERVER['PHP_AUTH_USER'] === 'admin'
-//    && $_SERVER['PHP_AUTH_PW'] === 'verystrongpassword') {
-//    // User is properly authenticated...
-//    } else {
-//    header('WWW-Authenticate: Basic realm="Calle Uno: Secured Site"');
-//    header('HTTP/1.0 401 Unauthorized');
-//    exit('Unauthorized access detected.');
-//    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,15 +35,19 @@ include 'php/functions.php';
         </div>
         <a class="item" href="../admin.php">
             <i class="block layout icon"></i>
-            User Client Logs
+            Dashboard
         </a>
-        <a class="item" href="announce-event.php">
-            <i class="newspaper outline icon"></i>
-            Announcements<br>/Events
+        <a class="item" href="userlogs.php">
+            <i class="clipboard icon"></i>
+            User Logs
         </a>
         <a class="item" href="user-management.php">
             <i class="users icon" ></i>
             User Account <br>Management
+        </a>
+        <a class="item" href="announce-event.php">
+            <i class="newspaper outline icon"></i>
+            Announcements<br>/Events
         </a>
         <a class="item active" href="user-payments.php">
             <i class="money icon" ></i>
@@ -62,10 +57,6 @@ include 'php/functions.php';
             <i class="mobile icon"></i>
             SMS Configuration
         </a>
-        <a class="item" href="dashboard.php">
-            <i class="chart pie icon"></i>
-            Statistics/Graph
-        </a>
     </div>
     <div id="content">
         
@@ -73,8 +64,6 @@ include 'php/functions.php';
             <div class="ui container">
                 <div class="ui horizontal divider">Payments</div>
             </div>
-            
-            
             <table id="payments" class="ui striped selectable celled table">
                 <thead>
                 <tr>
@@ -99,96 +88,9 @@ include 'php/functions.php';
         </div>
     </div>
 </div>
-    
-    
 <!--Scripts-->
 <script src="../assets/library/semantic/semantic.min.js"></script>
 <script src="../assets/js/admin.js"></script>
-<script>
-    $.fn.dataTable.ext.search.push(
-        function (settings, data) {
-            let min = new Date($('#min').val()+ ' 00:00:00');
-            let max = new Date($('#max').val()+ ' 23:59:59');
-            let date = new Date(data[5]); // use data for the age column
-            console.log('min: ' + min);
-            console.log('max: ' + min);
-            return (isNaN(min) && isNaN(max)) ||
-                (isNaN(min) && date <= max) ||
-                (min <= date && isNaN(max)) ||
-                (min <= date && date <= max);
-
-        }
-    );
-
-    let table = $('#users-log').DataTable();
-
-    // Event listener to the two range filtering inputs to redraw on input
-    $('#min, #max').change(function () {
-        table.draw();
-    });
-    $('#min_date').calendar({
-        type: 'date',
-        endCalendar: $('#max_date'),
-        formatter: {
-            date: function (date) {
-                if (!date) return '';
-                let day = date.getDate() + '';
-                if (day.length < 2) {
-                    day = '0' + day;
-                }
-                let month = (date.getMonth() + 1) + '';
-                if (month.length < 2) {
-                    month = '0' + month;
-                }
-                let year = date.getFullYear();
-                return year + '-' + month + '-' + day;
-            }
-        },
-        onHide: function () {
-            $('#users-log').DataTable().draw();
-        }
-
-    });
-    $('#max_date').calendar({
-        type: 'date',
-        startCalendar: $('#min_date'),
-        formatter: {
-            date: function (date) {
-                if (!date) return '';
-                let day = date.getDate() + '';
-                if (day.length < 2) {
-                    day = '0' + day;
-                }
-                let month = (date.getMonth() + 1) + '';
-                if (month.length < 2) {
-                    month = '0' + month;
-                }
-                let year = date.getFullYear();
-                return year + '-' + month + '-' + day;
-            }
-        },
-        onHide: function () {
-            $('#users-log').DataTable().draw();
-        }
-    });
-    
-    
-    function editUser(id) {
-        $.get("php/functions.php?getUser=" + id, function (data) {
-            $('#first_name').val(data['first_name']);
-            $('#last_name').val(data['last_name']);
-            $('#email').val(data['userEmail']);
-            $('#mobile').val(String(data['userMobile']).substring(3));
-            $('#company').val(data['userCompany']);
-            $('#user_level').val(data['userLevel']);
-            $('#userId').val(id);
-            $('#edit-user-modal')
-                .modal('show')
-            ;
-        });
-
-    }
-    </script>
 </body>
 
 </html>

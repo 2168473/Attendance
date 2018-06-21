@@ -1,5 +1,5 @@
 <?php
-require_once 'admin/php/config.php'
+require_once 'php/config.php'
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,9 +12,9 @@ require_once 'admin/php/config.php'
     <!-- Site Properties -->
     <title>Calle Uno: User Accounts Management</title>
 
-    <link rel="stylesheet" href="assets/library/semantic/semantic.min.css">
-    <link rel="stylesheet" href="assets/css/admin.css">
-    <script src="assets/library/jquery.min.js"></script>
+    <link rel="stylesheet" href="../assets/library/semantic/semantic.min.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <script src="../assets/library/jquery.min.js"></script>
 </head>
 <body>
 <div class="ui menu" id="menu">
@@ -28,36 +28,36 @@ require_once 'admin/php/config.php'
 <div class="ui bottom attached pusher">
     <div class="ui visible inverted labeled left vertical sidebar menu" id="sidebar">
         <div class="header item">
-            <a href="admin.php"><img class="ui small image centered mini" id="logo" src="assets/images/logo.png"></a>
+            <a href="/admin"><img class="ui small image centered mini" id="logo" src="../assets/images/logo.png"></a>
         </div>
-        <a class="item active" href="admin.php">
+        <a class="item active" href="/admin">
             <i class="block layout icon"></i>
             Dashboard
         </a>
-        <a class="item" href="admin/userlogs.php">
+        <a class="item" href="userlogs">
             <i class="clipboard icon"></i>
             User Logs
         </a>
-        <a class="item" href="admin/user-management.php">
+        <a class="item" href="user-management">
             <i class="users icon"></i>
             User Account <br>Management
         </a>
-        <a class="item" href="admin/announce-event.php">
+        <a class="item" href="announce-event">
             <i class="newspaper outline icon"></i>
             Announcements<br>/Events
         </a>
-        <a class="item" href="admin/user-payments.php">
+        <a class="item" href="user-payments">
             <i class="money icon"></i>
             User Payments
         </a>
-        <a class="item" href="admin/configure-sms.php">
+        <a class="item" href="configure-sms">
             <i class="mobile icon"></i>
             SMS Configuration
         </a>
 
     </div>
     <div id="content">
-        <div class="ui two column grid">
+        <div class="ui stackable two column grid">
             <div class="column">
                 <div class="ui segment">
                     <canvas id="loginCount" height="200"></canvas>
@@ -79,11 +79,11 @@ require_once 'admin/php/config.php'
 </div>
 
 <!--Scripts-->
-<script src="assets/library/semantic/semantic.min.js"></script>
-<script src="assets/library/Chart.bundle.min.js"></script>
-<script src="assets/js/admin.js"></script>
+<script src="../assets/library/semantic/semantic.min.js"></script>
+<script src="../assets/library/Chart.bundle.min.js"></script>
+<script src="../assets/js/admin.js"></script>
 <script>
-    $.get("admin/php/functions.php?logins=true", function (value) {
+    $.get("php/functions?logins=true", function (value) {
         let labels = [];
         let data = [];
         for (let x = 0; x < value.length; x++) {
@@ -133,7 +133,7 @@ require_once 'admin/php/config.php'
             }
         });
     });
-    $.get('admin/php/functions.php?purpose=true', function (value) {
+    $.get('php/functions?purpose=true', function (value) {
         let labels = [];
         let logins = [];
         let colors = ['#f44242', '#41a9f4', '#f4cd41', '#41f461'];
@@ -168,7 +168,7 @@ require_once 'admin/php/config.php'
         });
     });
 
-    $.get("admin/php/functions.php?payments=true", function (value) {
+    $.get("php/functions?payments=true", function (value) {
         let days = [];
         let payments = [];
         for (let x = 0; x < value.length; x++) {

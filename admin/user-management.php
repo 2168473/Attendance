@@ -32,9 +32,9 @@ include 'php/functions.php';
 <div class="ui bottom attached pusher">
     <div class="ui visible inverted labeled left vertical sidebar menu" id="sidebar">
         <div class="header item">
-            <a href="../admin.php"><img class="ui small image centered mini" id="logo" src="../assets/images/logo.png"></a>
+            <a href="/admin"><img class="ui small image centered mini" id="logo" src="../assets/images/logo.png"></a>
         </div>
-        <a class="item" href="../admin.php">
+        <a class="item" href="/admin">
             <i class="block layout icon"></i>
             Dashboard
         </a>

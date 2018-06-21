@@ -31,25 +31,25 @@ include 'php/functions.php';
 <div class="ui bottom attached pusher">
     <div class="ui visible inverted labeled left vertical sidebar menu" id="sidebar">
         <div class="header item">
-            <a href="../admin.php"><img class="ui small image centered mini" id="logo" src="../assets/images/logo.png"></a>
+            <a href="/admin"><img class="ui small image centered mini" id="logo" src="../assets/images/logo.png"></a>
         </div>
-        <a class="item" href="../admin.php">
+        <a class="item" href="/admin">
             <i class="block layout icon"></i>
             Dashboard
         </a>
-        <a class="item" href="userlogs.php">
+        <a class="item" href="userlogs">
             <i class="clipboard icon"></i>
             User Logs
         </a>
-        <a class="item" href="user-management.php">
+        <a class="item" href="user-management">
             <i class="users icon" ></i>
             User Account <br>Management
         </a>
-        <a class="item" href="announce-event.php">
+        <a class="item" href="announce-event">
             <i class="newspaper outline icon"></i>
             Announcements<br>/Events
         </a>
-        <a class="item active" href="user-payments.php">
+        <a class="item active" href="user-payments">
             <i class="money icon" ></i>
             User Payments
         </a>

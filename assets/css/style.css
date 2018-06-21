@@ -9,11 +9,22 @@ body {
     margin-top: 4em;
     border-radius: 0;
     border: none;
+    -webkit-box-shadow: none;
     box-shadow: none;
+    -webkit-transition:
+            padding 0.5s ease,
+            -webkit-box-shadow 0.5s ease;
+    transition:
+            padding 0.5s ease,
+            -webkit-box-shadow 0.5s ease;
     transition:
             box-shadow 0.5s ease,
             padding 0.5s ease
 ;
+    transition:
+            box-shadow 0.5s ease,
+            padding 0.5s ease,
+            -webkit-box-shadow 0.5s ease;
 }
 .main.menu .item img.logo {
     margin-right: 1.5em;
@@ -48,6 +59,7 @@ body {
 .main.menu.fixed {
     background-color: #FFFFFF;
     border: 1px solid #DDD;
+    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -125,6 +137,7 @@ body {
     color: rgba(173, 0, 0, 0.82);
     font-weight: bold;
     letter-spacing: 1px;
+    -webkit-transition: linear 0.1s;
     transition: linear 0.1s;
 }
 #mixedSlider .MS-content .item a:hover {
@@ -138,6 +151,7 @@ body {
     font-size: 50px;
     top: 95px;
     color: rgba(0, 0, 0, 0.4);
+    -webkit-transition: 0.15s linear;
     transition: 0.15s linear;
 }
 #mixedSlider .MS-controls button:hover {
@@ -199,4 +213,9 @@ body {
 #footer p {
     margin:0;
     padding:10px;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

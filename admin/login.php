@@ -1,12 +1,12 @@
 <?php
+    session_start();
     if(isset($_POST['username']) && isset($_POST['password'])){
-        session_start();
         $_SESSION['id'] = session_create_id();
         echo $_SESSION['id'];
-        header('Location: /admin.php');
+        header('Location: /admin');
     }
     if (isset($_SESSION['id'])){
-        header('Location: /admin.php');
+        header('Location: /admin');
     }
 
 ?>
@@ -47,7 +47,7 @@
             let result = true;
             $.ajax({
                 async: false,
-                url: 'php/functions.php',
+                url: 'php/functions',
                 type: "get",
                 data: {
                     "admin-user": value,
@@ -63,7 +63,7 @@
             let result = true;
             $.ajax({
                 async: false,
-                url: 'php/functions.php',
+                url: 'php/functions',
                 type: "get",
                 data: {
                     "admin-password": value,

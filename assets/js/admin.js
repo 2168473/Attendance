@@ -312,7 +312,7 @@ $('#editEvent')
     setTimeout(location.reload.bind(location), 1000);
 });
 function editEvent(id) {
-    $.get("php/functions.php?getAnnouncement=" + id, function (data) {
+    $.get("php/functions?getAnnouncement=" + id, function (data) {
         $('#eventStart').calendar({
             type: 'date',
             endCalendar: $('#eventEnd'),
@@ -364,7 +364,7 @@ function editEvent(id) {
 }
 
 function deleteEvent(id) {
-    $.get("php/functions.php", {getAnnouncement: id}, function (data) {
+    $.get("php/functions", {getAnnouncement: id}, function (data) {
         swal({
             title: "Are you sure?",
             text: "Delete " + data['title'],
@@ -378,7 +378,7 @@ function deleteEvent(id) {
                         icon: "success", buttons: false
                     });
                     $.ajax({
-                        url: 'php/del-event.php',
+                        url: 'php/del-event',
                         data:{
                             eventId: id
                         }
@@ -392,7 +392,7 @@ function deleteEvent(id) {
 }
 
 function editUser(id) {
-    $.get("php/functions.php?getUser=" + id, function (data) {
+    $.get("php/functions?getUser=" + id, function (data) {
         $('#first_name').val(data['first_name']);
         $('#last_name').val(data['last_name']);
         $('#email').val(data['userEmail']);
@@ -407,7 +407,7 @@ function editUser(id) {
 }
 
 function deleteUser(id) {
-    $.get("php/functions.php?getUser=" + id, function (data) {
+    $.get("php/functions?getUser=" + id, function (data) {
         swal({
             title: "Are you sure?",
             text: "Delete " + data['first_name'] + ' ' + data['last_name'],
@@ -420,7 +420,7 @@ function deleteUser(id) {
                     icon: "success", buttons: false
                 });
                 $.ajax({
-                    url: 'php/del-user.php',
+                    url: 'php/del-user',
                     data:{
                         userId: id
                     }
@@ -433,6 +433,6 @@ function deleteUser(id) {
     });
 }
 function logout(){
-    $.get('/admin/php/functions.php?logout=true');
-    window.location = '/admin/login.php ';
+    $.get('/admin/php/functions?logout=true');
+    window.location = '/admin/login ';
 }

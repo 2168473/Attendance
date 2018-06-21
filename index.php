@@ -98,13 +98,13 @@
 </div>
 <?php
 include_once 'pagefragments/eventView.html';
-header('Access-Control-Allow-Headers: x-requested-with');
 ?>
 <!--Scripts-->
 
 <script src="assets/library/jquery.min.js"></script>
 <script src="assets/library/sweetalert2.all.js"></script>
 <script src="assets/library/jquery.form.min.js"></script>
+<script src="assets/library/jquery.serialize-object.min.js"></script>
 <script src="assets/library/semantic/semantic.min.js"></script>
 <script src="assets/library/multislider.min.js"></script>
 <script src="assets/js/script.js"></script>

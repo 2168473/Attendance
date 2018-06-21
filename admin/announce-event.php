@@ -1,15 +1,6 @@
 <?php
 require_once 'php/config.php';
 include 'php/functions.php';
-//if (isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
-//    && $_SERVER['PHP_AUTH_USER'] === 'admin'
-//    && $_SERVER['PHP_AUTH_PW'] === 'verystrongpassword') {
-//    // User is properly authenticated...
-//    } else {
-//    header('WWW-Authenticate: Basic realm="Calle Uno: Secured Site"');
-//    header('HTTP/1.0 401 Unauthorized');
-//    exit('Unauthorized access detected');
-//    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,29 +32,29 @@ include 'php/functions.php';
 <div class="ui bottom attached pusher">
     <div class="ui visible inverted labeled left vertical sidebar menu" id="sidebar">
         <div class="header item">
-            <a href="../admin.php"><img class="ui small image centered mini" id="logo" src="../assets/images/logo.png"></a>
+            <a href="/admin"><img class="ui small image centered mini" id="logo" src="../assets/images/logo.png"></a>
         </div>
-        <a class="item" href="../admin.php">
+        <a class="item" href="/admin">
             <i class="block layout icon"></i>
             Dashboard
         </a>
-        <a class="item" href="userlogs.php">
+        <a class="item" href="userlogs">
             <i class="clipboard icon"></i>
             User Logs
         </a>
-        <a class="item" href="user-management.php">
+        <a class="item" href="user-management">
             <i class="users icon" ></i>
             User Account <br>Management
         </a>
-        <a class="item active" href="announce-event.php">
+        <a class="item active" href="announce-event">
             <i class="newspaper outline icon"></i>
             Announcements<br>/Events
         </a>
-        <a class="item" href="user-payments.php">
+        <a class="item" href="user-payments">
             <i class="money icon" ></i>
             User Payments
         </a>
-        <a class="item" href="configure-sms.php">
+        <a class="item" href="configure-sms">
             <i class="mobile icon"></i>
             SMS Configuration
         </a>

@@ -49,17 +49,17 @@ if ($stmt = $mysqli->prepare("select count(userId) from users;")) {
 <div class="ui bottom attached pusher">
     <div class="ui visible inverted labeled left vertical sidebar menu" id="sidebar">
         <div class="header item">
-            <a href="../admin.php"><img class="ui small image centered mini" id="logo" src="../assets/images/logo.png"></a>
+            <a href="/admin"><img class="ui small image centered mini" id="logo" src="../assets/images/logo.png"></a>
         </div>
-        <a class="item" href="../admin.php">
+        <a class="item" href="/admin">
             <i class="block layout icon"></i>
             Dashboard
         </a>
-        <a class="item active" href="userlogs.php">
+        <a class="item active" href="userlogs">
             <i class="clipboard icon"></i>
             User Logs
         </a>
-        <a class="item" href="user-management.php">
+        <a class="item" href="user-management">
             <i class="users icon"></i>
             User Account<br> Management
         </a>
@@ -67,11 +67,11 @@ if ($stmt = $mysqli->prepare("select count(userId) from users;")) {
             <i class="newspaper outline icon"></i>
             Announcements<br>/Events
         </a>
-        <a class="item" href="user-payments.php">
+        <a class="item" href="user-payments">
             <i class="money icon" ></i>
             User Payments
         </a>
-        <a class="item" href="configure-sms.php">
+        <a class="item" href="configure-sms">
             <i class="mobile icon"></i>
             SMS Configuration
         </a>

@@ -5,8 +5,8 @@ $.fn.form.settings.rules.checkEmail = function (value) {
     let result = false;
     $.ajax({
         async: false,
-        url: 'php/checkEmail.php',
-        type: "POST",
+        url: 'php/checkEmail',
+        type: "GET",
         data: {
             email: value
         },
@@ -23,7 +23,7 @@ $.fn.form.settings.rules.loggedIn = function (value) {
     let result = true;
     $.ajax({
         async: false,
-        url: 'php/functions.php',
+        url: 'php/functions',
         data: {
             userEmail: value,
         },
@@ -70,13 +70,13 @@ $('#login-form').form({
     }
 }).ajaxForm(
     {
-        url: 'php/login.php',
+        url: 'php/login',
         method: 'post',
         serializeForm: true,
         dataType: 'json',
         success: function (data) {
             let message = encodeURIComponent(data['message']);
-            $.get('php/sms_config.php', function (value) {
+            $.get('php/sms_config', function (value) {
                 let number = value['number'];
                 let ip = value['ip address'];
                 let port = value['port'];
@@ -89,7 +89,7 @@ $('#login-form').form({
             });
             let userEmail = data.email;
             let sessionId = '';
-            $.get('php/functions.php?user_email=' + userEmail, function (data) {
+            $.get('php/functions?user_email=' + userEmail, function (data) {
                 sessionId = data['sessionId'];
                 console.log(sessionId);
                 //countDownTimer(sessionId);
@@ -98,7 +98,8 @@ $('#login-form').form({
                         const {value: payment} = await swal({
                             allowOutsideClick: false,
                             allowEscapeKey: false,
-                            title: 'Total amount to be paid: \nPhp500.00 (Regular) \nPhp350.00 (Off-Members) \nPhp250.00 (Student)',
+                            title: 'Total amount to be paid: \nPhp500.00 -- Regular \nPhp350.00 -- Off-Members' +
+                            ' \nPhp250.00 -- Student \nStudents are required to present a valid ID.',
                             input: 'number',
                             showCancelButton: false,
                             inputValidator: (value) => {
@@ -114,7 +115,7 @@ $('#login-form').form({
                                 showConfirmButton: false,
                                 timer: 2500
                             });
-                            $.get('php/functions.php?sessionId=' + sessionId + '&payment=' + payment);
+                            $.get('php/functions?sessionId=' + sessionId + '&payment=' + payment);
                         }
                     })();
                 } else {
@@ -127,13 +128,6 @@ $('#login-form').form({
                     });
                 }
             });
-            swal({
-                type: 'success',
-                title: 'Success!',
-                text: 'You are now Logged in. \n Don\'t forget to logout!',
-                showConfirmButton: false,
-                timer: 2500
-            });
             $('#login_email').val("");
             $('#login_purpose').dropdown('clear');
         }
@@ -142,14 +136,14 @@ $('#login-form').form({
 );
 let intervals = new Array();
 setInterval(function () {
-    $.get('php/functions.php?logs=true', function (data) {
+    $.get('php/functionslogs=true', function (data) {
         for (let x = 0; x < data.length; x ++){
             let sessionId = data[x];
             intervals[sessionId] = setInterval(function(){
-                $.get('php/functions.php?sessionId=' + sessionId, function (data) {
+                $.get('php/functions?sessionId=' + sessionId, function (data) {
                     console.log(data.sessionOut);
                     if(new Date() >= new Date(data.sessionOut)){
-                        $.get('php/logout.php?sessionId=' + sessionId);
+                        $.get('php/logout?sessionId=' + sessionId);
                     }
                 });
             }, 60000);
@@ -164,7 +158,7 @@ $.fn.form.settings.rules.loggedOut = function (value) {
     let result = true;
     $.ajax({
         async: false,
-        url: 'php/functions.php',
+        url: 'php/functions',
         data: {
             userEmail: value,
         },
@@ -202,12 +196,12 @@ $('#logout-form').form({
     }
 }).ajaxForm({
     async: false,
-    url: 'php/logout.php',
+    url: 'php/logout',
     method: 'post',
     dataType: 'json',
     success: function (data) {
         let message = encodeURIComponent(data['message']);
-        $.get('php/sms_config.php', function (value) {
+        $.get('php/sms_config', function (value) {
             let number = value['number'];
             let ip = value['ip address'];
             let port = value['port'];
@@ -235,7 +229,7 @@ $.fn.form.settings.rules.existingEmail = function (value) {
     let result = true;
     $.ajax({
         async: false,
-        url: 'php/checkEmail.php',
+        url: 'php/checkEmail',
         type: "POST",
         data: {
             email: value,
@@ -307,7 +301,7 @@ $('#registration-form').form({
     },
     keyboardShortcuts: false
 }).ajaxForm({
-    url: 'php/register.php',
+    url: 'php/register',
     method: 'post',
     success: function () {
         swal({
@@ -379,20 +373,11 @@ $('#inquiry-form').form({
     }
 }).api(
     {
-        url: 'php/inquire.php',
+        url: 'php/inquire',
         method: 'post',
         serializeForm: true,
-        beforeXHR: function () {
-            swal({
-                allowOutsideClick: false,
-                allowEscapeKey: false,
-                type: 'info',
-                title: 'Sending...',
-                text: "Please wait, your inquiry is being sent!",
-                showConfirmButton: false,
-            });
-        },
-        onResponse: function () {
+
+        onSuccess: function () {
             swal({
                 title: "Success!",
                 text: "Your Inquiry has been sent!",
@@ -425,7 +410,7 @@ $('.menu .item')
 ;
 
 let viewEvent = function (eventId) {
-    $.get('php/functions.php?eventId=' + eventId, function (data) {
+    $.get('php/functions?eventId=' + eventId, function (data) {
         document.getElementById('view_header').innerHTML = data['title'];
         document.getElementById('view_content').innerHTML = data['content'];
         document.getElementById('view_cover_image').src = data['cover_image'];

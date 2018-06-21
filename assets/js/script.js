@@ -34,7 +34,6 @@ $.fn.form.settings.rules.loggedIn = function (value) {
     });
     return result;
 };
-let timers = [];
 //Login Form Validation Rules
 $('#login-form').form({
     fields: {
@@ -76,7 +75,6 @@ $('#login-form').form({
         serializeForm: true,
         dataType: 'json',
         success: function (data) {
-            console.log(data);
             let message = encodeURIComponent(data['message']);
             $.get('php/sms_config.php', function (value) {
                 let number = value['number'];
@@ -93,16 +91,8 @@ $('#login-form').form({
             let sessionId = '';
             $.get('php/functions.php?user_email=' + userEmail, function (data) {
                 sessionId = data['sessionId'];
-                let newTimer = new Timer();
-                newTimer.start();
-                newTimer.addEventListener('secondsUpdated', function (e) {
-                    $('#basicUsage').html(newTimer.getTimeValues().toString());
-                    if (newTimer.getTimeValues().toString() == '23:59:59') {
-                        alert("time's up");
-                    }
-                });
-                timers[sessionId] = newTimer;
-                console.log(timers);
+                console.log(sessionId);
+                //countDownTimer(sessionId);
                 if (data['Drop-in Coworking']) {
                     (async function getName() {
                         const {value: payment} = await swal({
@@ -150,6 +140,23 @@ $('#login-form').form({
 
     }
 );
+let intervals = new Array();
+setInterval(function () {
+    $.get('php/functions.php?logs=true', function (data) {
+        for (let x = 0; x < data.length; x ++){
+            let sessionId = data[x];
+            intervals[sessionId] = setInterval(function(){
+                $.get('php/functions.php?sessionId=' + sessionId, function (data) {
+                    console.log(data.sessionOut);
+                    if(new Date() >= new Date(data.sessionOut)){
+                        $.get('php/logout.php?sessionId=' + sessionId);
+                    }
+                });
+            }, 60000);
+        }
+    });
+    window.reload();
+}, 3600000);
 
 /*===============Logout Validations===============*/
 //Check if users is logged out

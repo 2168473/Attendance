@@ -1,37 +1,54 @@
 <?php
-require 'vendor/autoload.php';
+include 'php/config.php';
+$data = [];
+$query = "SELECT concat(first_name, ' ', last_name) AS name, userEmail, userMobile, userCompany, sessionIn, sessionOut,
+        sessionNotes FROM users NATURAL JOIN sessions where sessionOut = '0000-00-00 00:00:00';";
+if ($stmt = $mysqli->prepare($query)) {
+    $stmt->execute();
 
-// init, set the memory size unit
-$timer = new \Jenner\Timer(\Jenner\Timer::UNIT_KB);
-// mark a
-$timer->mark('a');
-sleep(2);
-// mark b
-$timer->mark('b');
-sleep(3);
-// mark c
-$timer->mark('c');
-sleep(4);
-// mark d
-$timer->mark('d');
-// print total report
-$timer->printReport();
-// get total report
-$report = $timer->getReport();
-// get the report of mark
-$a_report = $timer->getReport('a');
-print_r($a_report);
-// get the diff report between a and b
-$timer->printDiffReportByStartAndEnd('a', 'b');
-// get the diff report between a and b
-$ab_diff_report = $timer->getDiffReportByStartAndEnd('a', 'b');
-// print the total diff report
-$timer->printDiffReport();
-// get the total diff report
-$diff_report = $timer->getDiffReport();
-// write the total report into the log file
-$timer->logReport('/tmp/php-time.log1');
-// write the diff report into the log file
-$timer->logDiffReport('/tmp/php-time.log2');
-// write the diff report between a and b into the log file
-$timer->logDiffReportByStartAndEnd('/tmp/php-time.log3', 'a', 'b');
+    $name ='';
+    $userEmail ='';
+    $userMobile ='';
+    $userCompany ='';
+    $sessionIn ='';
+    $sessionOut ='';
+    $sessionNotes ='';
+    $stmt->bind_result($name, $userEmail, $userMobile, $userCompany, $sessionIn, $sessionOut, $sessionNotes);
+    while ($stmt->fetch()) {
+        $data[] = array($name, $userEmail, $userMobile, $userCompany, $sessionIn, $sessionOut, $sessionNotes);
+    }
+    $stmt->close();
+}
+$mysqli->close();
+?>
+
+<html>
+<head></head>
+<body>
+<h1>Time: <span id="time"></span></h1>
+<ul>
+    <?php
+    foreach ($data as $datum){
+        echo "<li>";
+        foreach ($datum as $item){
+            echo "$item".',';
+        }
+        echo "</li>";
+    }
+    ?>
+</ul>
+<p>Click the button to wait 3 seconds, then alert "Hello".</p>
+<p>After clicking away the alert box, an new alert box will appear in 3 seconds. This goes on forever...</p>
+<button onclick="myFunction(35)">Try it</button>
+<script src="assets/library/jquery.min.js"></script>
+<script>
+    function myFunction(sessionId) {
+        setInterval(function(sessionId){
+            $.get('php/functions.php?sessionId=' + 35, function (data) {
+                alert(data.sessionOut);
+            });
+        }, 3000);
+    }
+</script>
+</body>
+</html>

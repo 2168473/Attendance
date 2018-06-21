@@ -24,3 +24,12 @@ if (isset($_POST['email'])){
     }
     $mysqli->close();
 }
+if (isset($_GET['sessionId'])){
+    $query_log = "UPDATE `sessions` SET  `sessionOut` =  CURRENT_TIMESTAMP() WHERE sessionId = ?";
+    if ($stmt = $mysqli->prepare($query_log)){
+        $stmt->bind_param('s', $_GET['sessionId']);
+        $stmt->execute();
+        $stmt->close();
+    }
+    $mysqli->close();
+}

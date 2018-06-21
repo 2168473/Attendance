@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,22 +60,19 @@
 
             </div>
             <div class="column">
-                <h4>Result</h4>
-                <script src="//www.powr.io/powr.js?external-type=html"></script>
-                <div class="powr-countdown-timer" id="a923e3ef_1529462947"></div>
                 <h1>Announcements and Events</h1>
                 <div id="mixedSlider">
                     <div class="MS-content">
                         <?php
                         require_once 'php/config.php';
                         require_once 'php/functions.php';
-                        $events =  getEvents($mysqli);
+                        $events = getEvents($mysqli);
                         foreach ($events as $event) {
                             echo "
                               <div class='item'>
                               <div class='imgTitle'>
                                   <h2 class='blogTitle'>$event[1]</h2>
-                                <img src='data:image;base64," . base64_encode($event[4])."'>
+                                <img src='data:image;base64," . base64_encode($event[4]) . "'>
                                 </div>
                                 <p>$event[2]</p>
                                 <a href='' onclick='viewEvent($event[0]); return false' >Read More</a>
@@ -107,14 +103,11 @@ header('Access-Control-Allow-Headers: x-requested-with');
 <!--Scripts-->
 
 <script src="assets/library/jquery.min.js"></script>
-<script src="assets/library/jquery.serialize-object.min.js"></script>
 <script src="assets/library/sweetalert2.all.js"></script>
 <script src="assets/library/jquery.form.min.js"></script>
 <script src="assets/library/semantic/semantic.min.js"></script>
-<script src="assets/library/multislider.js"></script>
-<script src="assets/library/easytimer.min.js"></script>
+<script src="assets/library/multislider.min.js"></script>
 <script src="assets/js/script.js"></script>
-
 </body>
 
 </html>

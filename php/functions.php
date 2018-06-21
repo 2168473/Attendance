@@ -5,7 +5,7 @@ if (isset($_GET['userEmail'])) {
     $email = '';
     $users = [];
     //select all currently logged in users
-    $query_logged_in = "SELECT userEmail FROM sessions NATURAL JOIN  users where sessionOut = '0000-00-00 00:00:00'";
+    $query_logged_in = "SELECT userEmail FROM sessions NATURAL JOIN  users WHERE sessionOut = '0000-00-00 00:00:00'";
     if ($stmt = $mysqli->prepare($query_logged_in)) {
         $stmt->execute();
         $stmt->bind_result($email);
@@ -21,7 +21,7 @@ if (isset($_GET['userEmail'])) {
 }
 
 if (isset($_GET['eventId'])) {
-    $query = "SELECT title, content, cover_image from events where eventId = ?";
+    $query = "SELECT title, content, cover_image FROM events WHERE eventId = ?";
     if ($stmt = $mysqli->prepare($query)) {
         $stmt->bind_param('s', $_GET['eventId']);
         $stmt->execute();
@@ -90,4 +90,32 @@ function getEvents($mysqli) {
     }
     $mysqli->close();
     return $events;
+}
+if (isset($_GET['sessionId'])){
+    if ($stmt = $mysqli->prepare("SELECT TIMESTAMPADD(DAY, 1, sessionIn) FROM sessions WHERE sessionId = ?")){
+        $stmt->bind_param('s', $_GET['sessionId']);
+        $stmt->execute();
+        $stmt->bind_result($sessionOut);
+        $stmt->fetch();
+        $stmt->close();
+    }
+    $mysqli->close();
+    header('Content-Type: application/json');
+    echo json_encode(['sessionOut'=> $sessionOut]);
+}
+
+if (isset($_GET['logs'])) {
+    //select all currently logged in users
+    $query_logged_in = "SELECT sessionId FROM sessions  WHERE sessionOut = '0000-00-00 00:00:00' AND sessionNotes = 'Drop-in Coworking'";
+    if ($stmt = $mysqli->prepare($query_logged_in)) {
+        $stmt->execute();
+        $stmt->bind_result($sessionId);
+        while ($stmt->fetch()) {
+            $sessions[] = $sessionId;
+        }
+        $stmt->close();
+    }
+    $mysqli->close();
+    header('Content-Type: application/json');
+    echo json_encode($sessions);
 }

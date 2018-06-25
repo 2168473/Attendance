@@ -1,5 +1,5 @@
 <div class="ui small modal" id="edit-user-modal">
-    <form class="ui form" method="post" action="php/edit-user" id="editUser">
+    <form class="ui form" method="post" action="php/edit-user.php" id="editUser">
         <div class="ui form segment">
             <div class="ui horizontal divider">
                 <h1>Edit User Account Information</h1>
@@ -12,14 +12,14 @@
                             <h2 class="ui medium header">First Name</h2>
                             <div class="ui left icon input">
                                 <i class="user icon"></i>
-                                <input placeholder="First Name" type="text" id="first_name" disabled>
+                                <input placeholder="First Name" type="text" name="first_name" id="first_name">
                             </div>
                         </div>
                         <div class="field">
                             <h2 class="ui medium header">Last Name</h2>
                             <div class="ui left icon input">
                                 <i class="user icon"></i>
-                                <input placeholder="Last name" type="text" id="last_name" disabled>
+                                <input placeholder="Last name" type="text" name="last_name" id="last_name">
                             </div>
                         </div>
                     </div>

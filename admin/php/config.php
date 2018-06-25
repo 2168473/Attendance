@@ -17,5 +17,5 @@ if (mysqli_connect_errno()) {
 }
 
 if (!isset($_SESSION['id'])){
-    header('Location: /admin/login.php');
+    header('Location: /admin/login');
 }

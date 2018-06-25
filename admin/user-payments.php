@@ -24,6 +24,7 @@ include 'php/functions.php';
     <div class="ui right floated dropdown item">
         Admin <i class="dropdown icon"></i>
         <div class="menu">
+            <div class="item" id="change-pass">Change password</div>
             <div class="item" onclick="logout()">Logout</div>
         </div>
     </div>
@@ -37,19 +38,19 @@ include 'php/functions.php';
             <i class="block layout icon"></i>
             Dashboard
         </a>
-        <a class="item" href="userlogs">
+        <a class="item" href="userlogs.php">
             <i class="clipboard icon"></i>
             User Logs
         </a>
-        <a class="item" href="user-management">
+        <a class="item" href="user-management.php">
             <i class="users icon" ></i>
             User Account <br>Management
         </a>
-        <a class="item" href="announce-event">
+        <a class="item" href="announce-event.php">
             <i class="newspaper outline icon"></i>
             Announcements<br>/Events
         </a>
-        <a class="item active" href="user-payments">
+        <a class="item active" href="user-payments.php">
             <i class="money icon" ></i>
             User Payments
         </a>
@@ -61,6 +62,7 @@ include 'php/functions.php';
     <div id="content">
         
         <div class="ui basic">
+
             <div class="ui container">
                 <div class="ui horizontal divider">Payments</div>
             </div>
@@ -69,13 +71,13 @@ include 'php/functions.php';
                 <tr>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Payments Made</th>
-                        
+                    <th>Payment Date</th>
+                    <th>Payment Made</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php
-                $data = getUserPayments($mysqli);
+                $data = getUserPays($mysqli);
                 foreach ($data as $datum) {
                     echo '<tr>';
                     for ($x = 0; $x < count($datum); $x++) {
@@ -88,9 +90,85 @@ include 'php/functions.php';
         </div>
     </div>
 </div>
+<?php include 'pagefragments/password.html'?>
 <!--Scripts-->
 <script src="../assets/library/semantic/semantic.min.js"></script>
 <script src="../assets/js/admin.js"></script>
+<script>
+    $.fn.form.settings.rules.oldpass = function (value) {
+        let result = false;
+        $.ajax({
+            async: false,
+            url: 'php/functions.php',
+            type: "GET",
+            data: {
+                'old-pass': value
+            },
+            dataType: "html",
+            success: function (data) {
+                result = Boolean(data);
+            }
+        });
+        return result;
+    };
+    $('#password-modal').modal('attach events', '#change-pass', 'show');
+    $('#change-pass-form').form({
+        fields: {
+            'old-pass': {
+                identifier: 'old-pass',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Old Password must not be empty'
+                    },
+                    {
+                        type: 'oldpass',
+                        prompt: 'Incorrect Password'
+                    }
+                ]
+            },
+            'new-pass': {
+                identifier: 'new-pass',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'New Password must not be empty'
+                    },
+                    {
+                        type: 'minLength[8]',
+                        prompt: 'Very Short Password'
+                    }
+                ]
+            },
+            'confirm-pass': {
+                identifier: 'confirm-pass',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Confirm password must not be empty'
+                    },
+                    {
+                        type: 'match[new-pass]',
+                        prompt: 'Passwords do not match'
+                    }
+                ]
+            }
+        }
+    }).ajaxForm({
+        url: 'php/functions.php',
+        serializeForm: true,
+        success: function () {
+            swal({
+                title: "Success!",
+                text: "Password Changed!",
+                type: "success",
+                timer: 2500,
+            });
+            $('#password-modal').modal('hide');
+            $('#change-pass-form').clearForm();
+        }
+    });
+</script>
 </body>
 
 </html>

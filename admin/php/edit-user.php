@@ -42,5 +42,20 @@ if (isset($_POST['user_level'])){
         $stmt->close();
     }
 }
+if (isset($_POST['first_name'])){
+    $query = "UPDATE users SET first_name = ? WHERE userId = ?";
+    if ($stmt = $mysqli->prepare($query)){
+        $stmt->bind_param('ss', $_POST['first_name'], $userId);
+        $stmt->execute();
+        $stmt->close();
+    }
+}
+if (isset($_POST['last_name'])){
+    $query = "UPDATE users SET last_name = ? WHERE userId = ?";
+    if ($stmt = $mysqli->prepare($query)){
+        $stmt->bind_param('ss', $_POST['last_name'], $userId);
+        $stmt->execute();
+        $stmt->close();
+    }
+}
 $mysqli->close();
-header('Location: ../user-management.php');

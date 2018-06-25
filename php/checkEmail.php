@@ -1,8 +1,8 @@
 <?php
 require_once 'config.php';
 
-if (isset($_GET['email'])) {
-    $email = trim($_GET['email']);
+if (isset($_POST['email'])) {
+    $email = trim($_POST['email']);
     $email = strip_tags($email);
     $email = htmlspecialchars($email);
     $query = "SELECT userEmail FROM users where userEmail = ?;";

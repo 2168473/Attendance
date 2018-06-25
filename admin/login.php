@@ -1,13 +1,13 @@
 <?php
-    session_start();
-    if(isset($_POST['username']) && isset($_POST['password'])){
-        $_SESSION['id'] = session_create_id();
-        echo $_SESSION['id'];
-        header('Location: /admin');
-    }
-    if (isset($_SESSION['id'])){
-        header('Location: /admin');
-    }
+session_start();
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    $_SESSION['id'] = session_create_id();
+    echo $_SESSION['id'];
+    header('Location: /admin');
+}
+if (isset($_SESSION['id'])) {
+    header('Location: /admin');
+}
 
 ?>
 <!DOCTYPE html>
@@ -27,6 +27,7 @@
         body {
             background-color: #e6f1ff;
         }
+
         body > .grid {
             height: 100%;
         }
@@ -43,40 +44,41 @@
     <script src="../assets/library/semantic/semantic.min.js"></script>
     <script src="../assets/js/admin.js"></script>
     <script>
-        $.fn.form.settings.rules.admin = function (value) {
-            let result = true;
-            $.ajax({
-                async: false,
-                url: 'php/functions',
-                type: "get",
-                data: {
-                    "admin-user": value,
-                },
-                dataType: "html",
-                success: function (data) {
-                    result = Boolean(data);
-                }
-            });
-            return result;
-        };
-        $.fn.form.settings.rules.admin_password = function (value) {
-            let result = true;
-            $.ajax({
-                async: false,
-                url: 'php/functions',
-                type: "get",
-                data: {
-                    "admin-password": value,
-                },
-                dataType: "html",
-                success: function (data) {
-                    result = Boolean(data);
-                }
-            });
-            return result;
-        };
         $(document)
             .ready(function () {
+                $.fn.form.settings.rules.admin = function (value) {
+                    let result = true;
+                    $.ajax({
+                        async: false,
+                        url: 'php/functions.php',
+                        type: "get",
+                        data: {
+                            "admin-user": value,
+                        },
+                        dataType: "html",
+                        success: function (data) {
+                            result = Boolean(data);
+                        }
+                    });
+                    return result;
+                };
+                $.fn.form.settings.rules.admin_password = function (value) {
+                    let result = true;
+                    $.ajax({
+                        async: false,
+                        url: 'php/functions.php',
+                        type: "get",
+                        data: {
+                            "admin-password": value,
+                        },
+                        dataType: "html",
+                        success: function (data) {
+                            result = Boolean(data);
+                        }
+                    });
+                    return result;
+                };
+
                 $('.ui.form')
                     .form({
                         fields: {
@@ -137,9 +139,7 @@
                     </div>
                     <div class="ui fluid large submit button">Login</div>
                 </div>
-
                 <div class="ui error message"></div>
-
             </form>
         </div>
     </div>

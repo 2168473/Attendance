@@ -10,7 +10,7 @@ require_once 'php/config.php'
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
     <!-- Site Properties -->
-    <title>Calle Uno: User Accounts Management</title>
+    <title>Calle Uno: Dashboard</title>
 
     <link rel="stylesheet" href="../assets/library/semantic/semantic.min.css">
     <link rel="stylesheet" href="../assets/css/admin.css">
@@ -21,6 +21,7 @@ require_once 'php/config.php'
     <div class="ui right floated dropdown item">
         Admin <i class="dropdown icon"></i>
         <div class="menu">
+            <div class="item" id="change-pass">Change password</div>
             <div class="item" onclick="logout()">Logout</div>
         </div>
     </div>
@@ -34,30 +35,30 @@ require_once 'php/config.php'
             <i class="block layout icon"></i>
             Dashboard
         </a>
-        <a class="item" href="userlogs">
+        <a class="item" href="userlogs.php">
             <i class="clipboard icon"></i>
             User Logs
         </a>
-        <a class="item" href="user-management">
+        <a class="item" href="user-management.php">
             <i class="users icon"></i>
             User Account <br>Management
         </a>
-        <a class="item" href="announce-event">
+        <a class="item" href="announce-event.php">
             <i class="newspaper outline icon"></i>
             Announcements<br>/Events
         </a>
-        <a class="item" href="user-payments">
+        <a class="item" href="user-payments.php">
             <i class="money icon"></i>
             User Payments
         </a>
-        <a class="item" href="configure-sms">
+        <a class="item" href="configure-sms.php">
             <i class="mobile icon"></i>
             SMS Configuration
         </a>
 
     </div>
     <div id="content">
-        <div class="ui stackable two column grid">
+        <div class="ui tablet stackable two column grid">
             <div class="column">
                 <div class="ui segment">
                     <canvas id="loginCount" height="200"></canvas>
@@ -77,13 +78,88 @@ require_once 'php/config.php'
         </div>
     </div>
 </div>
-
+<?php include 'pagefragments/password.html'?>
 <!--Scripts-->
 <script src="../assets/library/semantic/semantic.min.js"></script>
 <script src="../assets/library/Chart.bundle.min.js"></script>
+<script src="../assets/library/jquery.form.min.js"></script>
+<script src="../assets/library/sweetalert.min.js"></script>
 <script src="../assets/js/admin.js"></script>
 <script>
-    $.get("php/functions?logins=true", function (value) {
+    $.fn.form.settings.rules.oldpass = function (value) {
+        let result = false;
+        $.ajax({
+            async: false,
+            url: 'php/functions.php',
+            type: "GET",
+            data: {
+                'old-pass': value
+            },
+            dataType: "html",
+            success: function (data) {
+                result = Boolean(data);
+            }
+        });
+        return result;
+    };
+    $('#password-modal').modal('attach events', '#change-pass', 'show');
+    $('#change-pass-form').form({
+        fields: {
+            'old-pass': {
+                identifier: 'old-pass',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Old Password must not be empty'
+                    },
+                    {
+                        type: 'oldpass',
+                        prompt: 'Incorrect Password'
+                    }
+                ]
+            },
+            'new-pass': {
+                identifier: 'new-pass',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'New Password must not be empty'
+                    },
+                    {
+                        type: 'minLength[8]',
+                        prompt: 'Very Short Password'
+                    }
+                ]
+            },
+            'confirm-pass': {
+                identifier: 'confirm-pass',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Confirm password must not be empty'
+                    },
+                    {
+                        type: 'match[new-pass]',
+                        prompt: 'Passwords do not match'
+                    }
+                ]
+            }
+        }
+    }).ajaxForm({
+        url: 'php/functions.php',
+        serializeForm: true,
+        success: function () {
+            swal({
+                title: "Success!",
+                text: "Password Changed!",
+                type: "success",
+                timer: 2500,
+            });
+            $('#password-modal').modal('hide');
+            $('#change-pass-form').clearForm();
+        }
+    });
+    $.get("php/functions.php?logins=true", function (value) {
         let labels = [];
         let data = [];
         for (let x = 0; x < value.length; x++) {
@@ -133,7 +209,7 @@ require_once 'php/config.php'
             }
         });
     });
-    $.get('php/functions?purpose=true', function (value) {
+    $.get('php/functions.php?purpose=true', function (value) {
         let labels = [];
         let logins = [];
         let colors = ['#f44242', '#41a9f4', '#f4cd41', '#41f461'];
@@ -168,7 +244,7 @@ require_once 'php/config.php'
         });
     });
 
-    $.get("php/functions?payments=true", function (value) {
+    $.get("php/functions.php?payments=true", function (value) {
         let days = [];
         let payments = [];
         for (let x = 0; x < value.length; x++) {

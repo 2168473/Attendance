@@ -1,3 +1,7 @@
+<?php
+require_once 'php/config.php';
+require_once 'php/functions.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,8 +68,6 @@
                 <div id="mixedSlider">
                     <div class="MS-content">
                         <?php
-                        require_once 'php/config.php';
-                        require_once 'php/functions.php';
                         $events = getEvents($mysqli);
                         foreach ($events as $event) {
                             echo "

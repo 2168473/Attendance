@@ -6,7 +6,7 @@ $.fn.form.settings.rules.checkEmail = function (value) {
     $.ajax({
         async: false,
         url: 'php/checkEmail',
-        type: "GET",
+        type: "POST",
         data: {
             email: value
         },
@@ -34,6 +34,34 @@ $.fn.form.settings.rules.loggedIn = function (value) {
     });
     return result;
 };
+let intervals = [];
+$.get('php/functions?logs=true', function (data) {
+    for (let x = 0; x < data.length; x++) {
+        let sessionId = data[x].sessionId;
+        let number = data[x].userMobile;
+        let message = "Your maximum login time has been reached (14 hours) making your account  automatically" +
+            " logged out. Please login on the terminal to restore session.";
+        intervals[sessionId] = setInterval(function () {
+            $.get('php/functions?sessionId=' + sessionId, function (data) {
+                if (new Date() >= new Date(data.sessionOut)) {
+                    $.get('php/logout?sessionId=' + sessionId);
+                    $.get('php/sms_config', function (value) {
+                        let ip = value['ip address'];
+                        let port = value['port'];
+                        let token = value['token'];
+                        let url = 'http://' + ip + ':' + port + '/?number=' + number + '&message=' + message;
+                        if (token !== '') {
+                            url = 'http://' + ip + ':' + port + '/?number=' + number + '&message=' + message + '&token=' + token;
+                        }
+                        $.get(url);
+                    });
+                    clearInterval(intervals[sessionId]);
+                }
+            });
+        }, 3600000);//3600000 -1 hour
+    }
+});
+
 //Login Form Validation Rules
 $('#login-form').form({
     fields: {
@@ -75,13 +103,18 @@ $('#login-form').form({
         serializeForm: true,
         dataType: 'json',
         success: function (data) {
+            let number;
+            let ip;
+            let port;
+            let token;
+            let url;
             let message = encodeURIComponent(data['message']);
             $.get('php/sms_config', function (value) {
-                let number = value['number'];
-                let ip = value['ip address'];
-                let port = value['port'];
-                let token = value['token'];
-                let url = 'http://' + ip + ':' + port + '/?number=' + number + '&message=' + message;
+                number = value['number'];
+                ip = value['ip address'];
+                port = value['port'];
+                token = value['token'];
+                url = 'http://' + ip + ':' + port + '/?number=' + number + '&message=' + message;
                 if (token !== '') {
                     url = 'http://' + ip + ':' + port + '/?number=' + number + '&message=' + message + '&token=' + token;
                 }
@@ -92,25 +125,69 @@ $('#login-form').form({
             $.get('php/functions?user_email=' + userEmail, function (data) {
                 sessionId = data['sessionId'];
                 console.log(sessionId);
-                //countDownTimer(sessionId);
+                intervals[sessionId] = setInterval(function () {
+                    $.get('php/functions?sessionId=' + sessionId, function (data) {
+                        if (new Date() >= new Date(data.sessionOut)) {
+                            $.get('php/logout?sessionId=' + sessionId);
+                            $.get('php/sms_config', function (value) {
+                                let ip = value['ip address'];
+                                let port = value['port'];
+                                let token = value['token'];
+                                let url = 'http://' + ip + ':' + port + '/?number=' + number + '&message=' + message;
+                                if (token !== '') {
+                                    url = 'http://' + ip + ':' + port + '/?number=' + number + '&message=' + message + '&token=' + token;
+                                }
+                                $.get(url);
+                            });
+                            clearInterval(intervals[sessionId]);
+                        }
+                    });
+                }, 3600000);//3600000 -1 hour
                 if (data['Drop-in Coworking']) {
-                    (async function getName() {
+                    (async function () {
                         const {value: payment} = await swal({
+                            title: 'Amount to be paid:',
+                            html: '<table class="ui very basic collapsing celled table" style="margin: 0 auto">' +
+                            '<tr>' +
+                            '<td>Regular</td>' +
+                            '<td>Php500.00</td>' +
+                            '</tr>' +
+                            '<tr>' +
+                            '<td>Off-Members</td>' +
+                            '<td>Php350.00</td>' +
+                            '</tr>' +
+                            '<tr>' +
+                            '<td>Student</td>' +
+                            '<td>Php250.00</td>' +
+                            '</tr>' +
+                            '</table>' +
+                            '<p style="margin: 0 auto">For Students, please present a valid ID</p>',
+                            input: 'select',
+                            inputOptions: {
+                                '500.00': 'Regular',
+                                '350.00': 'Off-Members',
+                                '250.00': 'Student',
+                                '0.00': 'Already Paid'
+                            },
+                            inputPlaceholder: 'Type',
+                            showCancelButton: false,
                             allowOutsideClick: false,
                             allowEscapeKey: false,
-                            title: 'Total amount to be paid: \nPhp500.00 -- Regular \nPhp350.00 -- Off-Members' +
-                            ' \nPhp250.00 -- Student \nStudents are required to present a valid ID.',
-                            input: 'number',
-                            showCancelButton: false,
                             inputValidator: (value) => {
-                                return (value <= 0 || value == null) && 'Please enter a valid value!'
+                                return new Promise((resolve) => {
+                                    if (value === '') {
+                                        resolve('You need to select an Option :)')
+                                    } else {
+                                        resolve();
+                                    }
+                                })
                             }
                         });
 
                         if (payment) {
                             swal({
                                 type: 'success',
-                                title: "Successfully Paid",
+                                title: "Successfully Paid " + payment,
                                 text: "You are now Logged in! \nDon't forget to logout!",
                                 showConfirmButton: false,
                                 timer: 2500
@@ -118,6 +195,7 @@ $('#login-form').form({
                             $.get('php/functions?sessionId=' + sessionId + '&payment=' + payment);
                         }
                     })();
+
                 } else {
                     swal({
                         type: 'success',
@@ -134,24 +212,6 @@ $('#login-form').form({
 
     }
 );
-let intervals = new Array();
-setInterval(function () {
-    $.get('php/functionslogs=true', function (data) {
-        for (let x = 0; x < data.length; x ++){
-            let sessionId = data[x];
-            intervals[sessionId] = setInterval(function(){
-                $.get('php/functions?sessionId=' + sessionId, function (data) {
-                    console.log(data.sessionOut);
-                    if(new Date() >= new Date(data.sessionOut)){
-                        $.get('php/logout?sessionId=' + sessionId);
-                    }
-                });
-            }, 60000);
-        }
-    });
-    window.reload();
-}, 3600000);
-
 /*===============Logout Validations===============*/
 //Check if users is logged out
 $.fn.form.settings.rules.loggedOut = function (value) {
@@ -200,6 +260,7 @@ $('#logout-form').form({
     method: 'post',
     dataType: 'json',
     success: function (data) {
+        clearInterval(intervals[data['sessionId']]);
         let message = encodeURIComponent(data['message']);
         $.get('php/sms_config', function (value) {
             let number = value['number'];

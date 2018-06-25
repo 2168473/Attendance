@@ -92,7 +92,8 @@ function getEvents($mysqli) {
     return $events;
 }
 if (isset($_GET['sessionId'])){
-    if ($stmt = $mysqli->prepare("SELECT TIMESTAMPADD(DAY, 1, sessionIn) FROM sessions WHERE sessionId = ?")){
+    if ($stmt = $mysqli->prepare("SELECT TIMESTAMPADD(DAY, 1, sessionIn) FROM sessions WHERE sessionId = ?"))
+    {//HOURS 14
         $stmt->bind_param('s', $_GET['sessionId']);
         $stmt->execute();
         $stmt->bind_result($sessionOut);
@@ -106,12 +107,12 @@ if (isset($_GET['sessionId'])){
 
 if (isset($_GET['logs'])) {
     //select all currently logged in users
-    $query_logged_in = "SELECT sessionId FROM sessions  WHERE sessionOut = '0000-00-00 00:00:00' AND sessionNotes = 'Drop-in Coworking'";
+        $query_logged_in = "SELECT sessionId, userMobile FROM sessions NATURAL JOIN users  WHERE sessionOut = '0000-00-00 00:00:00'";
     if ($stmt = $mysqli->prepare($query_logged_in)) {
         $stmt->execute();
-        $stmt->bind_result($sessionId);
+        $stmt->bind_result($sessionId, $userMobile);
         while ($stmt->fetch()) {
-            $sessions[] = $sessionId;
+            $sessions[] = Array('sessionId'=>$sessionId, 'userMobile'=> $userMobile);
         }
         $stmt->close();
     }

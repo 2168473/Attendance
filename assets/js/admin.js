@@ -56,24 +56,25 @@ $('.dropdown').dropdown({
 let handleUsersLogButtons = function () {
     if ($("#users-log").length) {
         $("#users-log").DataTable({
-            dom: '<"ui container"<"ui stackable grid"<"seven wide column"B><"four wide column"l><"right aligned ' +
-            'five ' +
-            'wide column"f>>t<"ui stackable two column grid"<"column"i><"right aligned column"p>>>',
-            buttons: [{
-                extend: "copy",
-                className: "btn-sm"
-            },
+            dom: '<"ui container"<"ui tablet stackable grid vertically padded"<"seven wide column"B><"four wide' +
+            ' column"l><"right aligned five wide column"f>>t<"ui tablet stackable two column grid vertically' +
+            ' padded"<"column"i><"right aligned column"p>>>',
+            buttons: [
+                {
+                    extend: "copy",
+                    className: "ui button"
+                },
                 {
                     extend: "csv",
-                    className: "btn-sm"
+                    className: "ui button"
                 },
                 {
                     extend: "pdfHtml5",
-                    className: "btn-sm"
+                    className: "ui button"
                 },
                 {
                     extend: "print",
-                    className: "btn-sm",
+                    className: "ui button",
                     customize: function (win) {
                         $(win.document.body).find('')
                             .css('display', 'none');
@@ -99,24 +100,24 @@ UsersLog.init();
 let handlePaymentsButtons = function () {
     if ($("#payments").length) {
         $("#payments").DataTable({
-            dom: '<"ui container"<"ui stackable grid"<"seven wide column"B><"four wide column"l><"right aligned ' +
-            'five ' +
-            'wide column"f>>t<"ui stackable two column grid"<"column"i><"right aligned column"p>>>',
+            dom: '<"ui container"<"ui tablet stackable grid vertically padded"<"seven wide column"B><"four wide' +
+            ' column"l><"right aligned five wide column"f>>t<"ui tablet stackable two column grid vertically' +
+            ' padded"<"column"i><"right aligned column"p>>>',
             buttons: [{
                 extend: "copy",
-                className: "btn-sm"
+                className: "ui button"
             },
                 {
                     extend: "csv",
-                    className: "btn-sm"
+                    className: "ui button"
                 },
                 {
                     extend: "pdfHtml5",
-                    className: "btn-sm"
+                    className: "ui button"
                 },
                 {
                     extend: "print",
-                    className: "btn-sm",
+                    className: "ui button",
                     customize: function (win) {
                         $(win.document.body).find('')
                             .css('display', 'none');
@@ -136,37 +137,38 @@ Payments = function () {
 }();
 Payments.init();
 
+
 /*===============Handle Buttons on the Users Table===============*/
 let handleUsersButton = function () {
     if ($("#users").length) {
         $("#users").DataTable({
-            dom: '<"ui container"<"ui stackable grid"<"seven wide column"B><"four wide column"l><"right aligned ' +
-            'five ' +
-            'wide column"f>>t<"ui stackable two column grid"<"column"i><"right aligned column"p>>>',
+            dom: '<"ui container"<"ui tablet stackable grid vertically padded"<"seven wide column"B><"four wide' +
+            ' column"l><"right aligned five wide column"f>>t<"ui tablet stackable two column grid vertically' +
+            ' padded"<"column"i><"right aligned column"p>>>',
             buttons: [{
                 extend: "copy",
-                className: "btn-sm",
+                className: "ui button",
                 exportOptions: {
                     columns: [0, 1, 2, 3, 4, 5]
                 }
             },
                 {
                     extend: "csv",
-                    className: "btn-sm",
+                    className: "ui button",
                     exportOptions: {
                         columns: [0, 1, 2, 3, 4, 5]
                     }
                 },
                 {
                     extend: "pdfHtml5",
-                    className: "btn-sm",
+                    className: "ui button",
                     exportOptions: {
                         columns: [0, 1, 2, 3, 4, 5]
                     }
                 },
                 {
                     extend: "print",
-                    className: "btn-sm",
+                    className: "ui button",
                     exportOptions: {
                         columns: [0, 1, 2, 3, 4, 5]
                     },
@@ -191,9 +193,9 @@ UsersButton.init();
 
 /*===============Set Column Definitions on the Events Table===============*/
 $('#events').DataTable({
-    dom: '<"ui container"<"ui stackable grid"<"seven wide column"B><"four wide column"l><"right aligned ' +
-    'five ' +
-    'wide column"f>>t<"ui stackable two column grid"<"column"i><"right aligned column"p>>>',
+    dom: '<"ui container"<"ui tablet stackable grid vertically padded"<"seven wide column"B><"four wide' +
+    ' column"l><"right aligned five wide column"f>>t<"ui tablet stackable two column grid vertically' +
+    ' padded"<"column"i><"right aligned column"p>>>',
     columnDefs: [
         {
             "targets": [4, 5],
@@ -208,7 +210,7 @@ $('#events').DataTable({
     buttons: [
         {
             text: 'Add Announcement/event',
-            attr: { id: 'add-event'}
+            attr: {id: 'add-event'}
         }
     ]
 });
@@ -300,7 +302,7 @@ $('#editEvent')
             end_date: 'empty',
             cover_image_name: 'containsInArray[.png, .jpg, .jpeg, .gif, .tiff, .tif]'
         }
-}).ajaxForm(function () {
+    }).ajaxForm(function () {
     $('#edit-event-modal').modal('hide');
     swal({
         title: "Success!",
@@ -311,8 +313,9 @@ $('#editEvent')
     });
     setTimeout(location.reload.bind(location), 1000);
 });
+
 function editEvent(id) {
-    $.get("php/functions?getAnnouncement=" + id, function (data) {
+    $.get("php/functions.php?getAnnouncement=" + id, function (data) {
         $('#eventStart').calendar({
             type: 'date',
             endCalendar: $('#eventEnd'),
@@ -364,7 +367,7 @@ function editEvent(id) {
 }
 
 function deleteEvent(id) {
-    $.get("php/functions", {getAnnouncement: id}, function (data) {
+    $.get("php/functions.php", {getAnnouncement: id}, function (data) {
         swal({
             title: "Are you sure?",
             text: "Delete " + data['title'],
@@ -378,8 +381,8 @@ function deleteEvent(id) {
                         icon: "success", buttons: false
                     });
                     $.ajax({
-                        url: 'php/del-event',
-                        data:{
+                        url: 'php/del-event.php',
+                        data: {
                             eventId: id
                         }
                     });
@@ -392,7 +395,7 @@ function deleteEvent(id) {
 }
 
 function editUser(id) {
-    $.get("php/functions?getUser=" + id, function (data) {
+    $.get("php/function.phps?getUser=" + id, function (data) {
         $('#first_name').val(data['first_name']);
         $('#last_name').val(data['last_name']);
         $('#email').val(data['userEmail']);
@@ -407,7 +410,7 @@ function editUser(id) {
 }
 
 function deleteUser(id) {
-    $.get("php/functions?getUser=" + id, function (data) {
+    $.get("php/functions.php?getUser=" + id, function (data) {
         swal({
             title: "Are you sure?",
             text: "Delete " + data['first_name'] + ' ' + data['last_name'],
@@ -420,19 +423,20 @@ function deleteUser(id) {
                     icon: "success", buttons: false
                 });
                 $.ajax({
-                    url: 'php/del-user',
-                    data:{
+                    url: 'php/del-user.php',
+                    data: {
                         userId: id
                     }
                 });
                 setTimeout(location.reload.bind(location), 1000);
             } else {
-                swal(data['first_name'] +' ' + data['last_name'] + " is safe!");
+                swal(data['first_name'] + ' ' + data['last_name'] + " is safe!");
             }
         });
     });
 }
-function logout(){
-    $.get('/admin/php/functions?logout=true');
-    window.location = '/admin/login ';
+
+function logout() {
+    $.get('/admin/php/functions.php?logout=true');
+    window.location = '/admin';
 }
